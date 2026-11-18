@@ -1,0 +1,149 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "policy-management-code",
+    "type": "source-code"
+  },
+  "fingerprint": "sha256:01b5c88796305cbc99884315b374bec4028f776fcf3199502e07f7a7ca3c9e4b",
+  "producedAt": "2026-11-13T08:23:42.674Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "http://localhost:1234/v1",
+    "model": "qwen/qwen3-coder-30b"
+  },
+  "run": {
+    "iterations": 20,
+    "actions": 0,
+    "durationMs": 284788
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "policies",
+      "label": "Policies",
+      "description": "Management of insurance policies including creation, updates, retrieval and deletion.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/policymanagement/domain/policy",
+          "summary": "Domain layer for insurance policy entities and related business logic.",
+          "keyFields": [],
+          "facts": {
+            "files": 9,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/policy",
+          "summary": "Data transfer objects for policy-related data structures.",
+          "keyFields": [
+            "policyId",
+            "customer",
+            "creationDate",
+            "policyPeriod",
+            "policyType",
+            "deductible",
+            "policyLimit",
+            "insurancePremium"
+          ],
+          "facts": {
+            "files": 8,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "insurance-quotes",
+      "label": "Insurance Quotes",
+      "description": "Management of insurance quote requests including creation, processing and responses.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/policymanagement/domain/insurancequoterequest",
+          "summary": "Domain layer for insurance quote request entities and related business logic.",
+          "keyFields": [],
+          "facts": {
+            "files": 13,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/insurancequoterequest",
+          "summary": "Data transfer objects for insurance quote request data structures.",
+          "keyFields": [
+            "id",
+            "date",
+            "statusHistory",
+            "customerInfo",
+            "insuranceOptions",
+            "insuranceQuote",
+            "policyId"
+          ],
+          "facts": {
+            "files": 7,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Management of customer data including retrieval and associated policy information.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/policymanagement/domain/customer",
+          "summary": "Domain layer for customer entities and related business logic.",
+          "keyFields": [],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/customer",
+          "summary": "Data transfer objects for customer-related data structures.",
+          "keyFields": [
+            "customerId",
+            "customerProfile"
+          ],
+          "facts": {
+            "files": 7,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "risk-assessment",
+      "label": "Risk Assessment",
+      "description": "Computation and management of risk factors for customers.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/risk",
+          "summary": "Data transfer objects for risk assessment data structures.",
+          "keyFields": [
+            "birthday",
+            "postalCode"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": [
+    "src/main/java/com/lakesidemutual/policymanagement",
+    "src/main/java/com/lakesidemutual/policymanagement/application",
+    "src/main/java/com/lakesidemutual/policymanagement/infrastructure",
+    "src/main/java/com/lakesidemutual/policymanagement/interfaces",
+    "src/main/java/com/lakesidemutual/policymanagement/interfaces/configuration",
+    "src/main/java/com/lakesidemutual/policymanagement/interfaces/configuration/logging",
+    "src/main/java/com/lakesidemutual/policymanagement/interfaces/converters",
+    "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos",
+    "src/test/java/com/lakesidemutual/policymanagement/tests",
+    "src/test/java/com/lakesidemutual/policymanagement/tests/infrastructure",
+    "src/test/java/com/lakesidemutual/policymanagement/tests/interfaces"
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "formatVersion": 1,
+  "producedAt": "2026-11-13T08:27:36.516Z",
+  "environment": "local",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "http://localhost:1234/v1",
+    "model": "qwen/qwen3-coder-30b"
+  },
+  "run": {
+    "iterations": 81,
+    "actions": 5,
+    "durationMs": 2813314
+  },
+  "status": "complete",
+  "sources": [
+    {
+      "id": "policy-management-api",
+      "type": "openapi",
+      "state": "read"
+    },
+    {
+      "id": "policy-management-db",
+      "type": "postgresql",
+      "state": "read"
+    },
+    {
+      "id": "policy-management-specs",
+      "type": "document",
+      "state": "read"
+    },
+    {
+      "id": "policy-management-code",
+      "type": "source-code",
+      "state": "read"
+    },
+    {
+      "id": "policy-management",
+      "type": "web",
+      "state": "read"
+    }
+  ],
+  "domains": [
+    {
+      "id": "policies",
+      "label": "Policies",
+      "description": "Management of insurance policies including creation, retrieval, updates, and deletion.",
+      "references": [
+        {
+          "source": "policy-management-api",
+          "items": [
+            "policy-information-holder"
+          ]
+        },
+        {
+          "source": "policy-management-db",
+          "items": [
+            "public.insurancepolicies"
+          ]
+        },
+        {
+          "source": "policy-management-specs",
+          "items": [
+            "5. Use cases",
+            "6. Functional requirements",
+            "7. Business rules",
+            "8. Screens",
+            "9. Data handled"
+          ]
+        },
+        {
+          "source": "policy-management-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/policymanagement/domain/policy",
+            "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/policy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Management of customer information and related data.",
+      "references": [
+        {
+          "source": "policy-management-api",
+          "items": [
+            "customer-information-holder"
+          ]
+        },
+        {
+          "source": "policy-management-db",
+          "items": [
+            "public.customerinfos"
+          ]
+        },
+        {
+          "source": "policy-management-specs",
+          "items": [
+            "5. Use cases",
+            "6. Functional requirements",
+            "7. Business rules",
+            "8. Screens",
+            "9. Data handled"
+          ]
+        },
+        {
+          "source": "policy-management-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/policymanagement/domain/customer",
+            "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/customer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quote-requests",
+      "label": "Quote Requests",
+      "description": "Processing of insurance quote requests and their status updates.",
+      "references": [
+        {
+          "source": "policy-management-api",
+          "items": [
+            "insurance-quote-request-processing-resource"
+          ]
+        },
+        {
+          "source": "policy-management-db",
+          "items": [
+            "public.insurancequoterequests"
+          ]
+        },
+        {
+          "source": "policy-management-specs",
+          "items": [
+            "5. Use cases",
+            "6. Functional requirements",
+            "7. Business rules",
+            "8. Screens"
+          ]
+        },
+        {
+          "source": "policy-management-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/policymanagement/domain/insurancequoterequest",
+            "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/insurancequoterequest"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "risk-assessment",
+      "label": "Risk Assessment",
+      "description": "Computation and management of risk factors for customers.",
+      "references": [
+        {
+          "source": "policy-management-api",
+          "items": [
+            "risk-computation-service"
+          ]
+        },
+        {
+          "source": "policy-management-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/risk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agreements",
+      "label": "Agreements",
+      "description": "Management of insurance agreements and their items.",
+      "references": [
+        {
+          "source": "policy-management-db",
+          "items": [
+            "public.insuringagreements",
+            "public.insuranceagreementitems",
+            "public.insuringagreements_agreement_items"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "options",
+      "label": "Options",
+      "description": "Management of insurance policy options and configurations.",
+      "references": [
+        {
+          "source": "policy-management-db",
+          "items": [
+            "public.insuranceoptions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "testing",
+      "label": "Testing",
+      "description": "Contains acceptance criteria and traceability for testing the policy management frontend.",
+      "references": [
+        {
+          "source": "policy-management-specs",
+          "items": [
+            "10. Acceptance criteria",
+            "11. Traceability"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "open-points",
+      "label": "Open Points",
+      "description": "Documents open points and questions about the policy management frontend.",
+      "references": [
+        {
+          "source": "policy-management-specs",
+          "items": [
+            "12. Open points"
+          ]
+        }
+      ]
+    }
+  ],
+  "unassigned": [
+    {
+      "source": "policy-management-api",
+      "items": [
+        "error-controller"
+      ]
+    },
+    {
+      "source": "policy-management-db",
+      "items": [
+        "public.addresses",
+        "public.insurancequotes",
+        "public.insurancequoterequests_status_history",
+        "public.requeststatuschanges"
+      ]
+    },
+    {
+      "source": "policy-management-code",
+      "items": [
+        "src/main/java/com/lakesidemutual/policymanagement",
+        "src/main/java/com/lakesidemutual/policymanagement/application",
+        "src/main/java/com/lakesidemutual/policymanagement/infrastructure",
+        "src/main/java/com/lakesidemutual/policymanagement/interfaces",
+        "src/main/java/com/lakesidemutual/policymanagement/interfaces/configuration",
+        "src/main/java/com/lakesidemutual/policymanagement/interfaces/configuration/logging",
+        "src/main/java/com/lakesidemutual/policymanagement/interfaces/converters",
+        "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos",
+        "src/test/java/com/lakesidemutual/policymanagement/tests",
+        "src/test/java/com/lakesidemutual/policymanagement/tests/infrastructure",
+        "src/test/java/com/lakesidemutual/policymanagement/tests/interfaces"
+      ]
+    },
+    {
+      "source": "policy-management",
+      "items": [
+        "/",
+        "/customers",
+        "/insurance-quote-requests"
+      ]
+    },
+    {
+      "source": "policy-management-specs",
+      "items": [
+        "Policy Management Frontend — Functional Specification",
+        "1. Purpose",
+        "2. Scope",
+        "3. Stakeholders and actors",
+        "4. Functional context",
+        "6. Functional requirements",
+        "7. Business rules",
+        "8. Screens",
+        "9. Data handled"
+      ]
+    }
+  ]
+}

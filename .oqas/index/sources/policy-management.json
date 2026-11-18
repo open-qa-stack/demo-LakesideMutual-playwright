@@ -1,0 +1,82 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "policy-management",
+    "type": "web"
+  },
+  "fingerprint": "sha256:05e42d3699b517433d11f0bd420d016770b75fa70cd896a5216686242bc6f9d7",
+  "producedAt": "2026-11-13T08:25:21.898Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "http://localhost:1234/v1",
+    "model": "qwen/qwen3-coder-30b"
+  },
+  "run": {
+    "iterations": 14,
+    "actions": 5,
+    "durationMs": 99074
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "policies",
+      "label": "Policies",
+      "description": "The section for managing insurance policies.",
+      "items": [
+        {
+          "name": "/",
+          "summary": "Displays the policies management interface.",
+          "keyFields": [],
+          "facts": {
+            "title": "Lakeside Mutual - Policy Management",
+            "links": [
+              "/customers",
+              "/insurance-quote-requests"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "The section for managing customer information.",
+      "items": [
+        {
+          "name": "/customers",
+          "summary": "Displays the customers management interface.",
+          "keyFields": [
+            "Search..."
+          ],
+          "facts": {
+            "title": "Lakeside Mutual - Policy Management",
+            "links": [
+              "/",
+              "/insurance-quote-requests"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "insurance-quote-requests",
+      "label": "Insurance Quote Requests",
+      "description": "The section for managing insurance quote requests.",
+      "items": [
+        {
+          "name": "/insurance-quote-requests",
+          "summary": "Displays the insurance quote requests management interface.",
+          "keyFields": [],
+          "facts": {
+            "title": "Lakeside Mutual - Policy Management",
+            "links": [
+              "/",
+              "/customers"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

@@ -1,0 +1,146 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "policy-management-api",
+    "type": "openapi"
+  },
+  "fingerprint": "sha256:527961911a01f4587d6346c9bb4f549b1425d2f1691f4df65da1bde5f1259a6c",
+  "producedAt": "2026-11-13T07:43:11.201Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "http://localhost:1234/v1",
+    "model": "qwen/qwen3-coder-30b"
+  },
+  "run": {
+    "iterations": 8,
+    "actions": 0,
+    "durationMs": 150861
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "policies",
+      "label": "Policies",
+      "description": "Management of insurance policies including creation, retrieval and updates.",
+      "items": [
+        {
+          "name": "policy-information-holder",
+          "summary": "Handles operations related to insurance policies such as creation, retrieval and updates.",
+          "keyFields": [
+            "policyId",
+            "customerId",
+            "policyType",
+            "policyPeriod",
+            "deductible",
+            "policyLimit",
+            "insurancePremium"
+          ],
+          "facts": {
+            "operations": [
+              "GET /policies/{policyId}",
+              "PUT /policies/{policyId}",
+              "DELETE /policies/{policyId}",
+              "GET /policies",
+              "POST /policies"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "insurance-quote-requests",
+      "label": "Insurance Quote Requests",
+      "description": "Processing of insurance quote requests and their status updates.",
+      "items": [
+        {
+          "name": "insurance-quote-request-processing-resource",
+          "summary": "Manages insurance quote requests including retrieval and status updates.",
+          "keyFields": [
+            "id",
+            "statusHistory",
+            "customerInfo",
+            "insuranceOptions",
+            "insuranceQuote"
+          ],
+          "facts": {
+            "operations": [
+              "GET /insurance-quote-requests/{id}",
+              "PATCH /insurance-quote-requests/{id}",
+              "GET /insurance-quote-requests"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Management of customer information and related data.",
+      "items": [
+        {
+          "name": "customer-information-holder",
+          "summary": "Stores and retrieves customer information including their policies.",
+          "keyFields": [
+            "customerId",
+            "firstname",
+            "lastname",
+            "contactAddress",
+            "billingAddress"
+          ],
+          "facts": {
+            "operations": [
+              "GET /customers",
+              "GET /customers/{customerIdDto}",
+              "GET /customers/{customerIdDto}/policies"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "risk-computation",
+      "label": "Risk Computation",
+      "description": "Computation of risk factors for customers.",
+      "items": [
+        {
+          "name": "risk-computation-service",
+          "summary": "Computes risk factors based on customer attributes.",
+          "keyFields": [
+            "birthday",
+            "postalCode",
+            "riskFactor"
+          ],
+          "facts": {
+            "operations": [
+              "POST /riskfactor/compute"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "error-handling",
+      "label": "Error Handling",
+      "description": "Management of error responses and handling.",
+      "items": [
+        {
+          "name": "error-controller",
+          "summary": "Handles various error scenarios through different HTTP methods.",
+          "keyFields": [],
+          "facts": {
+            "operations": [
+              "GET /error",
+              "PUT /error",
+              "POST /error",
+              "DELETE /error",
+              "OPTIONS /error",
+              "HEAD /error",
+              "PATCH /error"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

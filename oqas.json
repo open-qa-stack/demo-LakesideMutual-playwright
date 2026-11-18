@@ -1,0 +1,299 @@
+{
+  "formatVersion": 1,
+  "language": "fr",
+  "applications": [
+    {
+      "id": "policy-management",
+      "name": "Policy Management",
+      "type": "web-and-api",
+      "authentication": {
+        "method": "none"
+      },
+      "environments": [
+        {
+          "name": "local",
+          "uiUrl": "http://localhost:3010",
+          "apis": [
+            {
+              "name": "policy-management-backend",
+              "baseUrl": "http://localhost:8090"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "customer-management",
+      "name": "Customer Management",
+      "type": "web-and-api",
+      "authentication": {
+        "method": "none"
+      },
+      "environments": [
+        {
+          "name": "local",
+          "uiUrl": "http://localhost:3020",
+          "apis": [
+            {
+              "name": "customer-management-backend",
+              "baseUrl": "http://localhost:8100"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "customer-core",
+      "name": "Customer Core",
+      "type": "api",
+      "authentication": {
+        "method": "none"
+      },
+      "environments": [
+        {
+          "name": "local",
+          "apis": [
+            {
+              "name": "customer-core",
+              "baseUrl": "http://localhost:8110"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "customer-self-service",
+      "name": "Customer Self-Service",
+      "type": "web-and-api",
+      "authentication": {
+        "method": "form",
+        "accounts": [
+          {
+            "name": "demo",
+            "usernameEnv": "CSS_DEMO_USERNAME",
+            "passwordEnv": "CSS_DEMO_PASSWORD"
+          }
+        ]
+      },
+      "environments": [
+        {
+          "name": "local",
+          "uiUrl": "http://localhost:3000",
+          "apis": [
+            {
+              "name": "customer-self-service-backend",
+              "baseUrl": "http://localhost:8080"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "policy-management-api",
+      "type": "openapi",
+      "url": "http://localhost:8090/v3/api-docs",
+      "attachments": [
+        {
+          "application": "policy-management",
+          "environment": "local",
+          "api": "policy-management-backend"
+        }
+      ]
+    },
+    {
+      "id": "policy-management-db",
+      "type": "postgresql",
+      "connectionStringEnv": "POLICY_MANAGEMENT_DB_URL",
+      "attachments": [
+        {
+          "application": "policy-management",
+          "environment": "local"
+        }
+      ]
+    },
+    {
+      "id": "policy-management-specs",
+      "type": "document",
+      "path": "specs/policy-management-frontend.md",
+      "attachments": [
+        {
+          "application": "policy-management"
+        }
+      ]
+    },
+    {
+      "id": "policy-management-code",
+      "type": "source-code",
+      "path": "../LakesideMutual/policy-management-backend",
+      "commands": "none",
+      "attachments": [
+        {
+          "application": "policy-management"
+        }
+      ]
+    },
+    {
+      "id": "customer-management-api",
+      "type": "openapi",
+      "url": "http://localhost:8100/v3/api-docs",
+      "attachments": [
+        {
+          "application": "customer-management",
+          "environment": "local",
+          "api": "customer-management-backend"
+        }
+      ]
+    },
+    {
+      "id": "customer-management-db",
+      "type": "postgresql",
+      "connectionStringEnv": "CUSTOMER_MANAGEMENT_DB_URL",
+      "attachments": [
+        {
+          "application": "customer-management",
+          "environment": "local"
+        }
+      ]
+    },
+    {
+      "id": "customer-management-code",
+      "type": "source-code",
+      "path": "../LakesideMutual/customer-management-backend",
+      "commands": "none",
+      "attachments": [
+        {
+          "application": "customer-management"
+        }
+      ]
+    },
+    {
+      "id": "customer-management-frontend-code",
+      "type": "source-code",
+      "path": "../LakesideMutual/customer-management-frontend",
+      "commands": "none",
+      "attachments": [
+        {
+          "application": "customer-management"
+        }
+      ]
+    },
+    {
+      "id": "policy-management-frontend-code",
+      "type": "source-code",
+      "path": "../LakesideMutual/policy-management-frontend",
+      "commands": "none",
+      "attachments": [
+        {
+          "application": "policy-management"
+        }
+      ]
+    },
+    {
+      "id": "customer-core-api",
+      "type": "openapi",
+      "url": "http://localhost:8110/v3/api-docs",
+      "attachments": [
+        {
+          "application": "customer-core",
+          "environment": "local",
+          "api": "customer-core"
+        }
+      ]
+    },
+    {
+      "id": "customer-core-db",
+      "type": "postgresql",
+      "connectionStringEnv": "CUSTOMER_CORE_DB_URL",
+      "attachments": [
+        {
+          "application": "customer-core",
+          "environment": "local"
+        }
+      ]
+    },
+    {
+      "id": "customer-core-code",
+      "type": "source-code",
+      "path": "../LakesideMutual/customer-core",
+      "commands": "none",
+      "attachments": [
+        {
+          "application": "customer-core"
+        }
+      ]
+    },
+    {
+      "id": "customer-self-service-api",
+      "type": "openapi",
+      "url": "http://localhost:8080/v3/api-docs",
+      "attachments": [
+        {
+          "application": "customer-self-service",
+          "environment": "local",
+          "api": "customer-self-service-backend"
+        }
+      ]
+    },
+    {
+      "id": "customer-self-service-db",
+      "type": "postgresql",
+      "connectionStringEnv": "CUSTOMER_SELF_SERVICE_DB_URL",
+      "attachments": [
+        {
+          "application": "customer-self-service",
+          "environment": "local"
+        }
+      ]
+    },
+    {
+      "id": "customer-self-service-code",
+      "type": "source-code",
+      "path": "../LakesideMutual/customer-self-service-backend",
+      "commands": "none",
+      "attachments": [
+        {
+          "application": "customer-self-service"
+        }
+      ]
+    },
+    {
+      "id": "customer-self-service-frontend-code",
+      "type": "source-code",
+      "path": "../LakesideMutual/customer-self-service-frontend",
+      "commands": "none",
+      "attachments": [
+        {
+          "application": "customer-self-service"
+        }
+      ]
+    }
+  ],
+  "model": {
+    "mode": "provider-key",
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna",
+    "apiKeyEnv": "OQAS_MODEL_API_KEY",
+    "reasoningEffort": "none"
+  },
+  "autonomy": {
+    "level": "bounded",
+    "task": {
+      "maxIterations": 100,
+      "maxMinutes": 90,
+      "maxActions": 400
+    },
+    "guardrailMinutes": 180
+  },
+  "design": {
+    "levels": [
+      "smoke",
+      "functional",
+      "business",
+      "cross-application",
+      "end-to-end"
+    ]
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "policy-management-specs",
+    "type": "document"
+  },
+  "fingerprint": "sha256:dad531e8bd38c29d8ccb9af4ea7108aa5bdf4ffffa8e1bf2558919bc703eba55",
+  "producedAt": "2026-11-13T08:18:57.798Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "http://localhost:1234/v1",
+    "model": "qwen/qwen3-coder-30b"
+  },
+  "run": {
+    "iterations": 18,
+    "actions": 0,
+    "durationMs": 1018840
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "policies",
+      "label": "Policies",
+      "description": "Manages insurance policies, including listing, viewing, creating, editing, and deleting them.",
+      "items": [
+        {
+          "name": "Policy Management Frontend — Functional Specification",
+          "summary": "The main specification document for the policy management frontend.",
+          "keyFields": [],
+          "facts": {
+            "number": 1,
+            "level": 1
+          }
+        },
+        {
+          "name": "1. Purpose",
+          "summary": "States the purpose of the policy management frontend.",
+          "keyFields": [],
+          "facts": {
+            "number": 2,
+            "level": 2
+          }
+        },
+        {
+          "name": "2. Scope",
+          "summary": "Defines the scope of the policy management frontend, including in-scope and out-of-scope features.",
+          "keyFields": [],
+          "facts": {
+            "number": 3,
+            "level": 2
+          }
+        },
+        {
+          "name": "3. Stakeholders and actors",
+          "summary": "Lists the stakeholders and actors involved in the policy management system.",
+          "keyFields": [],
+          "facts": {
+            "number": 7,
+            "level": 2
+          }
+        },
+        {
+          "name": "4. Functional context",
+          "summary": "Describes the functional context of the policy management frontend in relation to other systems.",
+          "keyFields": [],
+          "facts": {
+            "number": 8,
+            "level": 2
+          }
+        },
+        {
+          "name": "5. Use cases",
+          "summary": "Details the use cases related to policy management, including browsing, viewing, deleting, creating, and editing policies.",
+          "keyFields": [],
+          "facts": {
+            "number": 9,
+            "level": 2
+          }
+        },
+        {
+          "name": "6. Functional requirements",
+          "summary": "Lists the functional requirements for policy management features.",
+          "keyFields": [],
+          "facts": {
+            "number": 21,
+            "level": 2
+          }
+        },
+        {
+          "name": "7. Business rules",
+          "summary": "Defines business rules that govern policy management operations.",
+          "keyFields": [],
+          "facts": {
+            "number": 22,
+            "level": 2
+          }
+        },
+        {
+          "name": "8. Screens",
+          "summary": "Describes the screens used for policy management, including policy list, detail, creation, and editing.",
+          "keyFields": [],
+          "facts": {
+            "number": 23,
+            "level": 2
+          }
+        },
+        {
+          "name": "9. Data handled",
+          "summary": "Specifies the data entities handled by the policy management frontend.",
+          "keyFields": [],
+          "facts": {
+            "number": 32,
+            "level": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Handles customer data, including listing, searching, and viewing customer details.",
+      "items": [
+        {
+          "name": "5. Use cases",
+          "summary": "Details the use cases related to customer management, including searching and viewing customer details.",
+          "keyFields": [],
+          "facts": {
+            "number": 9,
+            "level": 2
+          }
+        },
+        {
+          "name": "6. Functional requirements",
+          "summary": "Lists the functional requirements for customer management features.",
+          "keyFields": [],
+          "facts": {
+            "number": 21,
+            "level": 2
+          }
+        },
+        {
+          "name": "7. Business rules",
+          "summary": "Defines business rules that govern customer management operations.",
+          "keyFields": [],
+          "facts": {
+            "number": 22,
+            "level": 2
+          }
+        },
+        {
+          "name": "8. Screens",
+          "summary": "Describes the screens used for customer management, including customer list and detail.",
+          "keyFields": [],
+          "facts": {
+            "number": 23,
+            "level": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "quote-requests",
+      "label": "Quote Requests",
+      "description": "Handles insurance quote requests from customers, including reviewing and responding to them.",
+      "items": [
+        {
+          "name": "5. Use cases",
+          "summary": "Details the use cases related to insurance quote requests, including reviewing and responding.",
+          "keyFields": [],
+          "facts": {
+            "number": 9,
+            "level": 2
+          }
+        },
+        {
+          "name": "6. Functional requirements",
+          "summary": "Lists the functional requirements for quote request management features.",
+          "keyFields": [],
+          "facts": {
+            "number": 21,
+            "level": 2
+          }
+        },
+        {
+          "name": "7. Business rules",
+          "summary": "Defines business rules that govern quote request management operations.",
+          "keyFields": [],
+          "facts": {
+            "number": 22,
+            "level": 2
+          }
+        },
+        {
+          "name": "8. Screens",
+          "summary": "Describes the screens used for quote request management, including quote request list and detail.",
+          "keyFields": [],
+          "facts": {
+            "number": 23,
+            "level": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "testing",
+      "label": "Testing",
+      "description": "Contains acceptance criteria and traceability for testing the policy management frontend.",
+      "items": [
+        {
+          "name": "10. Acceptance criteria",
+          "summary": "Lists the acceptance criteria for testing the policy management frontend.",
+          "keyFields": [],
+          "facts": {
+            "number": 33,
+            "level": 2
+          }
+        },
+        {
+          "name": "11. Traceability",
+          "summary": "Provides traceability between requirements, use cases, and implementation.",
+          "keyFields": [],
+          "facts": {
+            "number": 34,
+            "level": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "open-points",
+      "label": "Open Points",
+      "description": "Documents open points and questions about the policy management frontend.",
+      "items": [
+        {
+          "name": "12. Open points",
+          "summary": "Lists open points and questions about the policy management frontend.",
+          "keyFields": [],
+          "facts": {
+            "number": 35,
+            "level": 2
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}
