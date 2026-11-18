@@ -11,4 +11,8 @@ export class PoliciesPage {
   get element18Nov2026homeInsurancewaitingForText(): Locator {
     return this.page.getByText("18. Nov 2026Home InsuranceWaiting for Quote", { exact: true });
   }
+
+  get newInsuranceQuoteRequestButton(): Locator {
+    return this.page.getByRole("button", { name: "New Insurance Quote Request", exact: true });
+  }
 }
