@@ -1,0 +1,10 @@
+import type { Locator, Page } from "@playwright/test";
+
+/** The screen /insurance-quote-requests/:id of Policy Management: where its elements are. What a test expects of them stays in the test. */
+export class InsuranceQuoteRequestsItemPage {
+  constructor(readonly page: Page) {}
+
+  get respondButton(): Locator {
+    return this.page.getByRole("button", { name: "Respond", exact: true });
+  }
+}
