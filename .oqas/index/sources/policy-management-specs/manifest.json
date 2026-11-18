@@ -1,0 +1,271 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "policy-management-specs",
+    "type": "document"
+  },
+  "fingerprint": "sha256:540526b0b3550182b1822762781fc3b32dc847f185b79f7fcbbd5771d881eae7",
+  "producedAt": "2026-11-18T18:47:25.698Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "policies",
+      "label": "Gestion des polices",
+      "description": "Consulter, créer, modifier et supprimer les polices d’assurance ainsi que leur association aux clients.",
+      "file": "domains/policies.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "customers",
+      "label": "Clients",
+      "description": "Rechercher et consulter les clients, leur facteur de risque et leurs polices, avec accès au frontend Customer Management.",
+      "file": "domains/customers.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "quote-requests",
+      "label": "Demandes de devis d’assurance",
+      "description": "Consulter l’historique des demandes de devis et répondre par une offre ou un rejet.",
+      "file": "domains/quote-requests.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "application-navigation",
+      "label": "Navigation et présentation globale",
+      "description": "Comportements partagés de navigation, contexte d’application et informations générales communes aux écrans.",
+      "file": "domains/application-navigation.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "policy-management-frontend.md § PMF-UC-01 — Browse all policies",
+      "kind": "section",
+      "fingerprint": "sha256:b0967e7f0b078c2486e00f189282c8769bc7e75f1f13cecc57e7f7f49b5d0164",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-01_Browse_all_policies-3f6ec7cc.md",
+      "domain": "policies",
+      "role": "Parcours de consultation paginée de la liste des polices."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-02 — View a policy",
+      "kind": "section",
+      "fingerprint": "sha256:c63944e2563cf92a73b9e1c6d1a8c4e63178ac12a7426cb2edb4524c2627d6ab",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-02_View_a_policy-ab941372.md",
+      "domain": "policies",
+      "role": "Consultation du détail d’une police et de ses informations."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-03 — Delete a policy",
+      "kind": "section",
+      "fingerprint": "sha256:92b564177aaccafc76cbd526c9daddd6057bf4076449c378b62d92b4497ec155",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-03_Delete_a_policy-2d26c2c0.md",
+      "domain": "policies",
+      "role": "Suppression d’une police avec confirmation."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-06 — Create a policy",
+      "kind": "section",
+      "fingerprint": "sha256:8ddcc37f4566fdf84022318039b04ee4b40fd95c396694a032fc60b347daabfc",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-06_Create_a_policy-0e8785dd.md",
+      "domain": "policies",
+      "role": "Création d’une police pour un client."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-07 — Edit a policy",
+      "kind": "section",
+      "fingerprint": "sha256:180d2c4cf8a334ad42906b15fc000a3b3fd7d6f62140b2b532042076ac8aea5f",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-07_Edit_a_policy-e3934bcf.md",
+      "domain": "policies",
+      "role": "Modification d’une police existante."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-SCR-01 — Policies (`/`)",
+      "kind": "section",
+      "fingerprint": "sha256:fa03e0a9d2eb29140248ecead896e521d0361ce8ccd0b448da1ca81b95c05a14",
+      "file": "export/sections/policy-management-frontend.md_PMF-SCR-01_Policies_-9e0c9ed4.md",
+      "domain": "policies",
+      "role": "Écran de liste des polices, colonnes, pagination et chargement."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-SCR-02 — Policy detail (`/policies/:policyid`)",
+      "kind": "section",
+      "fingerprint": "sha256:7c827612b8eb7ba717d57950bc91083c6f54ef0caaefe755f8ebb1f5ca11017a",
+      "file": "export/sections/policy-management-frontend.md_PMF-SCR-02_Policy_detail_policies_policyid_-c71c5ad9.md",
+      "domain": "policies",
+      "role": "Écran de détail, informations, actions et dialogues d’explication."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-SCR-07 — Edit policy (`/customers/:customerid/policies/:policyid/edit`)",
+      "kind": "section",
+      "fingerprint": "sha256:8e4218078a90680fe6129a1053971a7a25c444e15d537859b90cb439ab36c602",
+      "file": "export/sections/policy-management-frontend.md_PMF-SCR-07_Edit_policy_customers_customerid_policies_policyid_edit_-623a51bf.md",
+      "domain": "policies",
+      "role": "Formulaire prérempli de modification d’une police et contraintes des champs."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-SCR-08 — New policy (`/customers/:customerid/policies/new`)",
+      "kind": "section",
+      "fingerprint": "sha256:79f045d1f520328da0c47255fd616e98b20d55a7d7b49e864d315dcc9fed522c",
+      "file": "export/sections/policy-management-frontend.md_PMF-SCR-08_New_policy_customers_customerid_policies_new_-a82f047b.md",
+      "domain": "policies",
+      "role": "Formulaire de création d’une police et actions sur les éléments de garantie."
+    },
+    {
+      "name": "policy-management-frontend.md § 6. Functional requirements",
+      "kind": "section",
+      "fingerprint": "sha256:8384c9fc3f3cd6be014fe4b5a5d050f85e454d3c73948eda7b6e1ddd000f49a0",
+      "file": "export/sections/policy-management-frontend.md_6._Functional_requirements-a3bdf85c.md",
+      "domain": "policies",
+      "role": "Exigences fonctionnelles générales, incluant liste, détails, suppressions, création et modification de polices."
+    },
+    {
+      "name": "policy-management-frontend.md § 7. Business rules",
+      "kind": "section",
+      "fingerprint": "sha256:4887e60cce1c522609249580d542a771c8bd7fbfb6c23f0bf677f8d6e0178083",
+      "file": "export/sections/policy-management-frontend.md_7._Business_rules-36f5f982.md",
+      "domain": "policies",
+      "role": "Règles communes des polices : pagination, devise, saisie des dates, erreurs de formulaire et suppression."
+    },
+    {
+      "name": "policy-management-frontend.md § 10. Acceptance criteria",
+      "kind": "section",
+      "fingerprint": "sha256:46212317f6bb42d1d244a0af73e7f96738fefd5d0d699fee531767d619cad583",
+      "file": "export/sections/policy-management-frontend.md_10._Acceptance_criteria-00b50b83.md",
+      "domain": "policies",
+      "role": "Critères d’acceptation couvrant affichage, suppression, création et modification de polices."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-04 — Search customers",
+      "kind": "section",
+      "fingerprint": "sha256:ada7c3557191273ec18cf7ed0c02d06b8abd6824e9d3753da2b34d376ffa99ed",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-04_Search_customers-04dbe592.md",
+      "domain": "customers",
+      "role": "Recherche, filtrage et pagination de la liste des clients."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-05 — View a customer, the risk factor and the customer's policies",
+      "kind": "section",
+      "fingerprint": "sha256:e418cf5a4e351a91d65f729330fad201e22db05bcec03dd2efc938f198fcc099",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-05_View_a_customer_the_risk_factor_and_the_customer_s_policies-9990e0eb.md",
+      "domain": "customers",
+      "role": "Consultation du profil client, facteur de risque et polices associées."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-11 — Open the customer in Customer Management",
+      "kind": "section",
+      "fingerprint": "sha256:9ca2add9c202d71b5a108b2904d52f0480b95539a17163b3c2ddd873016ebef4",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-11_Open_the_customer_in_Customer_Management-63539b18.md",
+      "domain": "customers",
+      "role": "Navigation vers le client correspondant dans Customer Management."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-SCR-05 — Customers (`/customers`)",
+      "kind": "section",
+      "fingerprint": "sha256:e6fdbbe133aaffececb69c5da5ef03bfc63dd40a5dd70907faaeead15c7a1c5d",
+      "file": "export/sections/policy-management-frontend.md_PMF-SCR-05_Customers_customers_-4992108e.md",
+      "domain": "customers",
+      "role": "Écran de recherche et liste paginée des clients."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-SCR-06 — Customer detail (`/customers/:customerid`)",
+      "kind": "section",
+      "fingerprint": "sha256:16f1bb541efaee2cf81da28b3ce236ccfbc54c4512097a55c35ed8df71173a15",
+      "file": "export/sections/policy-management-frontend.md_PMF-SCR-06_Customer_detail_customers_customerid_-734081b6.md",
+      "domain": "customers",
+      "role": "Détail client, facteur de risque, politiques et actions liées."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-08 — Review insurance quote requests",
+      "kind": "section",
+      "fingerprint": "sha256:d0cddfec7906f9bfa0960f11fde1189b4c9ed159934694baf681f1e26deae8e0",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-08_Review_insurance_quote_requests-8fc1fcdf.md",
+      "domain": "quote-requests",
+      "role": "Liste séparant les demandes de devis ouvertes et passées."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-09 — Follow the history of a quote request",
+      "kind": "section",
+      "fingerprint": "sha256:572a65b3649bb0af6110ecdd206d4bef4e69a832467546c38ea8ddae1b9afbc8",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-09_Follow_the_history_of_a_quote_request-84cb71fc.md",
+      "domain": "quote-requests",
+      "role": "Consultation chronologique de l’historique de statut d’une demande."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-UC-10 — Respond to a quote request",
+      "kind": "section",
+      "fingerprint": "sha256:face8917cabf6aabcbf4e3015cc1c0c510e017c3f5965e4d814e6abf2118044f",
+      "file": "export/sections/policy-management-frontend.md_PMF-UC-10_Respond_to_a_quote_request-a3cde7d9.md",
+      "domain": "quote-requests",
+      "role": "Réponse à une demande soumise, sous forme d’offre ou de rejet."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-SCR-03 — Insurance quote requests (`/insurance-quote-requests`)",
+      "kind": "section",
+      "fingerprint": "sha256:30b72ad138c97df477bb3f019a35dbe44b41b1097cae11440c5bd4bdce4f1020",
+      "file": "export/sections/policy-management-frontend.md_PMF-SCR-03_Insurance_quote_requests_insurance-quote-requests_-0345b1e9.md",
+      "domain": "quote-requests",
+      "role": "Écran listant les demandes ouvertes et passées et leur statut."
+    },
+    {
+      "name": "policy-management-frontend.md § PMF-SCR-04 — Insurance quote request detail (`/insurance-quote-requests/:requestid`)",
+      "kind": "section",
+      "fingerprint": "sha256:26874286b1c76ff922c5987e360fcb4daaba06484664a4d552449dfd1046e7f1",
+      "file": "export/sections/policy-management-frontend.md_PMF-SCR-04_Insurance_quote_request_detail_insurance-quote-requests_requestid_-5c93e398.md",
+      "domain": "quote-requests",
+      "role": "Détail et historique d’une demande, formulaire de réponse et messages."
+    },
+    {
+      "name": "policy-management-frontend.md § 1. Purpose",
+      "kind": "section",
+      "fingerprint": "sha256:951ea89ceac498cf88203a8e90065fe6e861fd39870d9470b4f7d3dbec34bcfe",
+      "file": "export/sections/policy-management-frontend.md_1._Purpose-5d264281.md",
+      "domain": "application-navigation",
+      "role": "Finalité générale de l’application."
+    },
+    {
+      "name": "policy-management-frontend.md § 2. Scope",
+      "kind": "section",
+      "fingerprint": "sha256:410024ca2923ad0b2e8d2c7af6ecd9d58c1153d916bb87fbcc720a4360e794fc",
+      "file": "export/sections/policy-management-frontend.md_2._Scope-53fd7be3.md",
+      "domain": "application-navigation",
+      "role": "Périmètre global et limites fonctionnelles."
+    },
+    {
+      "name": "policy-management-frontend.md § 3. Stakeholders and actors",
+      "kind": "section",
+      "fingerprint": "sha256:d7f7bad7ad02f7afb694b219721a122d3a0a71ce905a7fcae5ef7f9ee8589bff",
+      "file": "export/sections/policy-management-frontend.md_3._Stakeholders_and_actors-423f6916.md",
+      "domain": "application-navigation",
+      "role": "Acteurs et systèmes intervenant dans l’application."
+    },
+    {
+      "name": "policy-management-frontend.md § 4. Functional context",
+      "kind": "section",
+      "fingerprint": "sha256:1fe8abfebbe4f340a6a3db0e8f8aba22d85e3c02bb4e21e88778db94dfdf005b",
+      "file": "export/sections/policy-management-frontend.md_4._Functional_context-21151f34.md",
+      "domain": "application-navigation",
+      "role": "Contexte des échanges avec le backend et les autres systèmes."
+    },
+    {
+      "name": "policy-management-frontend.md § 9. Data handled",
+      "kind": "section",
+      "fingerprint": "sha256:75a27ad56afea5c7c6d93e7088784304ad0461b1f408ed6b3757ef1a5b666e4d",
+      "file": "export/sections/policy-management-frontend.md_9._Data_handled-cb729f91.md",
+      "dismissed": "Ces sections sont respectivement un inventaire transversal des données, une table de traçabilité technique et une liste de questions ouvertes; elles ne décrivent pas un domaine fonctionnel autonome."
+    },
+    {
+      "name": "policy-management-frontend.md § 11. Traceability",
+      "kind": "section",
+      "fingerprint": "sha256:0cf20411bb4f8a4959ca17ca6b41a2a833244e7c59faaaff255ae2841ca208b2",
+      "file": "export/sections/policy-management-frontend.md_11._Traceability-c483ebcc.md",
+      "dismissed": "Ces sections sont respectivement un inventaire transversal des données, une table de traçabilité technique et une liste de questions ouvertes; elles ne décrivent pas un domaine fonctionnel autonome."
+    },
+    {
+      "name": "policy-management-frontend.md § 12. Open points",
+      "kind": "section",
+      "fingerprint": "sha256:d9cd4fc09d893b6c90e2a6a562c20315317398fe3f6b5abb71b67266cd25cc25",
+      "file": "export/sections/policy-management-frontend.md_12._Open_points-15dc9e2f.md",
+      "dismissed": "Ces sections sont respectivement un inventaire transversal des données, une table de traçabilité technique et une liste de questions ouvertes; elles ne décrivent pas un domaine fonctionnel autonome."
+    }
+  ]
+}

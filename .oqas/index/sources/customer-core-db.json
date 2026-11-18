@@ -1,0 +1,115 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-core-db",
+    "type": "postgresql"
+  },
+  "fingerprint": "sha256:4910d8413e1a747619e019c3da603c4428348a0269eb3aab27e0a921f2086826",
+  "producedAt": "2026-11-18T18:49:08.249Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 3,
+    "actions": 0,
+    "durationMs": 7345
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Customer identity, contact details, profile information, and associated address records.",
+      "items": [
+        {
+          "name": "public.addresses",
+          "summary": "Stores a customer's address details: street address, postal code and city.",
+          "facts": {
+            "kind": "table",
+            "columns": 4,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        },
+        {
+          "name": "public.customer_profile_entity",
+          "summary": "Holds a customer's personal and contact profile, birthday, and current address.",
+          "facts": {
+            "kind": "table",
+            "columns": 7,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": [
+              {
+                "columns": [
+                  "current_address_id"
+                ],
+                "references": "public.addresses",
+                "referencedColumns": [
+                  "id"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "public.customer_profile_entity_move_history",
+          "summary": "Associates customer profiles with addresses recorded in their move history.",
+          "facts": {
+            "kind": "table",
+            "columns": 2,
+            "primaryKey": [],
+            "foreignKeys": [
+              {
+                "columns": [
+                  "customer_profile_entity_id"
+                ],
+                "references": "public.customer_profile_entity",
+                "referencedColumns": [
+                  "id"
+                ]
+              },
+              {
+                "columns": [
+                  "move_history_id"
+                ],
+                "references": "public.addresses",
+                "referencedColumns": [
+                  "id"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "public.customers",
+          "summary": "Stores customer identifiers linked to customer profile records.",
+          "facts": {
+            "kind": "table",
+            "columns": 2,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": [
+              {
+                "columns": [
+                  "customer_profile_id"
+                ],
+                "references": "public.customer_profile_entity",
+                "referencedColumns": [
+                  "id"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

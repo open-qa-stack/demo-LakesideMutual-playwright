@@ -1,0 +1,40 @@
+{
+  "tags": [
+    "customer-information-holder"
+  ],
+  "summary": "Get a specific set of customers.",
+  "operationId": "getCustomer_1",
+  "parameters": [
+    {
+      "name": "ids",
+      "in": "path",
+      "description": "a comma-separated list of customer ids",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "fields",
+      "in": "query",
+      "description": "a comma-separated list of the fields that should be included in the response",
+      "required": false,
+      "schema": {
+        "type": "string",
+        "default": ""
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/CustomersResponseDto"
+          }
+        }
+      }
+    }
+  }
+}

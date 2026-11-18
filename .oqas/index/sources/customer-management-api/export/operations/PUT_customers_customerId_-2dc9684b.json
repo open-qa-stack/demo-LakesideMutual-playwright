@@ -1,0 +1,40 @@
+{
+  "tags": [
+    "customer-information-holder"
+  ],
+  "summary": "Update the profile of the customer with the given customer id",
+  "operationId": "updateCustomer",
+  "parameters": [
+    {
+      "name": "customerId",
+      "in": "path",
+      "description": "the customer's unique id",
+      "required": true,
+      "schema": {
+        "$ref": "#/components/schemas/CustomerId"
+      }
+    }
+  ],
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/CustomerProfileDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/CustomerDto"
+          }
+        }
+      }
+    }
+  }
+}

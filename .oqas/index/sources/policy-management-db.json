@@ -4,37 +4,42 @@
     "id": "policy-management-db",
     "type": "postgresql"
   },
-  "fingerprint": "sha256:96a3874401b68086ea84d026c561db2a6b943f9dabd9f25d9fca8eaddb6b9c38",
-  "producedAt": "2026-11-13T08:01:58.233Z",
+  "fingerprint": "sha256:a5c5e7b42dcabb8ef4d94a355d7ec4c2e5dfe69b39fd179962d348a26ece57e3",
+  "producedAt": "2026-11-18T18:46:40.534Z",
   "model": {
     "provider": "openai",
-    "baseUrl": "http://localhost:1234/v1",
-    "model": "qwen/qwen3-coder-30b"
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
   },
   "run": {
-    "iterations": 16,
+    "iterations": 5,
     "actions": 0,
-    "durationMs": 1125204
+    "durationMs": 17560
   },
   "status": "complete",
   "domains": [
     {
       "id": "customers",
       "label": "Customers",
-      "description": "Manages customer information and addresses.",
+      "description": "Stores customer identity details and their postal and billing contact addresses.",
       "items": [
         {
-          "name": "public.customerinfos",
-          "summary": "Stores customer personal information including contact and billing addresses.",
-          "keyFields": [
-            "id",
-            "customer_id",
-            "firstname",
-            "lastname",
-            "contact_address_id",
-            "billing_address_id"
-          ],
+          "name": "public.addresses",
+          "summary": "Stores a customer's street address, city, and postal code.",
           "facts": {
+            "kind": "table",
+            "columns": 4,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        },
+        {
+          "name": "public.customerinfos",
+          "summary": "Stores customer identity details and links the customer to contact and billing addresses.",
+          "facts": {
+            "kind": "table",
             "columns": 6,
             "primaryKey": [
               "id"
@@ -60,50 +65,31 @@
               }
             ]
           }
-        },
-        {
-          "name": "public.addresses",
-          "summary": "Stores address information for customers and other entities.",
-          "keyFields": [
-            "id",
-            "city",
-            "postal_code",
-            "street_address"
-          ],
-          "facts": {
-            "columns": 4,
-            "primaryKey": [
-              "id"
-            ],
-            "foreignKeys": []
-          }
         }
       ]
     },
     {
       "id": "policies",
       "label": "Policies",
-      "description": "Manages insurance policies and their details.",
+      "description": "Stores insurance policies and the agreements and coverage items that define them.",
       "items": [
         {
-          "name": "public.insurancepolicies",
-          "summary": "Stores insurance policy information including coverage details and customer associations.",
-          "keyFields": [
-            "id",
-            "name",
-            "customer_id",
-            "start_date",
-            "end_date",
-            "deductible_amount",
-            "deductible_currency",
-            "limit_amount",
-            "limit_currency",
-            "premium_amount",
-            "premium_currency",
-            "creation_date",
-            "insuring_agreement_id"
-          ],
+          "name": "public.insuranceagreementitems",
+          "summary": "Stores titled descriptive items that form part of an insurance agreement.",
           "facts": {
+            "kind": "table",
+            "columns": 3,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        },
+        {
+          "name": "public.insurancepolicies",
+          "summary": "Stores issued policy details, dates, customer, premiums, limits, deductibles, and associated insuring agreement.",
+          "facts": {
+            "kind": "table",
             "columns": 13,
             "primaryKey": [
               "id"
@@ -120,27 +106,61 @@
               }
             ]
           }
+        },
+        {
+          "name": "public.insuringagreements",
+          "summary": "Represents an insuring agreement associated with an insurance policy.",
+          "facts": {
+            "kind": "table",
+            "columns": 1,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        },
+        {
+          "name": "public.insuringagreements_agreement_items",
+          "summary": "Links insuring agreements to the insurance agreement items they include.",
+          "facts": {
+            "kind": "table",
+            "columns": 2,
+            "primaryKey": [],
+            "foreignKeys": [
+              {
+                "columns": [
+                  "agreement_items_id"
+                ],
+                "references": "public.insuranceagreementitems",
+                "referencedColumns": [
+                  "id"
+                ]
+              },
+              {
+                "columns": [
+                  "insuring_agreement_entity_id"
+                ],
+                "references": "public.insuringagreements",
+                "referencedColumns": [
+                  "id"
+                ]
+              }
+            ]
+          }
         }
       ]
     },
     {
       "id": "quotes",
       "label": "Quotes",
-      "description": "Manages insurance quotes and quote requests.",
+      "description": "Manages insurance quote requests, quote offers, and their lifecycle status history.",
       "items": [
         {
-          "name": "public.insurancequotes",
-          "summary": "Stores insurance quote information with premium and limit details.",
-          "keyFields": [
-            "id",
-            "insurance_premium_amount",
-            "insurance_premium_currency",
-            "policy_limit_amount",
-            "policy_limit_currency",
-            "expiration_date"
-          ],
+          "name": "public.insuranceoptions",
+          "summary": "Stores named insurance options, including their starting date and deductible.",
           "facts": {
-            "columns": 6,
+            "kind": "table",
+            "columns": 5,
             "primaryKey": [
               "id"
             ],
@@ -149,16 +169,9 @@
         },
         {
           "name": "public.insurancequoterequests",
-          "summary": "Stores insurance quote requests including customer and option associations.",
-          "keyFields": [
-            "id",
-            "customer_info_id",
-            "date",
-            "insurance_options_id",
-            "insurance_quote_id",
-            "policy_id"
-          ],
+          "summary": "Stores a customer's dated quote request and its linked options, quote, and policy reference.",
           "facts": {
+            "kind": "table",
             "columns": 6,
             "primaryKey": [
               "id"
@@ -196,12 +209,9 @@
         },
         {
           "name": "public.insurancequoterequests_status_history",
-          "summary": "Tracks the status history of insurance quote requests.",
-          "keyFields": [
-            "insurance_quote_request_aggregate_root_id",
-            "status_history_id"
-          ],
+          "summary": "Associates a quote request with its status-change history records.",
           "facts": {
+            "kind": "table",
             "columns": 2,
             "primaryKey": [],
             "foreignKeys": [
@@ -227,109 +237,23 @@
           }
         },
         {
+          "name": "public.insurancequotes",
+          "summary": "Stores offered premium and policy limit amounts and quote expiration.",
+          "facts": {
+            "kind": "table",
+            "columns": 6,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        },
+        {
           "name": "public.requeststatuschanges",
-          "summary": "Stores status change information for insurance quote requests.",
-          "keyFields": [
-            "id",
-            "status",
-            "date"
-          ],
+          "summary": "Records dated quote-request lifecycle status changes, limited to the defined request and quote states.",
           "facts": {
+            "kind": "table",
             "columns": 3,
-            "primaryKey": [
-              "id"
-            ],
-            "foreignKeys": []
-          }
-        }
-      ]
-    },
-    {
-      "id": "agreements",
-      "label": "Agreements",
-      "description": "Manages insurance agreements and their items.",
-      "items": [
-        {
-          "name": "public.insuringagreements",
-          "summary": "Represents insurance agreements that define policy terms.",
-          "keyFields": [
-            "id"
-          ],
-          "facts": {
-            "columns": 1,
-            "primaryKey": [
-              "id"
-            ],
-            "foreignKeys": []
-          }
-        },
-        {
-          "name": "public.insuranceagreementitems",
-          "summary": "Stores individual items that make up insurance agreements.",
-          "keyFields": [
-            "id",
-            "title",
-            "description"
-          ],
-          "facts": {
-            "columns": 3,
-            "primaryKey": [
-              "id"
-            ],
-            "foreignKeys": []
-          }
-        },
-        {
-          "name": "public.insuringagreements_agreement_items",
-          "summary": "Links insurance agreements to their individual agreement items.",
-          "keyFields": [
-            "agreement_items_id",
-            "insuring_agreement_entity_id"
-          ],
-          "facts": {
-            "columns": 2,
-            "primaryKey": [],
-            "foreignKeys": [
-              {
-                "columns": [
-                  "agreement_items_id"
-                ],
-                "references": "public.insuranceagreementitems",
-                "referencedColumns": [
-                  "id"
-                ]
-              },
-              {
-                "columns": [
-                  "insuring_agreement_entity_id"
-                ],
-                "references": "public.insuringagreements",
-                "referencedColumns": [
-                  "id"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "id": "options",
-      "label": "Options",
-      "description": "Manages insurance policy options and configurations.",
-      "items": [
-        {
-          "name": "public.insuranceoptions",
-          "summary": "Stores configuration options for insurance policies including deductible details.",
-          "keyFields": [
-            "id",
-            "name",
-            "start_date",
-            "deductible_amount",
-            "deductible_currency"
-          ],
-          "facts": {
-            "columns": 5,
             "primaryKey": [
               "id"
             ],

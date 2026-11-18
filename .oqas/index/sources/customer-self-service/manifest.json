@@ -1,0 +1,114 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-self-service",
+    "type": "web"
+  },
+  "fingerprint": "sha256:82333168deece223cf3b6f8ce38ebf2783da69b5983215ac674d25e52600446e",
+  "producedAt": "2026-11-18T18:53:58.410Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "authentication",
+      "label": "Authentification et inscription",
+      "description": "Permet de se connecter ou de créer un compte client et de consulter les conditions affichées.",
+      "file": "domains/authentication.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "policies",
+      "label": "Demandes de devis et polices",
+      "description": "Permet de consulter les polices et demandes de devis, d’afficher les demandes archivées et de commencer ou consulter une demande.",
+      "file": "domains/policies.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "profile",
+      "label": "Profil client",
+      "description": "Permet au client de consulter son profil et de modifier son adresse enregistrée.",
+      "file": "domains/profile.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "customer-support",
+      "label": "Contact et assistance",
+      "description": "Permet au client de contacter le service client via une conversation écrite.",
+      "file": "domains/customer-support.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "/",
+      "kind": "screen",
+      "fingerprint": "sha256:2d0758ccd2317464db4dec8ca5a96fa748a8be7d7d9bae7fd2d13b3ce69e8064",
+      "file": "export/screens/_-8a5edab2.txt",
+      "domain": "authentication",
+      "role": "Page d’accueil publique proposant connexion et inscription."
+    },
+    {
+      "name": "/login",
+      "kind": "screen",
+      "fingerprint": "sha256:4791ec9418eaf823cae8cea5577be9ad13b0fa095ddb9b1805ab9edc557689a5",
+      "file": "export/screens/_login-7e93fba0.txt",
+      "domain": "authentication",
+      "role": "Formulaire de connexion avec accès de démonstration affiché."
+    },
+    {
+      "name": "/signup",
+      "kind": "screen",
+      "fingerprint": "sha256:d26031e19b6f6855db0c55091d1fc0c0a83454e4918c46daf8814ed5fda1f6ca",
+      "file": "export/screens/_signup-847d8d45.txt",
+      "domain": "authentication",
+      "role": "Formulaire d’inscription et consentement aux conditions; l’ancre #toc affiche aussi les conditions."
+    },
+    {
+      "name": "/policies",
+      "kind": "screen",
+      "fingerprint": "sha256:0f6b96d69851154928e926682f546c6d1039a1357613b61c33fc5aca34417768",
+      "file": "export/screens/_policies-e73dd2f7.txt",
+      "domain": "policies",
+      "role": "Liste les demandes de devis et les polices détenues; permet d’afficher les archives, d’ouvrir une demande et d’en démarrer une nouvelle."
+    },
+    {
+      "name": "/policies/new-insurance-quote-request",
+      "kind": "screen",
+      "fingerprint": "sha256:7eedac15cc2d39563c3af4f49a50e391b56a2fe199a64e0ef8680a1e23cd121c",
+      "file": "export/screens/_policies_new-insurance-quote-request-9cb3aecb.txt",
+      "domain": "policies",
+      "role": "Assistant de demande de devis en plusieurs étapes : données personnelles, options d’assurance et confirmation."
+    },
+    {
+      "name": "/policies/insurance-quote-requests/:id",
+      "kind": "screen",
+      "fingerprint": "sha256:91dff8719ec9b799e36be78bfa0150160e5c17b48b923153c43b98e97db79527",
+      "file": "export/screens/_policies_insurance-quote-requests_id-e15ca243.txt",
+      "domain": "policies",
+      "role": "Détail d’une demande de devis sélectionnée, avec données personnelles, choix d’assurance et messages d’état."
+    },
+    {
+      "name": "/profile",
+      "kind": "screen",
+      "fingerprint": "sha256:450056ed4c98dc2ca68873aa188dc889d4e5b1ba399ee5c57e96261237411b91",
+      "file": "export/screens/_profile-55d68502.txt",
+      "domain": "profile",
+      "role": "Affiche les coordonnées du client et donne accès au changement d’adresse."
+    },
+    {
+      "name": "/profile/change-address",
+      "kind": "screen",
+      "fingerprint": "sha256:64428632105d497f8685ebdd1584d46feb2883e97e5542de1d9491acd1a82d57",
+      "file": "export/screens/_profile_change-address-7267c2fe.txt",
+      "domain": "profile",
+      "role": "Formulaire de modification de l’adresse du client."
+    },
+    {
+      "name": "/contact",
+      "kind": "screen",
+      "fingerprint": "sha256:c27ad14a3398ebac5b250aae55c7de741ab2d01b3416f6609942bdb44f30dfa7",
+      "file": "export/screens/_contact-4eb95063.txt",
+      "domain": "customer-support",
+      "role": "Affiche le chat du service client pour consulter ou envoyer des messages."
+    }
+  ]
+}

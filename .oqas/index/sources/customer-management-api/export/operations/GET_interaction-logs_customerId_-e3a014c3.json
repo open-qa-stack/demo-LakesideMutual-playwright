@@ -1,0 +1,30 @@
+{
+  "tags": [
+    "interaction-log-information-holder"
+  ],
+  "summary": "Get the interaction log for a customer with a given customer id.",
+  "operationId": "getInteractionLog",
+  "parameters": [
+    {
+      "name": "customerId",
+      "in": "path",
+      "description": "the customer's unique id",
+      "required": true,
+      "schema": {
+        "$ref": "#/components/schemas/CustomerId"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/InteractionLogAggregateRoot"
+          }
+        }
+      }
+    }
+  }
+}

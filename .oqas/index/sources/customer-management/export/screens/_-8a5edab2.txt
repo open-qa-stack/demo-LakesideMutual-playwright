@@ -1,0 +1,47 @@
+- generic [ref=f6e3]:
+  - link "Customer Management Lakeside Mutual" [ref=f6e4] [cursor=pointer]: → page.getByRole("link", { name: "Customer Management Lakeside Mutual", exact: true })
+    - /url: /
+    - generic [ref=f6e7]:
+      - generic [ref=f6e8]: Customer Management
+      - generic [ref=f6e9]: Lakeside Mutual
+  - link "Home" [ref=f6e13] [cursor=pointer]: → page.getByRole("link", { name: "Home", exact: true })
+    - /url: /
+    - generic [aria-hidden] [ref=f6e14]: 
+    - text: Home
+  - generic [ref=f6e15]:
+    - heading "Notifications" [level=3] [ref=f6e16]
+    - paragraph [ref=f6e17]: There are currently no new notifications.
+    - heading "Customers" [level=3] [ref=f6e18]
+    - generic [ref=f6e20]:
+      - generic [ref=f6e23]:
+        - textbox "Search..." [ref=f6e24]: Ado → page.getByRole("textbox", { name: "Search...", exact: true })
+        - button "Search" [active] [ref=f6e25] [cursor=pointer]: → page.getByRole("button", { name: "Search", exact: true })
+          - generic [aria-hidden] [ref=f6e26]: 
+          - text: Search
+      - button "New Customer" [ref=f6e28] [cursor=pointer]: → page.getByRole("button", { name: "New Customer", exact: true })
+        - generic [aria-hidden] [ref=f6e29]: 
+        - text: New Customer
+    - table [ref=f6e30]:
+      - rowgroup [ref=f6e31]:
+        - row [ref=f6e32]:
+          - columnheader "Name" [ref=f6e33]
+          - columnheader "Email" [ref=f6e34]
+          - columnheader "Address" [ref=f6e35]
+          - columnheader [ref=f6e36]
+      - rowgroup [ref=f6e37]:
+        - row [ref=f6e110]:
+          - cell "Ado Kinnett" [ref=f6e111]
+          - cell "akinnetta@example.com" [ref=f6e113]
+          - cell "28 Cross-Application Avenue, 3000 Bern" [ref=f6e114]
+          - cell [ref=f6e115]:
+            - button "Show" [ref=f6e116] [cursor=pointer] → page.getByRole("button", { name: "Show", exact: true })
+      - rowgroup [ref=f6e98]:
+        - row [ref=f6e117]:
+          - columnheader "1 - 1 of 1" [ref=f6e118]
+          - columnheader [ref=f6e101]:
+            - generic [ref=f6e102]:
+              - generic [aria-hidden] [ref=f6e104]: 
+              - generic [aria-hidden] [ref=f6e106]: 
+  - generic [ref=f6e107]:
+    - generic [ref=f6e108]: Environment Variable Debug Information
+    - paragraph [ref=f6e109]: "REACT_APP_CUSTOMER_SELF_SERVICE_BACKEND: http://localhost:8080REACT_APP_CUSTOMER_MANAGEMENT_BACKEND: http://localhost:8100REACT_APP_POLICY_MANAGEMENT_FRONTEND: http://localhost:3010"

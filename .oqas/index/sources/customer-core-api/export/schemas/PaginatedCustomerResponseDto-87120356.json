@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "filter": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "offset": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "size": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "customers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CustomerResponseDto"
+      }
+    },
+    "_links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  }
+}

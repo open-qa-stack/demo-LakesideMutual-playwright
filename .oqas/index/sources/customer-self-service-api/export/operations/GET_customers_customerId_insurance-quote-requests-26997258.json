@@ -1,0 +1,33 @@
+{
+  "tags": [
+    "customer-information-holder"
+  ],
+  "summary": "Get a customer's insurance quote requests.",
+  "operationId": "getInsuranceQuoteRequests_1",
+  "parameters": [
+    {
+      "name": "customerId",
+      "in": "path",
+      "description": "the customer's unique id",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InsuranceQuoteRequestDto"
+            }
+          }
+        }
+      }
+    }
+  }
+}

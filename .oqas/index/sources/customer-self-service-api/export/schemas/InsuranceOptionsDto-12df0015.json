@@ -1,0 +1,20 @@
+{
+  "required": [
+    "deductible",
+    "insuranceType",
+    "startDate"
+  ],
+  "type": "object",
+  "properties": {
+    "startDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "insuranceType": {
+      "type": "string"
+    },
+    "deductible": {
+      "$ref": "#/components/schemas/MoneyAmountDto"
+    }
+  }
+}

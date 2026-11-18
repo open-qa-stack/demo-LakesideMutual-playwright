@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "customer-information-holder"
+  ],
+  "summary": "Complete the registration of a new customer.",
+  "operationId": "registerCustomer",
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/CustomerRegistrationRequestDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/CustomerDto"
+          }
+        }
+      }
+    }
+  }
+}

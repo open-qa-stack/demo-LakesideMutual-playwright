@@ -1,0 +1,195 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-management-code",
+    "type": "source-code"
+  },
+  "fingerprint": "sha256:27050d955cdea5238421c593100b4228b3653bee73993ee28b9ce7105fd5f47c",
+  "producedAt": "2026-11-18T18:48:14.557Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 5,
+    "actions": 0,
+    "durationMs": 17135
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "application",
+      "label": "Application",
+      "description": "Point d’entrée et exécution du service de gestion des clients.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customermanagement",
+          "summary": "Contient l’application Spring Boot, point d’entrée du backend Customer Management et client Feign activé.",
+          "keyFields": [
+            "SpringApplication.run"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "label": "Clients",
+      "description": "Identifiant métier et API de consultation ou de mise à jour des profils clients via le service Customer Core.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customermanagement/domain/customer",
+          "summary": "Définit l’objet-valeur CustomerId, identifiant client encapsulant une chaîne.",
+          "keyFields": [
+            "id"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customermanagement/infrastructure",
+          "summary": "Contient les clients et la configuration d’accès au Customer Core, l’intercepteur de clé API et le repository des journaux d’interaction; expose aussi les routes d’accès aux clients fournies par ces intégrations.",
+          "keyFields": [
+            "filter",
+            "limit",
+            "offset",
+            "customerId"
+          ],
+          "facts": {
+            "files": 5,
+            "routes": [
+              "@GetMapping(value = \"/customers\")",
+              "@GetMapping(value = \"/customers/{ids}\")",
+              "@PutMapping(value = \"/customers/{customerId}\")"
+            ]
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customermanagement/interfaces",
+          "summary": "Expose les contrôleurs REST de clients, journaux et notifications ainsi que le contrôleur d’erreur et le WebSocket de chat; l’API clients permet la recherche paginée, la lecture par identifiant et la mise à jour du profil.",
+          "keyFields": [
+            "filter",
+            "limit",
+            "offset",
+            "customerId",
+            "customerProfile"
+          ],
+          "facts": {
+            "files": 5,
+            "routes": [
+              "@RequestMapping(\"/customers\")",
+              "@GetMapping",
+              "@GetMapping(value = \"/{customerId}\")",
+              "@PutMapping(value = \"/{customerId}\")",
+              "@Controller",
+              "@Controller",
+              "@RequestMapping(value = \"/error\", produces = MediaType.APPLICATION_JSON_VALUE)",
+              "@RequestMapping(\"/interaction-logs\")",
+              "@GetMapping(value = \"/{customerId}\")",
+              "@PatchMapping(value = \"/{customerId}\")",
+              "@RequestMapping(\"/notifications\")",
+              "@GetMapping"
+            ]
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customermanagement/interfaces/dtos",
+          "summary": "Regroupe les représentations d’API des clients et profils, les adresses, les réponses paginées, les messages, accusés de réception et notifications, ainsi que les exceptions HTTP.",
+          "keyFields": [
+            "customerId",
+            "firstname",
+            "lastname",
+            "birthday",
+            "currentAddress",
+            "email",
+            "phoneNumber",
+            "moveHistory",
+            "filter",
+            "limit",
+            "offset",
+            "size",
+            "content",
+            "sentByOperator",
+            "lastAcknowledgedInteractionId",
+            "count"
+          ],
+          "facts": {
+            "files": 11,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "interaction-logs",
+      "label": "Journaux d’interaction",
+      "description": "Stocke les conversations des clients, gère les accusés de réception et calcule les notifications des messages non lus.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customermanagement/domain/interactionlog",
+          "summary": "Modélise les journaux agrégés et leurs messages, calcule les interactions non acquittées et produit les notifications associées.",
+          "keyFields": [
+            "customerId",
+            "username",
+            "lastAcknowledgedInteractionId",
+            "interactions",
+            "id",
+            "date",
+            "content",
+            "sentByOperator",
+            "count"
+          ],
+          "facts": {
+            "files": 4,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "configuration",
+      "label": "Configuration",
+      "description": "Configure la sécurité, les clients HTTP, la documentation API, le Web et les WebSockets.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customermanagement/interfaces/configuration",
+          "summary": "Regroupe la configuration Spring des clients REST authentifiés, des en-têtes, de Swagger, du Web, de la sécurité et des WebSockets.",
+          "keyFields": [
+            "SwaggerConfiguration",
+            "WebSecurityConfiguration",
+            "WebSocketConfiguration"
+          ],
+          "facts": {
+            "files": 6,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "tests",
+      "label": "Tests",
+      "description": "Contient les tests d’architecture du projet.",
+      "items": [
+        {
+          "name": "src/test/java/com/lakesidemutual/customermanagement/tests",
+          "summary": "Contient la suite ArchitectureTests pour vérifier les règles d’architecture.",
+          "keyFields": [
+            "ArchitectureTests"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

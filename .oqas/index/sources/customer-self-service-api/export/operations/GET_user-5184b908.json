@@ -1,0 +1,19 @@
+{
+  "tags": [
+    "user-information-holder"
+  ],
+  "summary": "Get the user details for the currently logged-in user.",
+  "operationId": "getCurrentUser",
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/UserResponseDto"
+          }
+        }
+      }
+    }
+  }
+}

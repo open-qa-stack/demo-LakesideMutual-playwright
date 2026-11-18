@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "customer-information-holder"
+  ],
+  "summary": "Create a new customer.",
+  "operationId": "createCustomer",
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/CustomerProfileUpdateRequestDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/CustomerResponseDto"
+          }
+        }
+      }
+    }
+  }
+}

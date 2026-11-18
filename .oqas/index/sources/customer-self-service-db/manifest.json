@@ -1,0 +1,92 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-self-service-db",
+    "type": "postgresql"
+  },
+  "fingerprint": "sha256:5ea21536921df9c2467824a1c70e0a5c994dbdc061dce1f9ea119ca71684105a",
+  "producedAt": "2026-11-18T18:50:26.739Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Customer profile, contact and billing details, addresses, and customer login accounts.",
+      "file": "domains/customers.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "insurance-quotes",
+      "label": "Insurance quotes",
+      "description": "Insurance quote requests, available options, generated quotes, and request status history.",
+      "file": "domains/insurance-quotes.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "public.addresses",
+      "kind": "table",
+      "fingerprint": "sha256:5ef31c70d99d5469ef0bc4fab7e53d3eb55097216538dc84d51500465948654c",
+      "file": "export/tables/public.addresses.sql",
+      "domain": "customers",
+      "role": "Stores customer street, city, and postal-code address details."
+    },
+    {
+      "name": "public.customerinfos",
+      "kind": "table",
+      "fingerprint": "sha256:c75448ab1d41e1d33e88804a2b5960d5049060115163f3763b556376f7615d43",
+      "file": "export/tables/public.customerinfos.sql",
+      "domain": "customers",
+      "role": "Stores customer identity details and links to separate contact and billing addresses."
+    },
+    {
+      "name": "public.insuranceoptions",
+      "kind": "table",
+      "fingerprint": "sha256:888cbe954dee0fb4c3aed4af0d9f90414c06737c51d303f6a0258030e4734549",
+      "file": "export/tables/public.insuranceoptions.sql",
+      "domain": "insurance-quotes",
+      "role": "Stores insurance offer options, including deductible amounts, currency, start date, and name."
+    },
+    {
+      "name": "public.insurancequoterequests",
+      "kind": "table",
+      "fingerprint": "sha256:a9602bca9e8690003508cb10e38883cfd7cdbbd5547201fb10279c64d562fbce",
+      "file": "export/tables/public.insurancequoterequests.sql",
+      "domain": "insurance-quotes",
+      "role": "Records a customer's insurance quote request, selected option, request date, related quote, and policy identifier."
+    },
+    {
+      "name": "public.insurancequoterequests_status_history",
+      "kind": "table",
+      "fingerprint": "sha256:95568fb2e3804043006e16d9981ae1ef1f426a75255441a5f75ceb75d9c50f3e",
+      "file": "export/tables/public.insurancequoterequests_status_history.sql",
+      "domain": "insurance-quotes",
+      "role": "Associates insurance quote requests with their status-change history entries."
+    },
+    {
+      "name": "public.insurancequotes",
+      "kind": "table",
+      "fingerprint": "sha256:28598340a034a21ebf08eb4f8da2f1dc77c63b690e54c96d15e01d082d947c01",
+      "file": "export/tables/public.insurancequotes.sql",
+      "domain": "insurance-quotes",
+      "role": "Stores quoted premium and policy limit amounts and the quote expiration date."
+    },
+    {
+      "name": "public.requeststatuschanges",
+      "kind": "table",
+      "fingerprint": "sha256:82ffda743b5e1df7f499d7659e60306cfccb64c3e001500bae363a6ed66ea5be",
+      "file": "export/tables/public.requeststatuschanges.sql",
+      "domain": "insurance-quotes",
+      "role": "Stores dated status changes for requests, constrained to the defined request and quote lifecycle statuses."
+    },
+    {
+      "name": "public.user_logins",
+      "kind": "table",
+      "fingerprint": "sha256:e7db39415e20c5710c1e6920a1f653bcbe9e4bdf33af20c2da005f9762c8bafd",
+      "file": "export/tables/public.user_logins.sql",
+      "domain": "customers",
+      "role": "Stores customer login credentials, email, and authorities."
+    }
+  ]
+}

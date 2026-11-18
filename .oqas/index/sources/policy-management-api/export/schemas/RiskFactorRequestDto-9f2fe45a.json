@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "birthday": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "postalCode": {
+      "type": "string"
+    }
+  },
+  "description": "the request containing relevant customer attributes (e.g., postal code, birthday)"
+}

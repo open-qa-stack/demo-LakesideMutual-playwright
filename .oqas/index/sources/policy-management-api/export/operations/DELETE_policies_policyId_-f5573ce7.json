@@ -1,0 +1,23 @@
+{
+  "tags": [
+    "policy-information-holder"
+  ],
+  "summary": "Delete an existing policy.",
+  "operationId": "deletePolicy",
+  "parameters": [
+    {
+      "name": "policyId",
+      "in": "path",
+      "description": "the policy's unique id",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK"
+    }
+  }
+}

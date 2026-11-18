@@ -1,0 +1,114 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-self-service",
+    "type": "web"
+  },
+  "fingerprint": "sha256:f1de9e489ba88cb15968b97f40f59e8ef0da5ca03ad1f37fc13a2aa45a2512a9",
+  "producedAt": "2026-11-18T18:53:58.410Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 42,
+    "actions": 35,
+    "durationMs": 132676
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "authentication",
+      "label": "Authentification et inscription",
+      "description": "Permet de se connecter ou de créer un compte client et de consulter les conditions affichées.",
+      "items": [
+        {
+          "name": "/",
+          "summary": "Page d’accueil publique proposant connexion et inscription.",
+          "facts": {
+            "kind": "screen"
+          }
+        },
+        {
+          "name": "/login",
+          "summary": "Formulaire de connexion avec accès de démonstration affiché.",
+          "facts": {
+            "kind": "screen"
+          }
+        },
+        {
+          "name": "/signup",
+          "summary": "Formulaire d’inscription et consentement aux conditions; l’ancre #toc affiche aussi les conditions.",
+          "facts": {
+            "kind": "screen"
+          }
+        }
+      ]
+    },
+    {
+      "id": "policies",
+      "label": "Demandes de devis et polices",
+      "description": "Permet de consulter les polices et demandes de devis, d’afficher les demandes archivées et de commencer ou consulter une demande.",
+      "items": [
+        {
+          "name": "/policies",
+          "summary": "Liste les demandes de devis et les polices détenues; permet d’afficher les archives, d’ouvrir une demande et d’en démarrer une nouvelle.",
+          "facts": {
+            "kind": "screen"
+          }
+        },
+        {
+          "name": "/policies/new-insurance-quote-request",
+          "summary": "Assistant de demande de devis en plusieurs étapes : données personnelles, options d’assurance et confirmation.",
+          "facts": {
+            "kind": "screen"
+          }
+        },
+        {
+          "name": "/policies/insurance-quote-requests/:id",
+          "summary": "Détail d’une demande de devis sélectionnée, avec données personnelles, choix d’assurance et messages d’état.",
+          "facts": {
+            "kind": "screen"
+          }
+        }
+      ]
+    },
+    {
+      "id": "profile",
+      "label": "Profil client",
+      "description": "Permet au client de consulter son profil et de modifier son adresse enregistrée.",
+      "items": [
+        {
+          "name": "/profile",
+          "summary": "Affiche les coordonnées du client et donne accès au changement d’adresse.",
+          "facts": {
+            "kind": "screen"
+          }
+        },
+        {
+          "name": "/profile/change-address",
+          "summary": "Formulaire de modification de l’adresse du client.",
+          "facts": {
+            "kind": "screen"
+          }
+        }
+      ]
+    },
+    {
+      "id": "customer-support",
+      "label": "Contact et assistance",
+      "description": "Permet au client de contacter le service client via une conversation écrite.",
+      "items": [
+        {
+          "name": "/contact",
+          "summary": "Affiche le chat du service client pour consulter ou envoyer des messages.",
+          "facts": {
+            "kind": "screen"
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

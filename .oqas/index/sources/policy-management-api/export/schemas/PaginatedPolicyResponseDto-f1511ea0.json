@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "offset": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "size": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "policies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PolicyDto"
+      }
+    },
+    "_links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  }
+}

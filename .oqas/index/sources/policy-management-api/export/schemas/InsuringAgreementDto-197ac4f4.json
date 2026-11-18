@@ -1,0 +1,14 @@
+{
+  "required": [
+    "agreementItems"
+  ],
+  "type": "object",
+  "properties": {
+    "agreementItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/InsuringAgreementItemDto"
+      }
+    }
+  }
+}

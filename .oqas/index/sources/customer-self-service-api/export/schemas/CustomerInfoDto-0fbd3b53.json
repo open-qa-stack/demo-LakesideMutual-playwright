@@ -1,0 +1,27 @@
+{
+  "required": [
+    "billingAddress",
+    "contactAddress",
+    "customerId",
+    "firstname",
+    "lastname"
+  ],
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "type": "string"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "contactAddress": {
+      "$ref": "#/components/schemas/AddressDto"
+    },
+    "billingAddress": {
+      "$ref": "#/components/schemas/AddressDto"
+    }
+  }
+}

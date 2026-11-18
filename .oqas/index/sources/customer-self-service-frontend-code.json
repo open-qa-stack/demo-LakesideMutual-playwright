@@ -1,0 +1,242 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-self-service-frontend-code",
+    "type": "source-code"
+  },
+  "fingerprint": "sha256:8b2792e8447ade9b7454fcbc5250de91234ae3be07a795ef6fef828d61be719d",
+  "producedAt": "2026-11-18T18:51:02.978Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 7,
+    "actions": 0,
+    "durationMs": 17919
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "application-shell",
+      "label": "Application shell",
+      "description": "Initialisation, routing, shared application state, deployment configuration and Flow type declarations that support the customer self-service frontend.",
+      "items": [
+        {
+          "name": ".",
+          "summary": "Contains the application entry, router, shared state store, configuration, types, utilities and project/deployment setup.",
+          "keyFields": [
+            "route paths",
+            "authentication state",
+            "backend environment variables"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "flow-typed/npm",
+          "summary": "Provides Flow declaration stubs for the npm packages used by the frontend.",
+          "keyFields": [
+            "library declarations"
+          ],
+          "facts": {
+            "files": 10,
+            "routes": []
+          }
+        },
+        {
+          "name": "src",
+          "summary": "Holds the frontend application shell and shared modules, including routes, state, configuration, types and utilities.",
+          "keyFields": [
+            "routes",
+            "store state",
+            "configuration"
+          ],
+          "facts": {
+            "files": 6,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "backend-api",
+      "label": "Backend API",
+      "description": "Client API modules wrap requests to the customer, policy and self-service backends.",
+      "items": [
+        {
+          "name": "src/api",
+          "summary": "Groups the API clients and shared request helpers for customer, policy and self-service operations.",
+          "keyFields": [
+            "authentication token",
+            "customerId",
+            "request/response data"
+          ],
+          "facts": {
+            "files": 5,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "shared-components",
+      "label": "Shared components",
+      "description": "Reusable UI components provide navigation, access control, site framing and chat presentation.",
+      "items": [
+        {
+          "name": "src/components",
+          "summary": "Contains shared interface components used across pages.",
+          "keyFields": [
+            "authentication",
+            "user/customer display"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/components/ChatRoom",
+          "summary": "Renders the conversation message list and message-entry form, grouping messages by time.",
+          "keyFields": [
+            "messages",
+            "content",
+            "onSubmit"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "registration",
+      "label": "Registration",
+      "description": "Registration screens collect customer profile details required to complete account signup.",
+      "items": [
+        {
+          "name": "src/pages/CompleteRegistration",
+          "summary": "Provides the post-signup customer profile completion flow.",
+          "keyFields": [
+            "firstname",
+            "lastname",
+            "streetAddress",
+            "postalCode",
+            "city",
+            "phoneNumber",
+            "birthday"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "customer-contact",
+      "label": "Customer contact",
+      "description": "Contact pages let a signed-in customer review interactions and converse with customer service.",
+      "items": [
+        {
+          "name": "src/pages/Contact",
+          "summary": "Displays the customer contact/chat interface and interaction history.",
+          "keyFields": [
+            "interactionLog",
+            "messages",
+            "content"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "policies-and-quotes",
+      "label": "Policies and quotes",
+      "description": "Policy pages display existing insurance policies and let customers request and respond to insurance quotes.",
+      "items": [
+        {
+          "name": "src/pages/MyPolicies",
+          "summary": "Shows the customer’s policies and insurance quote request overview and details.",
+          "keyFields": [
+            "policies",
+            "policyId",
+            "insuranceQuoteRequests"
+          ],
+          "facts": {
+            "files": 5,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/pages/MyPolicies/RequestInsuranceQuote",
+          "summary": "Guides a customer through a multi-step insurance quote request, including contact and billing addresses.",
+          "keyFields": [
+            "contactAddressStreetAddress",
+            "contactAddressPostalCode",
+            "contactAddressCity",
+            "billingAddressStreetAddress",
+            "billingAddressPostalCode",
+            "billingAddressCity"
+          ],
+          "facts": {
+            "files": 4,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "customer-profile",
+      "label": "Customer profile",
+      "description": "Profile screens display customer details and support updating the registered address.",
+      "items": [
+        {
+          "name": "src/pages/MyProfile",
+          "summary": "Displays the customer profile and provides an address-change form.",
+          "keyFields": [
+            "firstname",
+            "lastname",
+            "streetAddress",
+            "postalCode",
+            "city",
+            "email",
+            "phoneNumber"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "uncovered",
+      "label": "Other pages",
+      "description": "Remaining application pages do not fall within the listed functional page areas.",
+      "items": [
+        {
+          "name": "src/pages",
+          "summary": "Contains the frontend page modules, including home, login, signup and the feature-specific page groups.",
+          "keyFields": [
+            "route paths",
+            "page forms"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

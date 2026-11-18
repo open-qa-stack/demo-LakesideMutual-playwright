@@ -1,0 +1,30 @@
+{
+  "required": [
+    "policyType"
+  ],
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "type": "string"
+    },
+    "policyPeriod": {
+      "$ref": "#/components/schemas/PolicyPeriodDto"
+    },
+    "policyType": {
+      "type": "string"
+    },
+    "deductible": {
+      "$ref": "#/components/schemas/MoneyAmountDto"
+    },
+    "policyLimit": {
+      "$ref": "#/components/schemas/MoneyAmountDto"
+    },
+    "insurancePremium": {
+      "$ref": "#/components/schemas/MoneyAmountDto"
+    },
+    "insuringAgreement": {
+      "$ref": "#/components/schemas/InsuringAgreementDto"
+    }
+  },
+  "description": "the policy that is to be added"
+}

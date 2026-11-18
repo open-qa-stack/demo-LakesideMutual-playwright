@@ -1,0 +1,273 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-core-code",
+    "type": "source-code"
+  },
+  "fingerprint": "sha256:927df75c8c034ed128d1cd66c19f140bc31618d216957ccdda997640b2a97a0e",
+  "producedAt": "2026-11-18T18:49:29.689Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 6,
+    "actions": 0,
+    "durationMs": 21412
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "application",
+      "label": "Services applicatifs",
+      "description": "Orchestre les opérations de création, mise à jour, recherche et pagination des clients.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore",
+          "summary": "Point d’entrée Spring Boot qui démarre l’application Customer Core.",
+          "keyFields": [
+            "CustomerCoreApplication"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/application",
+          "summary": "Contient le service client, le chargement de données et le modèle de page des opérations applicatives.",
+          "keyFields": [
+            "filter",
+            "limit",
+            "offset"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "cities",
+      "label": "Villes et codes postaux",
+      "description": "Fournit les villes référencées à partir d’un code postal.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/domain/city",
+          "summary": "Recherche les noms de villes correspondant à un code postal.",
+          "keyFields": [
+            "postalCode"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/interfaces/dtos/city",
+          "summary": "Définit la réponse de référence contenant la liste des villes.",
+          "keyFields": [
+            "cities"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "label": "Clients",
+      "description": "Modélise et expose les clients, leurs coordonnées, leurs adresses et leur persistance.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/domain/customer",
+          "summary": "Porte l’agrégat client, son profil, son identifiant, son adresse et les règles de création/mise à jour.",
+          "keyFields": [
+            "customerId",
+            "firstname",
+            "lastname",
+            "birthday",
+            "currentAddress",
+            "moveHistory",
+            "email",
+            "phoneNumber"
+          ],
+          "facts": {
+            "files": 5,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/infrastructure",
+          "summary": "Fournit le dépôt de persistance des agrégats client.",
+          "keyFields": [
+            "customerId"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/interfaces",
+          "summary": "Expose les endpoints de consultation, création et mise à jour des clients, ainsi que la gestion des erreurs.",
+          "keyFields": [
+            "ids",
+            "customerId",
+            "filter",
+            "limit",
+            "offset",
+            "includedFields",
+            "profile",
+            "address"
+          ],
+          "facts": {
+            "files": 4,
+            "routes": [
+              "@RequestMapping(\"/cities\")",
+              "@GetMapping(value = \"/{postalCode}\")",
+              "@RequestMapping(\"/customers\")",
+              "@GetMapping",
+              "@GetMapping(value = \"/{ids}\")",
+              "@PutMapping(value = \"/{customerId}\")",
+              "@PutMapping(value = \"/{customerId}/address\")",
+              "@PostMapping",
+              "@Controller",
+              "@RequestMapping(value = \"/error\", produces = MediaType.APPLICATION_JSON_VALUE)",
+              "@RequestMapping(path = \"getCustomers\")",
+              "@GetMapping(value = \"/{ids}\")"
+            ]
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/interfaces/converters",
+          "summary": "Convertit les chaînes entrantes en identifiants de client.",
+          "keyFields": [
+            "customerId"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/interfaces/dtos/customer",
+          "summary": "Contient les DTO de requête et réponse client, dont les données de profil, l’adresse et l’historique des déménagements.",
+          "keyFields": [
+            "firstname",
+            "lastname",
+            "birthday",
+            "streetAddress",
+            "postalCode",
+            "city",
+            "email",
+            "phoneNumber",
+            "moveHistory"
+          ],
+          "facts": {
+            "files": 6,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/interfaces/validation",
+          "summary": "Valide le format des numéros de téléphone des données client.",
+          "keyFields": [
+            "phoneNumber"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/test/java/com/lakesidemutual/customercore/tests/domain/customer",
+          "summary": "Teste l’agrégat client et sa fabrique.",
+          "keyFields": [
+            "customerProfile",
+            "address",
+            "phoneNumber"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/test/java/com/lakesidemutual/customercore/tests/interfaces",
+          "summary": "Teste les endpoints de création et de consultation des clients.",
+          "keyFields": [
+            "customer",
+            "ids",
+            "response"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": [
+              "post(\"/customers\")",
+              "get(\"/customers\")",
+              "get(\"/customers\")"
+            ]
+          }
+        },
+        {
+          "name": "src/test/java/com/lakesidemutual/customercore/tests/interfaces/dtos/customer",
+          "summary": "Teste la conversion et le comportement du DTO d’adresse.",
+          "keyFields": [
+            "streetAddress",
+            "postalCode",
+            "city"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "configuration",
+      "label": "Configuration HTTP et sécurité",
+      "description": "Configure les filtres, la sécurité et les services web de l’interface.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customercore/interfaces/configuration",
+          "summary": "Regroupe les configurations de sécurité, authentification par clé API, journalisation, Swagger et services web.",
+          "keyFields": [
+            "API key",
+            "security",
+            "request logging"
+          ],
+          "facts": {
+            "files": 7,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "tests",
+      "label": "Tests transverses",
+      "description": "Regroupe les tests utilitaires et d’architecture de l’application.",
+      "items": [
+        {
+          "name": "src/test/java/com/lakesidemutual/customercore/tests",
+          "summary": "Contient les tests d’architecture et les utilitaires de test partagés.",
+          "keyFields": [
+            "architecture",
+            "test utilities"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

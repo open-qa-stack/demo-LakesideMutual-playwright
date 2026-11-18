@@ -1,0 +1,43 @@
+{
+  "tags": [
+    "customer-information-holder"
+  ],
+  "summary": "Get a customer's policies.",
+  "operationId": "getPolicies_1",
+  "parameters": [
+    {
+      "name": "customerIdDto",
+      "in": "path",
+      "description": "the customer's unique id",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "expand",
+      "in": "query",
+      "description": "a comma-separated list of the fields that should be expanded in the response",
+      "required": false,
+      "schema": {
+        "type": "string",
+        "default": ""
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PolicyDto"
+            }
+          }
+        }
+      }
+    }
+  }
+}

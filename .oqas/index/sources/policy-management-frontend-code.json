@@ -1,0 +1,75 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "policy-management-frontend-code",
+    "type": "source-code"
+  },
+  "fingerprint": "sha256:b44a85170350fa419bc434b3e83b3ab3bc82e5a26fe8d22369991a3288562dfb",
+  "producedAt": "2026-11-18T18:48:36.258Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 4,
+    "actions": 0,
+    "durationMs": 7128
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "application-shell",
+      "label": "Application shell",
+      "description": "Provides the shared frontend shell and supporting application bootstrap and configuration.",
+      "items": [
+        {
+          "name": ".",
+          "summary": "Contains project-level setup and documentation for the Vue policy-management frontend and its launch/runtime configuration.",
+          "keyFields": [
+            "npm start",
+            "npm build",
+            "VUE_APP backend variables"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        },
+        {
+          "name": "src",
+          "summary": "Contains the app shell, frontend API utilities, and shared application code for managing policies and related customer and quote-request workflows.",
+          "keyFields": [
+            "policyManagementBackend",
+            "publicPath"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "label": "Navigation",
+      "description": "Defines URL-based navigation to policy, quote-request, customer, and policy-editing screens.",
+      "items": [
+        {
+          "name": "src/router",
+          "summary": "Maps application paths to the policies, policy detail, insurance quote requests, customers, and create/edit policy views.",
+          "keyFields": [
+            "/policies/:policyid",
+            "/insurance-quote-requests/:requestid",
+            "/customers/:customerid"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

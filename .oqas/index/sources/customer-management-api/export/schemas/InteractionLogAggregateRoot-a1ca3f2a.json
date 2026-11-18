@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "lastAcknowledgedInteractionId": {
+      "type": "string"
+    },
+    "interactions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/InteractionEntity"
+      }
+    },
+    "numberOfUnacknowledgedInteractions": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

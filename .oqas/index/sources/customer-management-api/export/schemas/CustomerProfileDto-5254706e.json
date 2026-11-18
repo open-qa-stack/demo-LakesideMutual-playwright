@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "moveHistory": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AddressDto"
+      }
+    }
+  },
+  "description": "the customer's updated profile"
+}

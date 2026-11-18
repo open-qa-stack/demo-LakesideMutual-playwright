@@ -1,0 +1,73 @@
+- generic [ref=f3e3]:
+  - link "Customer Self-Service Lakeside Mutual" [ref=f3e4] [cursor=pointer]: → page.getByRole("link", { name: "Customer Self-Service Lakeside Mutual", exact: true })
+    - /url: /
+    - generic [ref=f3e7]:
+      - generic [ref=f3e8]: Customer Self-Service
+      - generic [ref=f3e9]: Lakeside Mutual
+  - generic [ref=f3e12]:
+    - link "My Policies" [ref=f3e13] [cursor=pointer]: → page.getByRole("link", { name: "My Policies", exact: true })
+      - /url: /policies
+      - generic [aria-hidden] [ref=f3e14]: 
+      - text: My Policies
+    - link "My Profile" [ref=f3e15] [cursor=pointer]: → page.getByRole("link", { name: "My Profile", exact: true })
+      - /url: /profile
+      - generic [aria-hidden] [ref=f3e16]: 
+      - text: My Profile
+    - link "Contact Us" [ref=f3e17] [cursor=pointer]: → page.getByRole("link", { name: "Contact Us", exact: true })
+      - /url: /contact
+      - generic [aria-hidden] [ref=f3e18]: 
+      - text: Contact Us
+    - generic [ref=f3e20]:
+      - generic [aria-hidden] [ref=f3e21]: 
+      - text: Logout
+  - generic [ref=f3e22]:
+    - generic [ref=f3e23]:
+      - link "Insurance Quote Requests" [ref=f3e25] [cursor=pointer]: → page.getByRole("link", { name: "Insurance Quote Requests", exact: true })
+        - /url: /
+      - generic [aria-hidden] [ref=f3e26]: 
+      - generic [ref=f3e27]: New Insurance Quote Request
+    - generic [ref=f3e28]:
+      - generic [ref=f3e29] [cursor=pointer]: → no locator by role, label, test id or text
+        - generic [aria-hidden] [ref=f3e30]: 
+        - generic [ref=f3e31]:
+          - generic [ref=f3e32]: Personal Data
+          - generic [ref=f3e33]: Enter your personal details
+      - generic [ref=f3e34] [cursor=pointer]: → no locator by role, label, test id or text
+        - generic [aria-hidden] [ref=f3e35]: 
+        - generic [ref=f3e36]:
+          - generic [ref=f3e37]: Insurance
+          - generic [ref=f3e38]: Configure the insurance
+      - generic [ref=f3e39]:
+        - generic [aria-hidden] [ref=f3e40]: 
+        - generic [ref=f3e41]:
+          - generic [ref=f3e42]: Confirm Request
+          - generic [ref=f3e43]: Send the insurance quote request
+    - heading "Personal Data" [level=3] [ref=f3e101]
+    - table [ref=f3e102]:
+      - rowgroup [ref=f3e103]:
+        - row [ref=f3e104]:
+          - columnheader "Contact Address" [ref=f3e105]
+          - columnheader "Billing Address" [ref=f3e106]
+      - rowgroup [ref=f3e107]:
+        - row [ref=f3e108]:
+          - cell "Oberseestrasse 11 8640 Rapperswil" [ref=f3e109]: Oberseestrasse 118640 Rapperswil
+          - cell "Oberseestrasse 11 8640 Rapperswil" [ref=f3e110]: Oberseestrasse 118640 Rapperswil
+    - heading "Insurance" [level=3] [ref=f3e111]
+    - table [ref=f3e112]:
+      - rowgroup [ref=f3e113]:
+        - row [ref=f3e114]:
+          - cell "Start Date" [ref=f3e115]
+          - cell "18.11.2026" [ref=f3e116]
+        - row [ref=f3e117]:
+          - cell "Insurance Type" [ref=f3e118]
+          - cell "Home Insurance" [ref=f3e119]
+        - row [ref=f3e120]:
+          - cell "Deductible" [ref=f3e121]
+          - cell "300 CHF" [ref=f3e122]
+    - button "Previous" [ref=f3e123] [cursor=pointer]: → page.getByRole("button", { name: "Previous", exact: true })
+      - generic [aria-hidden] [ref=f3e124]: 
+      - text: Previous
+    - button "Request a Quote" [ref=f3e125] [cursor=pointer] → page.getByRole("button", { name: "Request a Quote", exact: true })
+  - generic [ref=f3e65]:
+    - generic [ref=f3e66]: Environment Variable Debug Information
+    - paragraph [ref=f3e67]: "REACT_APP_CUSTOMER_SELF_SERVICE_BACKEND: http://localhost:8080REACT_APP_POLICY_MANAGEMENT_BACKEND: http://localhost:8090REACT_APP_CUSTOMER_MANAGEMENT_BACKEND: http://localhost:8100"

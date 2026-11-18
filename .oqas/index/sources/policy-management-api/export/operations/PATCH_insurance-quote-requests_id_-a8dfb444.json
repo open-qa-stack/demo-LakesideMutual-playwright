@@ -1,0 +1,41 @@
+{
+  "tags": [
+    "insurance-quote-request-processing-resource"
+  ],
+  "summary": "Updates the status of an existing Insurance Quote Request",
+  "operationId": "respondToInsuranceQuoteRequest",
+  "parameters": [
+    {
+      "name": "id",
+      "in": "path",
+      "description": "the insurance quote request's unique id",
+      "required": true,
+      "schema": {
+        "type": "integer",
+        "format": "int64"
+      }
+    }
+  ],
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/InsuranceQuoteResponseDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/InsuranceQuoteRequestDto"
+          }
+        }
+      }
+    }
+  }
+}

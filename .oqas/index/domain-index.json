@@ -1,71 +1,174 @@
 {
   "formatVersion": 1,
-  "producedAt": "2026-11-13T08:27:36.516Z",
+  "producedAt": "2026-11-18T18:55:06.515Z",
   "environment": "local",
   "model": {
     "provider": "openai",
-    "baseUrl": "http://localhost:1234/v1",
-    "model": "qwen/qwen3-coder-30b"
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
   },
   "run": {
-    "iterations": 81,
-    "actions": 5,
-    "durationMs": 2813314
+    "iterations": 168,
+    "actions": 49,
+    "durationMs": 562887
   },
   "status": "complete",
   "sources": [
     {
       "id": "policy-management-api",
       "type": "openapi",
-      "state": "read"
+      "state": "read",
+      "cardFingerprint": "sha256:cdce4e3e4944fa1b7fc7dc7c17ace1232a2e8f1ce39d000acd8600fb649e08c9"
     },
     {
       "id": "policy-management-db",
       "type": "postgresql",
-      "state": "read"
+      "state": "read",
+      "cardFingerprint": "sha256:dc14c87f06d9f977185fde2dc97bbeb5df549b34db8129fc31013b2b9e347fdc"
     },
     {
       "id": "policy-management-specs",
       "type": "document",
-      "state": "read"
+      "state": "read",
+      "cardFingerprint": "sha256:5889fc12c3f44e73caec84845168c6397482e12358b39a92e847b168e5ca6687"
     },
     {
       "id": "policy-management-code",
       "type": "source-code",
-      "state": "read"
+      "state": "read",
+      "cardFingerprint": "sha256:33df1e13313e3fc0c226778449c12e6b68e3c1368287a02119acd8d63132afa4"
+    },
+    {
+      "id": "customer-management-api",
+      "type": "openapi",
+      "state": "read",
+      "cardFingerprint": "sha256:be8c7ee8ba92975473e364598a0d00fd0306f1127465143aac304502318c1699"
+    },
+    {
+      "id": "customer-management-db",
+      "type": "postgresql",
+      "state": "read",
+      "cardFingerprint": "sha256:97b8835c3a511a40eec58cbbfb61191d4bf16e35fd150597b223ce3d6f8faa06"
+    },
+    {
+      "id": "customer-management-code",
+      "type": "source-code",
+      "state": "read",
+      "cardFingerprint": "sha256:b188a2ab1bfbbd0d646022aa0a3563bc449fafda0ba8425edd41c8488bf8681c"
+    },
+    {
+      "id": "customer-management-frontend-code",
+      "type": "source-code",
+      "state": "read",
+      "cardFingerprint": "sha256:30e0462faafaaa305ddc330ed0578afe7d3790d302512921099a39b8f849cc10"
+    },
+    {
+      "id": "policy-management-frontend-code",
+      "type": "source-code",
+      "state": "read",
+      "cardFingerprint": "sha256:c9e30fbdc3779324244e249a378eed78dc06aadebd351b587b045d4cee6fefba"
+    },
+    {
+      "id": "customer-core-api",
+      "type": "openapi",
+      "state": "read",
+      "cardFingerprint": "sha256:d6a041bc8467aae65c042da4a11628a5810560029774f63c4f5a337ab3050089"
+    },
+    {
+      "id": "customer-core-db",
+      "type": "postgresql",
+      "state": "read",
+      "cardFingerprint": "sha256:0b2d322c3d20efc07f69f845ae9f94196e57b912d19b8dd9d7d2bf2d36d6eae3"
+    },
+    {
+      "id": "customer-core-code",
+      "type": "source-code",
+      "state": "read",
+      "cardFingerprint": "sha256:185f7a82e771cb204c685eca695ade9d9b575a0887860e75da8424e078d0be03"
+    },
+    {
+      "id": "customer-self-service-api",
+      "type": "openapi",
+      "state": "read",
+      "cardFingerprint": "sha256:9bf3353f1ebc16c9805d50ea834b865b15b7cffdcd29abe0aaba069e91e55d61"
+    },
+    {
+      "id": "customer-self-service-db",
+      "type": "postgresql",
+      "state": "read",
+      "cardFingerprint": "sha256:6f0e03e55141aaba345457b297116a92e005f26825e9cd2a64ed9612733f8f00"
+    },
+    {
+      "id": "customer-self-service-code",
+      "type": "source-code",
+      "state": "read",
+      "cardFingerprint": "sha256:29694468848cabf57f01fa37d7454dbbcb03780a755d382ea09e1ad76880e5e3"
+    },
+    {
+      "id": "customer-self-service-frontend-code",
+      "type": "source-code",
+      "state": "read",
+      "cardFingerprint": "sha256:ca869f68281624ffcc51d9720ce24a2f91166ed3f1970b50011825c1ec724281"
     },
     {
       "id": "policy-management",
       "type": "web",
-      "state": "read"
+      "state": "read",
+      "cardFingerprint": "sha256:b5d2b373cbf0c6e4df64e5e01f444c6b77e92efd06bab50d4c962e58eb09e3ac"
+    },
+    {
+      "id": "customer-management",
+      "type": "web",
+      "state": "read",
+      "cardFingerprint": "sha256:21df0cf8a78e1d252012e426c775e3e417f2f63a1c9fc87a9c335dead85ef829"
+    },
+    {
+      "id": "customer-self-service",
+      "type": "web",
+      "state": "read",
+      "cardFingerprint": "sha256:ed3c4b449699ea20a0629cc04246273aec48cf8a9421a56c6cea6a74935158e5"
     }
   ],
   "domains": [
     {
       "id": "policies",
-      "label": "Policies",
-      "description": "Management of insurance policies including creation, retrieval, updates, and deletion.",
+      "label": "Polices",
+      "description": "Les équipes gèrent les contrats d’assurance et les clients consultent leurs polices, garanties et périodes de couverture.",
       "references": [
         {
           "source": "policy-management-api",
           "items": [
-            "policy-information-holder"
+            "GET /policies/{policyId}",
+            "PUT /policies/{policyId}",
+            "DELETE /policies/{policyId}",
+            "GET /policies",
+            "POST /policies"
           ]
         },
         {
           "source": "policy-management-db",
           "items": [
-            "public.insurancepolicies"
+            "public.insuranceagreementitems",
+            "public.insurancepolicies",
+            "public.insuringagreements",
+            "public.insuringagreements_agreement_items"
           ]
         },
         {
           "source": "policy-management-specs",
           "items": [
-            "5. Use cases",
-            "6. Functional requirements",
-            "7. Business rules",
-            "8. Screens",
-            "9. Data handled"
+            "policy-management-frontend.md § PMF-UC-01 — Browse all policies",
+            "policy-management-frontend.md § PMF-UC-02 — View a policy",
+            "policy-management-frontend.md § PMF-UC-03 — Delete a policy",
+            "policy-management-frontend.md § PMF-UC-06 — Create a policy",
+            "policy-management-frontend.md § PMF-UC-07 — Edit a policy",
+            "policy-management-frontend.md § PMF-SCR-01 — Policies (`/`)",
+            "policy-management-frontend.md § PMF-SCR-02 — Policy detail (`/policies/:policyid`)",
+            "policy-management-frontend.md § PMF-SCR-07 — Edit policy (`/customers/:customerid/policies/:policyid/edit`)",
+            "policy-management-frontend.md § PMF-SCR-08 — New policy (`/customers/:customerid/policies/new`)",
+            "policy-management-frontend.md § 6. Functional requirements",
+            "policy-management-frontend.md § 7. Business rules",
+            "policy-management-frontend.md § 10. Acceptance criteria"
           ]
         },
         {
@@ -74,69 +177,66 @@
             "src/main/java/com/lakesidemutual/policymanagement/domain/policy",
             "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/policy"
           ]
-        }
-      ]
-    },
-    {
-      "id": "customers",
-      "label": "Customers",
-      "description": "Management of customer information and related data.",
-      "references": [
+        },
         {
-          "source": "policy-management-api",
+          "source": "policy-management",
           "items": [
-            "customer-information-holder"
+            "/"
           ]
         },
         {
-          "source": "policy-management-db",
+          "source": "policy-management-frontend-code",
           "items": [
-            "public.customerinfos"
+            "src/router",
+            ".",
+            "src"
           ]
         },
         {
-          "source": "policy-management-specs",
+          "source": "customer-self-service-frontend-code",
           "items": [
-            "5. Use cases",
-            "6. Functional requirements",
-            "7. Business rules",
-            "8. Screens",
-            "9. Data handled"
+            "src/pages/MyPolicies"
           ]
         },
         {
-          "source": "policy-management-code",
+          "source": "customer-self-service",
           "items": [
-            "src/main/java/com/lakesidemutual/policymanagement/domain/customer",
-            "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/customer"
+            "/policies"
           ]
         }
       ]
     },
     {
-      "id": "quote-requests",
-      "label": "Quote Requests",
-      "description": "Processing of insurance quote requests and their status updates.",
+      "id": "insurance-quotes",
+      "label": "Demandes de devis",
+      "description": "Les clients soumettent et suivent des demandes de devis d’assurance, que le personnel examine et traite par une offre ou un rejet.",
       "references": [
         {
           "source": "policy-management-api",
           "items": [
-            "insurance-quote-request-processing-resource"
+            "GET /insurance-quote-requests/{id}",
+            "PATCH /insurance-quote-requests/{id}",
+            "GET /insurance-quote-requests"
           ]
         },
         {
           "source": "policy-management-db",
           "items": [
-            "public.insurancequoterequests"
+            "public.insuranceoptions",
+            "public.insurancequoterequests",
+            "public.insurancequoterequests_status_history",
+            "public.insurancequotes",
+            "public.requeststatuschanges"
           ]
         },
         {
           "source": "policy-management-specs",
           "items": [
-            "5. Use cases",
-            "6. Functional requirements",
-            "7. Business rules",
-            "8. Screens"
+            "policy-management-frontend.md § PMF-UC-08 — Review insurance quote requests",
+            "policy-management-frontend.md § PMF-UC-09 — Follow the history of a quote request",
+            "policy-management-frontend.md § PMF-UC-10 — Respond to a quote request",
+            "policy-management-frontend.md § PMF-SCR-03 — Insurance quote requests (`/insurance-quote-requests`)",
+            "policy-management-frontend.md § PMF-SCR-04 — Insurance quote request detail (`/insurance-quote-requests/:requestid`)"
           ]
         },
         {
@@ -145,79 +245,434 @@
             "src/main/java/com/lakesidemutual/policymanagement/domain/insurancequoterequest",
             "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/insurancequoterequest"
           ]
+        },
+        {
+          "source": "policy-management",
+          "items": [
+            "/insurance-quote-requests"
+          ]
+        },
+        {
+          "source": "customer-self-service-api",
+          "items": [
+            "GET /insurance-quote-requests",
+            "POST /insurance-quote-requests",
+            "PATCH /insurance-quote-requests/{id}",
+            "GET /insurance-quote-requests/{insuranceQuoteRequestId}",
+            "GET /customers/{customerId}/insurance-quote-requests"
+          ]
+        },
+        {
+          "source": "customer-self-service-db",
+          "items": [
+            "public.insuranceoptions",
+            "public.insurancequoterequests",
+            "public.insurancequoterequests_status_history",
+            "public.insurancequotes",
+            "public.requeststatuschanges"
+          ]
+        },
+        {
+          "source": "customer-self-service-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customerselfservice/domain/insurancequoterequest",
+            "src/main/java/com/lakesidemutual/customerselfservice/interfaces/dtos/insurancequoterequest"
+          ]
+        },
+        {
+          "source": "customer-self-service-frontend-code",
+          "items": [
+            "src/pages/MyPolicies/RequestInsuranceQuote"
+          ]
+        },
+        {
+          "source": "customer-self-service",
+          "items": [
+            "/policies/new-insurance-quote-request",
+            "/policies/insurance-quote-requests/:id"
+          ]
         }
       ]
     },
     {
-      "id": "risk-assessment",
-      "label": "Risk Assessment",
-      "description": "Computation and management of risk factors for customers.",
+      "id": "customers",
+      "label": "Clients",
+      "description": "Les systèmes administrent les profils clients, leurs coordonnées et leurs associations avec les polices et les devis.",
       "references": [
         {
           "source": "policy-management-api",
           "items": [
-            "risk-computation-service"
+            "GET /customers",
+            "GET /customers/{customerIdDto}",
+            "GET /customers/{customerIdDto}/policies"
+          ]
+        },
+        {
+          "source": "policy-management-db",
+          "items": [
+            "public.addresses",
+            "public.customerinfos"
+          ]
+        },
+        {
+          "source": "policy-management-specs",
+          "items": [
+            "policy-management-frontend.md § PMF-UC-04 — Search customers",
+            "policy-management-frontend.md § PMF-UC-05 — View a customer, the risk factor and the customer's policies",
+            "policy-management-frontend.md § PMF-UC-11 — Open the customer in Customer Management",
+            "policy-management-frontend.md § PMF-SCR-05 — Customers (`/customers`)",
+            "policy-management-frontend.md § PMF-SCR-06 — Customer detail (`/customers/:customerid`)"
           ]
         },
         {
           "source": "policy-management-code",
           "items": [
+            "src/main/java/com/lakesidemutual/policymanagement/domain/customer",
+            "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/customer",
             "src/main/java/com/lakesidemutual/policymanagement/interfaces/dtos/risk"
           ]
-        }
-      ]
-    },
-    {
-      "id": "agreements",
-      "label": "Agreements",
-      "description": "Management of insurance agreements and their items.",
-      "references": [
+        },
         {
-          "source": "policy-management-db",
+          "source": "policy-management",
           "items": [
-            "public.insuringagreements",
-            "public.insuranceagreementitems",
-            "public.insuringagreements_agreement_items"
+            "/customers"
+          ]
+        },
+        {
+          "source": "customer-management-api",
+          "items": [
+            "GET /customers/{customerId}",
+            "PUT /customers/{customerId}",
+            "GET /customers",
+            "GET /error",
+            "PUT /error",
+            "POST /error",
+            "DELETE /error",
+            "OPTIONS /error",
+            "HEAD /error",
+            "PATCH /error"
+          ]
+        },
+        {
+          "source": "customer-management-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customermanagement/domain/customer",
+            "src/main/java/com/lakesidemutual/customermanagement/infrastructure",
+            "src/main/java/com/lakesidemutual/customermanagement/interfaces",
+            "src/main/java/com/lakesidemutual/customermanagement/interfaces/dtos"
+          ]
+        },
+        {
+          "source": "customer-management-frontend-code",
+          "items": [
+            "src/pages/CustomerDetail",
+            "src/pages/EditCustomer",
+            "src/pages/Home",
+            "src/pages/NewCustomer",
+            "src",
+            "src/redux"
+          ]
+        },
+        {
+          "source": "customer-core-api",
+          "items": [
+            "PUT /customers/{customerId}",
+            "PUT /customers/{customerId}/address",
+            "GET /customers",
+            "POST /customers",
+            "GET /getCustomers/{ids}",
+            "GET /customers/{ids}"
+          ]
+        },
+        {
+          "source": "customer-core-db",
+          "items": [
+            "public.addresses",
+            "public.customer_profile_entity",
+            "public.customer_profile_entity_move_history",
+            "public.customers"
+          ]
+        },
+        {
+          "source": "customer-core-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customercore",
+            "src/main/java/com/lakesidemutual/customercore/application",
+            "src/main/java/com/lakesidemutual/customercore/domain/customer",
+            "src/main/java/com/lakesidemutual/customercore/infrastructure",
+            "src/main/java/com/lakesidemutual/customercore/interfaces",
+            "src/main/java/com/lakesidemutual/customercore/interfaces/converters",
+            "src/main/java/com/lakesidemutual/customercore/interfaces/dtos/customer",
+            "src/main/java/com/lakesidemutual/customercore/interfaces/validation",
+            "src/test/java/com/lakesidemutual/customercore/tests/domain/customer",
+            "src/test/java/com/lakesidemutual/customercore/tests/interfaces",
+            "src/test/java/com/lakesidemutual/customercore/tests/interfaces/dtos/customer"
+          ]
+        },
+        {
+          "source": "customer-self-service-api",
+          "items": [
+            "PUT /customers/{customerId}/address",
+            "POST /customers",
+            "GET /customers/{customerId}"
+          ]
+        },
+        {
+          "source": "customer-self-service-db",
+          "items": [
+            "public.addresses",
+            "public.customerinfos",
+            "public.user_logins"
+          ]
+        },
+        {
+          "source": "customer-self-service-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customerselfservice/domain/customer",
+            "src/main/java/com/lakesidemutual/customerselfservice/interfaces/dtos/customer",
+            "src/main/java/com/lakesidemutual/customerselfservice/interfaces/dtos/city"
+          ]
+        },
+        {
+          "source": "customer-self-service-frontend-code",
+          "items": [
+            "src/pages/MyProfile",
+            "src/pages/CompleteRegistration"
+          ]
+        },
+        {
+          "source": "customer-self-service",
+          "items": [
+            "/profile",
+            "/profile/change-address",
+            "/signup"
+          ]
+        },
+        {
+          "source": "customer-management",
+          "items": [
+            "/",
+            "/customers/new",
+            "/customers/:id",
+            "/customers/:id/edit_profile"
           ]
         }
       ]
     },
     {
-      "id": "options",
-      "label": "Options",
-      "description": "Management of insurance policy options and configurations.",
+      "id": "customer-interactions",
+      "label": "Interactions client",
+      "description": "Les clients et les équipes de service échangent des messages dont l’historique, l’acquittement et les notifications sont suivis.",
       "references": [
         {
-          "source": "policy-management-db",
+          "source": "customer-management-api",
           "items": [
-            "public.insuranceoptions"
+            "GET /interaction-logs/{customerId}",
+            "PATCH /interaction-logs/{customerId}",
+            "GET /notifications"
+          ]
+        },
+        {
+          "source": "customer-management-db",
+          "items": [
+            "public.interactionlogs",
+            "public.interactionlogs_interactions",
+            "public.interactions"
+          ]
+        },
+        {
+          "source": "customer-management-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customermanagement/domain/interactionlog"
+          ]
+        },
+        {
+          "source": "customer-management-frontend-code",
+          "items": [
+            "src/components",
+            "src/components/ChatRoom",
+            "src/redux-rest-easy"
+          ]
+        },
+        {
+          "source": "customer-self-service-frontend-code",
+          "items": [
+            "src/pages/Contact",
+            "src/components/ChatRoom"
+          ]
+        },
+        {
+          "source": "customer-self-service",
+          "items": [
+            "/contact"
           ]
         }
       ]
     },
     {
-      "id": "testing",
-      "label": "Testing",
-      "description": "Contains acceptance criteria and traceability for testing the policy management frontend.",
+      "id": "authentication",
+      "label": "Authentification",
+      "description": "Les clients créent un compte et s’authentifient pour accéder aux fonctions en libre-service.",
+      "references": [
+        {
+          "source": "customer-self-service-api",
+          "items": [
+            "POST /auth",
+            "POST /auth/signup",
+            "GET /user"
+          ]
+        },
+        {
+          "source": "customer-self-service-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customerselfservice/domain/identityaccess",
+            "src/main/java/com/lakesidemutual/customerselfservice/interfaces/dtos/identityaccess",
+            "src/main/java/com/lakesidemutual/customerselfservice/interfaces/configuration"
+          ]
+        },
+        {
+          "source": "customer-self-service",
+          "items": [
+            "/",
+            "/login"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "city-reference-data",
+      "label": "Référentiel des villes",
+      "description": "Les services consultent les villes disponibles à partir d’un code postal pour renseigner les adresses clients.",
+      "references": [
+        {
+          "source": "customer-core-api",
+          "items": [
+            "GET /cities/{postalCode}"
+          ]
+        },
+        {
+          "source": "customer-core-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customercore/domain/city",
+            "src/main/java/com/lakesidemutual/customercore/interfaces/dtos/city"
+          ]
+        },
+        {
+          "source": "customer-self-service-api",
+          "items": [
+            "GET /cities/{postalCode}"
+          ]
+        },
+        {
+          "source": "customer-self-service-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customerselfservice/interfaces",
+            "src/main/java/com/lakesidemutual/customerselfservice/infrastructure",
+            "src/main/java/com/lakesidemutual/customerselfservice/interfaces/converters"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "platform-and-configuration",
+      "label": "Socle applicatif",
+      "description": "Les éléments transverses assurent le démarrage, la configuration, la navigation générale et les fonctions techniques communes.",
       "references": [
         {
           "source": "policy-management-specs",
           "items": [
-            "10. Acceptance criteria",
-            "11. Traceability"
+            "policy-management-frontend.md § 1. Purpose",
+            "policy-management-frontend.md § 2. Scope",
+            "policy-management-frontend.md § 3. Stakeholders and actors",
+            "policy-management-frontend.md § 4. Functional context"
+          ]
+        },
+        {
+          "source": "customer-management-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customermanagement",
+            "src/main/java/com/lakesidemutual/customermanagement/interfaces/configuration",
+            "src/test/java/com/lakesidemutual/customermanagement/tests"
+          ]
+        },
+        {
+          "source": "customer-management-frontend-code",
+          "items": [
+            ".",
+            "flow-typed/npm",
+            "flow-typed/npm/@brigad"
+          ]
+        },
+        {
+          "source": "customer-core-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customercore/interfaces/configuration",
+            "src/test/java/com/lakesidemutual/customercore/tests"
+          ]
+        },
+        {
+          "source": "customer-self-service-code",
+          "items": [
+            "src/main/java/com/lakesidemutual/customerselfservice",
+            "src/main/java/com/lakesidemutual/customerselfservice/application",
+            "src/main/java/com/lakesidemutual/customerselfservice/interfaces/validation",
+            "src/test/java/com/lakesidemutual/customerselfservice/tests",
+            "src/test/java/com/lakesidemutual/customerselfservice/tests/interfaces"
+          ]
+        },
+        {
+          "source": "customer-self-service-frontend-code",
+          "items": [
+            ".",
+            "flow-typed/npm",
+            "src",
+            "src/components",
+            "src/api",
+            "src/pages"
           ]
         }
       ]
     },
     {
-      "id": "open-points",
-      "label": "Open Points",
-      "description": "Documents open points and questions about the policy management frontend.",
+      "id": "error-handling",
+      "label": "Gestion des erreurs",
+      "description": "Les points d’entrée techniques associés à la gestion des erreurs HTTP sont couverts comme fonctions transverses des API.",
       "references": [
         {
-          "source": "policy-management-specs",
+          "source": "customer-core-api",
           "items": [
-            "12. Open points"
+            "GET /error",
+            "PUT /error",
+            "POST /error",
+            "DELETE /error",
+            "OPTIONS /error",
+            "HEAD /error",
+            "PATCH /error"
+          ]
+        },
+        {
+          "source": "customer-self-service-api",
+          "items": [
+            "GET /error",
+            "PUT /error",
+            "POST /error",
+            "DELETE /error",
+            "OPTIONS /error",
+            "HEAD /error",
+            "PATCH /error"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "risk-assessment",
+      "label": "Évaluation du risque",
+      "description": "Le facteur de risque client est calculé à partir des informations nécessaires au profil et peut être consulté dans le parcours de gestion des clients.",
+      "references": [
+        {
+          "source": "policy-management-api",
+          "items": [
+            "POST /riskfactor/compute"
           ]
         }
       ]
@@ -227,16 +682,21 @@
     {
       "source": "policy-management-api",
       "items": [
-        "error-controller"
+        "GET /error",
+        "PUT /error",
+        "POST /error",
+        "DELETE /error",
+        "OPTIONS /error",
+        "HEAD /error",
+        "PATCH /error"
       ]
     },
     {
-      "source": "policy-management-db",
+      "source": "policy-management-specs",
       "items": [
-        "public.addresses",
-        "public.insurancequotes",
-        "public.insurancequoterequests_status_history",
-        "public.requeststatuschanges"
+        "policy-management-frontend.md § 9. Data handled",
+        "policy-management-frontend.md § 11. Traceability",
+        "policy-management-frontend.md § 12. Open points"
       ]
     },
     {
@@ -256,25 +716,9 @@
       ]
     },
     {
-      "source": "policy-management",
+      "source": "customer-management",
       "items": [
-        "/",
-        "/customers",
-        "/insurance-quote-requests"
-      ]
-    },
-    {
-      "source": "policy-management-specs",
-      "items": [
-        "Policy Management Frontend — Functional Specification",
-        "1. Purpose",
-        "2. Scope",
-        "3. Stakeholders and actors",
-        "4. Functional context",
-        "6. Functional requirements",
-        "7. Business rules",
-        "8. Screens",
-        "9. Data handled"
+        "/customers"
       ]
     }
   ]

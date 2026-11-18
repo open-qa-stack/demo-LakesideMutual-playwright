@@ -1,0 +1,13 @@
+screen / — Lakeside Mutual — Customer Management
+
+screen /customers/new — Lakeside Mutual — Customer Management
+  links: /
+
+screen /customers/:id — Lakeside Mutual — Customer Management
+  links: /
+
+screen /customers/:id/edit_profile — Lakeside Mutual — Customer Management
+  links: /, /customers/:id
+
+screen /customers — Lakeside Mutual — Customer Management
+  links: /

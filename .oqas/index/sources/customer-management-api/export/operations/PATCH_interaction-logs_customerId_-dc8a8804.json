@@ -1,0 +1,40 @@
+{
+  "tags": [
+    "interaction-log-information-holder"
+  ],
+  "summary": "Acknowledge all of a given customer's interactions up to the given interaction id.",
+  "operationId": "acknowledgeInteractions",
+  "parameters": [
+    {
+      "name": "customerId",
+      "in": "path",
+      "description": "the customer's unique id",
+      "required": true,
+      "schema": {
+        "$ref": "#/components/schemas/CustomerId"
+      }
+    }
+  ],
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/InteractionAcknowledgementDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/InteractionLogAggregateRoot"
+          }
+        }
+      }
+    }
+  }
+}

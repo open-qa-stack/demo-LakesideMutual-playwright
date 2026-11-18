@@ -281,11 +281,11 @@
   "autonomy": {
     "level": "bounded",
     "task": {
-      "maxIterations": 100,
-      "maxMinutes": 90,
-      "maxActions": 400
+      "maxIterations": 300,
+      "maxMinutes": 120,
+      "maxActions": 1200
     },
-    "guardrailMinutes": 180
+    "guardrailMinutes": 240
   },
   "design": {
     "levels": [

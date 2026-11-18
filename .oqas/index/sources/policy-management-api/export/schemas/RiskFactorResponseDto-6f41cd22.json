@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "riskFactor": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

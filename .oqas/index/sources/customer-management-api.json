@@ -1,0 +1,187 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-management-api",
+    "type": "openapi"
+  },
+  "fingerprint": "sha256:28e686375ba6b204251c38f7efb3501a92695dc080f0edae8f9b4478b77dabbc",
+  "producedAt": "2026-11-18T18:47:49.774Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 7,
+    "actions": 0,
+    "durationMs": 24005
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Consultation, listing and profile management for customers and their associated profile data.",
+      "items": [
+        {
+          "name": "GET /customers/{customerId}",
+          "summary": "Retrieves a customer profile by customer ID.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCustomer",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "PUT /customers/{customerId}",
+          "summary": "Updates the profile of the customer identified by the path parameter.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "updateCustomer",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "GET /customers",
+          "summary": "Lists customers with optional filtering and pagination.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCustomers",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "GET /error",
+          "summary": "Framework error dispatch endpoint exposed by the API.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "PUT /error",
+          "summary": "Framework error dispatch endpoint exposed by the API.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_3",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "POST /error",
+          "summary": "Framework error dispatch endpoint exposed by the API.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_2",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "DELETE /error",
+          "summary": "Framework error dispatch endpoint exposed by the API.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_5",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "OPTIONS /error",
+          "summary": "Framework error dispatch endpoint exposed by the API.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_6",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "HEAD /error",
+          "summary": "Framework error dispatch endpoint exposed by the API.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_1",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "PATCH /error",
+          "summary": "Framework error dispatch endpoint exposed by the API.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_4",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "interaction-logs",
+      "label": "Interaction logs",
+      "description": "Customer interaction histories and acknowledgement of interactions.",
+      "items": [
+        {
+          "name": "GET /interaction-logs/{customerId}",
+          "summary": "Retrieves the interaction log for the specified customer.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getInteractionLog",
+            "tags": [
+              "interaction-log-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "PATCH /interaction-logs/{customerId}",
+          "summary": "Acknowledges the customer's interactions up to the supplied interaction ID.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "acknowledgeInteractions",
+            "tags": [
+              "interaction-log-information-holder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "notifications",
+      "label": "Notifications",
+      "description": "Unacknowledged notification counts associated with customers.",
+      "items": [
+        {
+          "name": "GET /notifications",
+          "summary": "Lists all unacknowledged notifications.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getNotifications",
+            "tags": [
+              "notification-information-holder"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

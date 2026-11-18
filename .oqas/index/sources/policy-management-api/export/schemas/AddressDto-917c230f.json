@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "streetAddress": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    }
+  }
+}

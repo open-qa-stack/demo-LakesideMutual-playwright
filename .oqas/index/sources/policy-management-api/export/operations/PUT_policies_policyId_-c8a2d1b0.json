@@ -1,0 +1,40 @@
+{
+  "tags": [
+    "policy-information-holder"
+  ],
+  "summary": "Update an existing policy.",
+  "operationId": "updatePolicy",
+  "parameters": [
+    {
+      "name": "policyId",
+      "in": "path",
+      "description": "the policy's unique id",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    }
+  ],
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/CreatePolicyRequestDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/PolicyDto"
+          }
+        }
+      }
+    }
+  }
+}

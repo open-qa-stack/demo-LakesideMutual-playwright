@@ -1,0 +1,83 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-management-db",
+    "type": "postgresql"
+  },
+  "fingerprint": "sha256:f5bd6ec227680882c238ab501140884344a4980de00aef44edb5f9101f4a837b",
+  "producedAt": "2026-11-18T18:47:57.410Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 3,
+    "actions": 0,
+    "durationMs": 7604
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customer-interactions",
+      "label": "Interactions client",
+      "description": "Conserve les échanges avec les clients ainsi que leur suivi et leur rattachement aux journaux d’interaction.",
+      "items": [
+        {
+          "name": "public.interactionlogs",
+          "summary": "Journal d’interaction d’un client, avec l’identifiant du dernier échange acquitté et le nom d’utilisateur associé.",
+          "facts": {
+            "kind": "table",
+            "columns": 3,
+            "primaryKey": [
+              "customer_id"
+            ],
+            "foreignKeys": []
+          }
+        },
+        {
+          "name": "public.interactionlogs_interactions",
+          "summary": "Associe les échanges aux journaux d’interaction des clients.",
+          "facts": {
+            "kind": "table",
+            "columns": 2,
+            "primaryKey": [],
+            "foreignKeys": [
+              {
+                "columns": [
+                  "interactions_id"
+                ],
+                "references": "public.interactions",
+                "referencedColumns": [
+                  "id"
+                ]
+              },
+              {
+                "columns": [
+                  "interaction_log_aggregate_root_customer_id"
+                ],
+                "references": "public.interactionlogs",
+                "referencedColumns": [
+                  "customer_id"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "public.interactions",
+          "summary": "Contient les échanges, leur contenu, leur date et indique s’ils ont été envoyés par un opérateur.",
+          "facts": {
+            "kind": "table",
+            "columns": 4,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

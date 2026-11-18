@@ -1,0 +1,20 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T20:16:15.680Z",
+  "environment": "local",
+  "brief": "Teste les parcours qui traversent les applications : une demande de devis faite dans l'espace client, traitée dans Policy Management, puis son effet visible par le client.",
+  "plan": ".oqas/designs/design-20261118T201615Z.plan.md",
+  "branch": "oqas/design-20261118T201615Z",
+  "base": "846a428865cf45fea324112b2412a713708eb225",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 31,
+    "actions": 23,
+    "durationMs": 73031
+  },
+  "tests": []
+}

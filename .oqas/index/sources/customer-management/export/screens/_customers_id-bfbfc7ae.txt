@@ -1,0 +1,162 @@
+- generic [ref=f7e3]:
+  - link "Customer Management Lakeside Mutual" [ref=f7e4] [cursor=pointer]: → page.getByRole("link", { name: "Customer Management Lakeside Mutual", exact: true })
+    - /url: /
+    - generic [ref=f7e7]:
+      - generic [ref=f7e8]: Customer Management
+      - generic [ref=f7e9]: Lakeside Mutual
+  - link "Home" [ref=f7e13] [cursor=pointer]: → page.getByRole("link", { name: "Home", exact: true })
+    - /url: /
+    - generic [aria-hidden] [ref=f7e14]: 
+    - text: Home
+  - generic [ref=f7e15]:
+    - generic [ref=f7e16]:
+      - link "Customers" [ref=f7e17] [cursor=pointer]: → page.getByRole("link", { name: "Customers", exact: true })
+        - /url: /
+      - generic [aria-hidden] [ref=f7e18]: 
+      - generic [ref=f7e19]: Ado Kinnett
+    - button "Open in Policy Management" [ref=f7e20] [cursor=pointer]: → page.getByRole("button", { name: "Open in Policy Management", exact: true })
+      - generic [aria-hidden] [ref=f7e21]: 
+      - text: Open in Policy Management
+    - heading [level=4] [ref=f7e22]:
+      - text: Customer Profile
+      - button "Edit Profile" [ref=f7e23] [cursor=pointer]: → page.getByRole("button", { name: "Edit Profile", exact: true })
+        - generic [aria-hidden] [ref=f7e24]: 
+        - text: Edit Profile
+    - generic [ref=f7e26]:
+      - list [ref=f7e28]:
+        - listitem [ref=f7e29]:
+          - generic [aria-hidden] [ref=f7e30]: 
+          - generic [ref=f7e31]:
+            - generic [ref=f7e32]: Name
+            - generic [ref=f7e33]: Ado Kinnett
+        - listitem [ref=f7e34]:
+          - generic [aria-hidden] [ref=f7e35]: 
+          - generic [ref=f7e36]:
+            - generic [ref=f7e37]: Address
+            - generic [ref=f7e38]: 28 Cross-Application Avenue, 3000 Bern
+        - listitem [ref=f7e39]:
+          - generic [ref=f7e40]:
+            - generic [ref=f7e41] [cursor=pointer]: → page.getByText("Old Addresses", { exact: true })
+              - generic [aria-hidden] [ref=f7e42]: 
+              - text: Old Addresses
+            - list [ref=f7e73]:
+              - listitem [ref=f7e74]: • 2 Autumn Leaf Lane, 6500 Bellinzona
+              - listitem [ref=f7e75]: • 3 Warrior Circle, 9000 St. Gallen
+              - listitem [ref=f7e76]: • 999 Test Avenue, 9000 St. Gallen
+              - listitem [ref=f7e77]: • 123 Test Street, 9000 St. Gallen
+              - listitem [ref=f7e78]: • 456 New Test Street, 9000 St. Gallen
+              - listitem [ref=f7e79]: • 123 Test Street, 9000 St. Gallen
+              - listitem [ref=f7e80]: • 456 New Test Street, 9000 St. Gallen
+              - listitem [ref=f7e81]: • 123 Test Street, 9000 St. Gallen
+              - listitem [ref=f7e82]: • 456 New Test Street, 9000 St. Gallen
+              - listitem [ref=f7e83]: • 123 Test Street, 9000 St. Gallen
+              - listitem [ref=f7e84]: • 42 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e85]: • 99 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e86]: • 42 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e87]: • 99 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e88]: • 42 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e89]: • 99 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e90]: • 42 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e91]: • 99 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e92]: • 42 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e93]: • 17 Maple Avenue, 3000 Bern
+              - listitem [ref=f7e94]: • 42 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e95]: • 17 Maple Avenue, 3000 Bern
+              - listitem [ref=f7e96]: • 42 Cross Test Way, 9000 St. Gallen
+              - listitem [ref=f7e97]: • 17 Maple Avenue, 3000 Bern
+              - listitem [ref=f7e98]: • 19 Maple Avenue, 3000 Bern
+              - listitem [ref=f7e99]: • 17 Maple Avenue, 3000 Bern
+              - listitem [ref=f7e100]: • 28 Harbor Lane, 1000 Lausanne
+              - listitem [ref=f7e101]: • 17 Maple Avenue, 3000 Bern
+              - listitem [ref=f7e102]: • 42 Test Avenue, 3000 Bern
+              - listitem [ref=f7e103]: • 99 QA Cypress Road, 3000 Bern
+              - listitem [ref=f7e104]: • 42 Test Avenue, 3000 Bern
+              - listitem [ref=f7e105]: • 99 QA Cypress Road, 3000 Bern
+              - listitem [ref=f7e106]: • Test Cross-App Lane, 3000 Bern
+              - listitem [ref=f7e107]: • 99 QA Cypress Road, 3000 Bern
+              - listitem [ref=f7e108]: • Test Cross-App Lane, 3000 Bern
+              - listitem [ref=f7e109]: • 99 QA Cypress Road, 3000 Bern
+              - listitem [ref=f7e110]: • Test Cross-App Lane, 3000 Bern
+              - listitem [ref=f7e111]: • 99 QA Cypress Road, 3000 Bern
+              - listitem [ref=f7e112]: • Test Cross-App Lane, 3000 Bern
+              - listitem [ref=f7e113]: • 99 QA Cypress Road, 3000 Bern
+              - listitem [ref=f7e114]: • Test Cross-App Lane, 3000 Bern
+              - listitem [ref=f7e115]: • 99 QA Cypress Road, 3000 Bern
+              - listitem [ref=f7e116]: • Test Cross-App Lane, 3000 Bern
+              - listitem [ref=f7e117]: • 99 QA Cypress Road, 3000 Bern
+              - listitem [ref=f7e118]: • Test Cross-App Lane, 3000 Bern
+              - listitem [ref=f7e119]: • 42 Cross-App Way, 3000 Bern
+              - listitem [ref=f7e120]: • Test Cross-App Lane, 3000 Bern
+              - listitem [ref=f7e121]: • 42 Cross-App Way, 3000 Bern
+              - listitem [ref=f7e122]: • Made-up Cross-App Test Road, 3000 Bern
+              - listitem [ref=f7e123]: • 42 Cross-App Way, 3000 Bern
+              - listitem [ref=f7e124]: • Made-up Cross-App Test Road, 3000 Bern
+              - listitem [ref=f7e125]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e126]: • Made-up Cross-App Test Road, 3000 Bern
+              - listitem [ref=f7e127]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e128]: • Made-up Cross-App Test Road, 3000 Bern
+              - listitem [ref=f7e129]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e130]: • Made-up Cross-App Test Road, 3000 Bern
+              - listitem [ref=f7e131]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e132]: • 71 Orchard Lane, 3000 Bern
+              - listitem [ref=f7e133]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e134]: • 742 Alpine Way, 3000 Bern
+              - listitem [ref=f7e135]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e136]: • 742 Alpine Way, 3000 Bern
+              - listitem [ref=f7e137]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e138]: • 742 Alpine Way, 3000 Bern
+              - listitem [ref=f7e139]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e140]: • 742 Alpine Way, 3000 Bern
+              - listitem [ref=f7e141]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e142]: • 742 Alpine Way, 3000 Bern
+              - listitem [ref=f7e143]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e144]: • 731 Test Cross Street, 3000 Bern
+              - listitem [ref=f7e145]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e146]: • 731 Test Cross Street, 3000 Bern
+              - listitem [ref=f7e147]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e148]: • 731 Test Cross Street, 3000 Bern
+              - listitem [ref=f7e149]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e150]: • 731 Test Cross Street, 3000 Bern
+              - listitem [ref=f7e151]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e152]: • 73 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e153]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e154]: • 73 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e155]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e156]: • 73 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e157]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e158]: • 73 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e159]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e160]: • 73 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e161]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e162]: • 73 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e163]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e164]: • 73 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e165]: • 28 Cross-Application Avenue, 3000 Bern
+              - listitem [ref=f7e166]: • Made-up Cross-App Test Road, 3000 Bern
+      - list [ref=f7e44]:
+        - listitem [ref=f7e45]:
+          - generic [aria-hidden] [ref=f7e46]: 
+          - generic [ref=f7e47]:
+            - generic [ref=f7e48]: Date of Birth
+            - generic [ref=f7e49]: June 14th 1975
+        - listitem [ref=f7e50]:
+          - generic [aria-hidden] [ref=f7e51]: 
+          - generic [ref=f7e52]:
+            - generic [ref=f7e53]: Email Address
+            - link "akinnetta@example.com" [ref=f7e55] [cursor=pointer]: → page.getByRole("link", { name: "akinnetta@example.com", exact: true })
+              - /url: mailto:akinnetta@example.com
+        - listitem [ref=f7e56]:
+          - generic [aria-hidden] [ref=f7e57]: 
+          - generic [ref=f7e58]:
+            - generic [ref=f7e59]: Phone Number
+            - generic [ref=f7e60]: 055 222 41 11
+    - heading "Chat" [level=4] [ref=f7e61]
+    - generic [ref=f7e62]:
+      - list [ref=f7e63]:
+        - paragraph [ref=f7e64]: There are no messages yet. Send a message to start a conversation.
+      - generic [ref=f7e66]:
+        - textbox "Enter a Message" [ref=f7e67] → page.getByRole("textbox", { name: "Enter a Message", exact: true })
+        - button "Send" [ref=f7e68] [cursor=pointer] → page.getByRole("button", { name: "Send", exact: true })
+  - generic [ref=f7e69]:
+    - generic [ref=f7e70]: Environment Variable Debug Information
+    - paragraph [ref=f7e71]: "REACT_APP_CUSTOMER_SELF_SERVICE_BACKEND: http://localhost:8080REACT_APP_CUSTOMER_MANAGEMENT_BACKEND: http://localhost:8100REACT_APP_POLICY_MANAGEMENT_FRONTEND: http://localhost:3010"

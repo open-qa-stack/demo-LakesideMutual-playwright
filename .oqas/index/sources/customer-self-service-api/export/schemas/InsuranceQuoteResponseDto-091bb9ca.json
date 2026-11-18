@@ -1,0 +1,22 @@
+{
+  "required": [
+    "status"
+  ],
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "expirationDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "insurancePremium": {
+      "$ref": "#/components/schemas/MoneyAmountDto"
+    },
+    "policyLimit": {
+      "$ref": "#/components/schemas/MoneyAmountDto"
+    }
+  },
+  "description": "the response that contains the customer's decision whether to accept or reject an insurance quote"
+}

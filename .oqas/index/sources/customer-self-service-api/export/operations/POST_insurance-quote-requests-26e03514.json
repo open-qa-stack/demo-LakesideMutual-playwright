@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "insurance-quote-request-coordinator"
+  ],
+  "summary": "Create a new Insurance Quote Request.",
+  "operationId": "createInsuranceQuoteRequest",
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/InsuranceQuoteRequestDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/InsuranceQuoteRequestDto"
+          }
+        }
+      }
+    }
+  }
+}

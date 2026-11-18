@@ -1,0 +1,20 @@
+{
+  "required": [
+    "city",
+    "postalCode",
+    "streetAddress"
+  ],
+  "type": "object",
+  "properties": {
+    "streetAddress": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    }
+  },
+  "description": "the customer's new address"
+}

@@ -1,0 +1,53 @@
+{
+  "tags": [
+    "policy-information-holder"
+  ],
+  "summary": "Get all policies, newest first.",
+  "operationId": "getPolicies",
+  "parameters": [
+    {
+      "name": "limit",
+      "in": "query",
+      "description": "the maximum number of policies per page",
+      "required": false,
+      "schema": {
+        "type": "integer",
+        "format": "int32",
+        "default": 10
+      }
+    },
+    {
+      "name": "offset",
+      "in": "query",
+      "description": "the offset of the page's first policy",
+      "required": false,
+      "schema": {
+        "type": "integer",
+        "format": "int32",
+        "default": 0
+      }
+    },
+    {
+      "name": "expand",
+      "in": "query",
+      "description": "a comma-separated list of the fields that should be expanded in the response",
+      "required": false,
+      "schema": {
+        "type": "string",
+        "default": ""
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/PaginatedPolicyResponseDto"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "tags": [
+    "customer-information-holder"
+  ],
+  "summary": "Get customer with a given customer id.",
+  "operationId": "getCustomer",
+  "parameters": [
+    {
+      "name": "customerId",
+      "in": "path",
+      "description": "the customer's unique id",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/CustomerDto"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T19:03:20.639Z",
+  "environment": "local",
+  "brief": "Teste les quatre applications de Lakeside Mutual : la gestion des clients, la gestion des contrats et des demandes de devis, et l espace client en libre-service, à tous les niveaux.",
+  "plan": ".oqas/designs/design-20261118T190320Z.plan.md",
+  "branch": "oqas/design-20261118T190320Z",
+  "base": "303329ad8056b1a47744636dd5dba8ecf9469dca",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 164,
+    "actions": 153,
+    "durationMs": 494252
+  },
+  "tests": []
+}

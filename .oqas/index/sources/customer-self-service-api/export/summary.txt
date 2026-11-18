@@ -1,0 +1,166 @@
+operation PUT /customers/{customerId}/address — Change a customer's address.
+  id: changeAddress
+  tags: customer-information-holder
+  parameters: customerId (path, required)
+  body: AddressDto
+  responses: 200 AddressDto
+
+operation GET /insurance-quote-requests — Get all Insurance Quote Requests.
+  id: getInsuranceQuoteRequests
+  tags: insurance-quote-request-coordinator
+  responses: 200 InsuranceQuoteRequestDto
+
+operation POST /insurance-quote-requests — Create a new Insurance Quote Request.
+  id: createInsuranceQuoteRequest
+  tags: insurance-quote-request-coordinator
+  body: InsuranceQuoteRequestDto
+  responses: 200 InsuranceQuoteRequestDto
+
+operation POST /customers — Complete the registration of a new customer.
+  id: registerCustomer
+  tags: customer-information-holder
+  body: CustomerRegistrationRequestDto
+  responses: 200 CustomerDto
+
+operation POST /auth — Authenticate a user based on a given email address and password.
+  id: authenticationRequest
+  tags: authentication-controller
+  body: AuthenticationRequestDto
+  responses: 200 AuthenticationResponseDto
+
+operation POST /auth/signup — Create a new user.
+  id: signupUser
+  tags: authentication-controller
+  body: SignupRequestDto
+  responses: 200 UserResponseDto
+
+operation PATCH /insurance-quote-requests/{id} — Updates the status of an existing Insurance Quote Request
+  id: respondToInsuranceQuote
+  tags: insurance-quote-request-coordinator
+  parameters: id (path, required)
+  body: InsuranceQuoteResponseDto
+  responses: 200 InsuranceQuoteRequestDto
+
+operation GET /user — Get the user details for the currently logged-in user.
+  id: getCurrentUser
+  tags: user-information-holder
+  responses: 200 UserResponseDto
+
+operation GET /insurance-quote-requests/{insuranceQuoteRequestId} — Get a specific Insurance Quote Request.
+  id: getInsuranceQuoteRequest
+  tags: insurance-quote-request-coordinator
+  parameters: insuranceQuoteRequestId (path, required)
+  responses: 200 InsuranceQuoteRequestDto
+
+operation GET /customers/{customerId} — Get customer with a given customer id.
+  id: getCustomer
+  tags: customer-information-holder
+  parameters: customerId (path, required)
+  responses: 200 CustomerDto
+
+operation GET /customers/{customerId}/insurance-quote-requests — Get a customer's insurance quote requests.
+  id: getInsuranceQuoteRequests_1
+  tags: customer-information-holder
+  parameters: customerId (path, required)
+  responses: 200 InsuranceQuoteRequestDto
+
+operation GET /cities/{postalCode} — Get the cities for a particular postal code.
+  id: getCitiesForPostalCode
+  tags: city-reference-data-holder
+  parameters: postalCode (path, required)
+  responses: 200 CitiesResponseDto
+
+operation GET /error
+  id: handleError
+  tags: error-controller
+  responses: 200
+
+operation PUT /error
+  id: handleError_3
+  tags: error-controller
+  responses: 200
+
+operation POST /error
+  id: handleError_2
+  tags: error-controller
+  responses: 200
+
+operation DELETE /error
+  id: handleError_5
+  tags: error-controller
+  responses: 200
+
+operation OPTIONS /error
+  id: handleError_6
+  tags: error-controller
+  responses: 200
+
+operation HEAD /error
+  id: handleError_1
+  tags: error-controller
+  responses: 200
+
+operation PATCH /error
+  id: handleError_4
+  tags: error-controller
+  responses: 200
+
+schema AddressDto
+  properties: streetAddress (string), postalCode (string), city (string)
+  required: city, postalCode, streetAddress
+
+schema CustomerInfoDto
+  properties: customerId (string), firstname (string), lastname (string), contactAddress (AddressDto), billingAddress (AddressDto)
+  required: billingAddress, contactAddress, customerId, firstname, lastname
+
+schema InsuranceOptionsDto
+  properties: startDate (string), insuranceType (string), deductible (MoneyAmountDto)
+  required: deductible, insuranceType, startDate
+
+schema InsuranceQuoteDto
+  properties: expirationDate (string), insurancePremium (MoneyAmountDto), policyLimit (MoneyAmountDto)
+  required: expirationDate, insurancePremium, policyLimit
+
+schema InsuranceQuoteRequestDto
+  properties: id (integer), date (string), statusHistory (array of RequestStatusChangeDto), customerInfo (CustomerInfoDto), insuranceOptions (InsuranceOptionsDto), insuranceQuote (InsuranceQuoteDto), policyId (string)
+  required: customerInfo, insuranceOptions
+
+schema MoneyAmountDto
+  properties: amount (number), currency (string)
+  required: amount, currency
+
+schema RequestStatusChangeDto
+  properties: date (string), status (string)
+  required: status
+
+schema CustomerRegistrationRequestDto
+  properties: firstname (string), lastname (string), birthday (string), city (string), streetAddress (string), postalCode (string), phoneNumber (string)
+  required: birthday, city, firstname, lastname, postalCode, streetAddress
+
+schema CustomerDto
+  properties: customerId (string), _links (Links)
+
+schema Links
+
+schema AuthenticationRequestDto
+  properties: email (string), password (string)
+
+schema AuthenticationResponseDto
+  properties: email (string), token (string)
+
+schema SignupRequestDto
+  properties: email (string), password (string)
+  required: email, password
+
+schema UserResponseDto
+  properties: email (string), customerId (string)
+
+schema InsuranceQuoteResponseDto
+  properties: status (string), expirationDate (string), insurancePremium (MoneyAmountDto), policyLimit (MoneyAmountDto)
+  required: status
+
+schema CitiesResponseDto
+  properties: cities (array of string)
+
+schema Link
+  properties: href (string), hreflang (string), title (string), type (string), deprecation (string), profile (string), name (string), templated (boolean)

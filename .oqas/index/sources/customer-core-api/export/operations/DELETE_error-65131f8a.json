@@ -1,0 +1,21 @@
+{
+  "tags": [
+    "error-controller"
+  ],
+  "operationId": "handleError_5",
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}

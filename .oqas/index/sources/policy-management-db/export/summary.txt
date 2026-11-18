@@ -1,0 +1,52 @@
+table public.addresses
+  columns: id bigint not null, city character varying(255), postal_code character varying(255), street_address character varying(255)
+  primary key: id
+
+table public.customerinfos
+  columns: billing_address_id bigint, contact_address_id bigint, id bigint not null, customer_id character varying(255), firstname character varying(255), lastname character varying(255)
+  primary key: id
+  foreign keys: contact_address_id -> public.addresses (id); billing_address_id -> public.addresses (id)
+  constraints: UNIQUE (billing_address_id); UNIQUE (contact_address_id)
+
+table public.insuranceagreementitems
+  columns: id bigint not null, description character varying(255), title character varying(255)
+  primary key: id
+
+table public.insuranceoptions
+  columns: deductible_amount numeric(38,2), deductible_currency character varying(3), id bigint not null, start_date timestamp(6) without time zone, name character varying(255)
+  primary key: id
+
+table public.insurancepolicies
+  columns: deductible_amount numeric(38,2), deductible_currency character varying(3), limit_amount numeric(38,2), limit_currency character varying(3), premium_amount numeric(38,2), premium_currency character varying(3), creation_date timestamp(6) without time zone, end_date timestamp(6) without time zone, insuring_agreement_id bigint, start_date timestamp(6) without time zone, customer_id character varying(255), id character varying(255) not null, name character varying(255)
+  primary key: id
+  foreign keys: insuring_agreement_id -> public.insuringagreements (id)
+  constraints: UNIQUE (insuring_agreement_id)
+
+table public.insurancequoterequests
+  columns: customer_info_id bigint, date timestamp(6) without time zone, id bigint not null, insurance_options_id bigint, insurance_quote_id bigint, policy_id character varying(255)
+  primary key: id
+  foreign keys: insurance_options_id -> public.insuranceoptions (id); insurance_quote_id -> public.insurancequotes (id); customer_info_id -> public.customerinfos (id)
+  constraints: UNIQUE (customer_info_id); UNIQUE (insurance_options_id); UNIQUE (insurance_quote_id)
+
+table public.insurancequoterequests_status_history
+  columns: insurance_quote_request_aggregate_root_id bigint not null, status_history_id bigint not null
+  foreign keys: insurance_quote_request_aggregate_root_id -> public.insurancequoterequests (id); status_history_id -> public.requeststatuschanges (id)
+  constraints: UNIQUE (status_history_id)
+
+table public.insurancequotes
+  columns: insurance_premium_amount numeric(38,2), insurance_premium_currency character varying(3), policy_limit_amount numeric(38,2), policy_limit_currency character varying(3), expiration_date timestamp(6) without time zone, id bigint not null
+  primary key: id
+
+table public.insuringagreements
+  columns: id bigint not null
+  primary key: id
+
+table public.insuringagreements_agreement_items
+  columns: agreement_items_id bigint not null, insuring_agreement_entity_id bigint not null
+  foreign keys: agreement_items_id -> public.insuranceagreementitems (id); insuring_agreement_entity_id -> public.insuringagreements (id)
+  constraints: UNIQUE (agreement_items_id)
+
+table public.requeststatuschanges
+  columns: date timestamp(6) without time zone, id bigint not null, status character varying(255)
+  primary key: id
+  constraints: CHECK (((status)::text = ANY ((ARRAY['REQUEST_SUBMITTED'::character varying, 'REQUEST_REJECTED'::character varying, 'QUOTE_RECEIVED'::character varying, 'QUOTE_ACCEPTED'::character varying, 'QUOTE_REJECTED'::character varying, 'QUOTE_EXPIRED'::character varying, 'POLICY_CREATED'::character varying])::text[])))

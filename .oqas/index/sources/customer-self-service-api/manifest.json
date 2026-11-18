@@ -1,0 +1,343 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-self-service-api",
+    "type": "openapi"
+  },
+  "fingerprint": "sha256:aee959377fbe3abcbc476263173e8c498251b8f5eef17f5b6272f6c417c9e0a9",
+  "producedAt": "2026-11-18T18:50:12.155Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Gère les informations, l’adresse et l’inscription des clients.",
+      "file": "domains/customers.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "insurance-quotes",
+      "label": "Demandes de devis d’assurance",
+      "description": "Gère les demandes de devis d’assurance, leur suivi et les réponses associées.",
+      "file": "domains/insurance-quotes.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "authentication",
+      "label": "Authentification",
+      "description": "Gère l’authentification et la création de comptes utilisateurs.",
+      "file": "domains/authentication.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "users",
+      "label": "Utilisateurs",
+      "description": "Expose les informations du compte utilisateur connecté.",
+      "file": "domains/users.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "city-reference-data",
+      "label": "Référentiel des villes",
+      "description": "Fournit les villes correspondant à un code postal.",
+      "file": "domains/city-reference-data.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "error-handling",
+      "label": "Gestion des erreurs",
+      "description": "Regroupe les points d’entrée techniques qui prennent en charge la gestion des erreurs HTTP.",
+      "file": "domains/error-handling.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "PUT /customers/{customerId}/address",
+      "kind": "operation",
+      "fingerprint": "sha256:fd44b5f2e01de1bdbf075e28e3daa89618f6e546a3e301342110eebd246ef0a2",
+      "file": "export/operations/PUT_customers_customerId_address-f0a61eac.json",
+      "domain": "customers",
+      "role": "Met à jour l’adresse d’un client et renvoie l’adresse enregistrée."
+    },
+    {
+      "name": "GET /insurance-quote-requests",
+      "kind": "operation",
+      "fingerprint": "sha256:1703e9a5e75119b374c25d63cd22f1216f1e09ff1be0fd31734209eaa31a6a26",
+      "file": "export/operations/GET_insurance-quote-requests-160adc02.json",
+      "domain": "insurance-quotes",
+      "role": "Récupère l’ensemble des demandes de devis d’assurance."
+    },
+    {
+      "name": "POST /insurance-quote-requests",
+      "kind": "operation",
+      "fingerprint": "sha256:e896b5c7cb69822a69191794664f7a1e995175ec896bd0e8c3d52b2ea15f2571",
+      "file": "export/operations/POST_insurance-quote-requests-26e03514.json",
+      "domain": "insurance-quotes",
+      "role": "Crée une demande de devis d’assurance."
+    },
+    {
+      "name": "POST /customers",
+      "kind": "operation",
+      "fingerprint": "sha256:a20784aa43777aaa3333f46c70828b87ad25a212723dac02c280e4d364ccb289",
+      "file": "export/operations/POST_customers-c0a6b864.json",
+      "domain": "customers",
+      "role": "Finalise l’inscription d’un nouveau client."
+    },
+    {
+      "name": "POST /auth",
+      "kind": "operation",
+      "fingerprint": "sha256:5ee0bbf957191996f3688ca67fe4689615a871f84068773ff81f162280c11bac",
+      "file": "export/operations/POST_auth-f44ec56e.json",
+      "domain": "authentication",
+      "role": "Authentifie un utilisateur à partir de son adresse e-mail et de son mot de passe."
+    },
+    {
+      "name": "POST /auth/signup",
+      "kind": "operation",
+      "fingerprint": "sha256:2592abd8bd7145168486cddc38ba3f367192de4f14042881d5ee3122954c967b",
+      "file": "export/operations/POST_auth_signup-9d0d86e4.json",
+      "domain": "authentication",
+      "role": "Crée un nouvel utilisateur."
+    },
+    {
+      "name": "PATCH /insurance-quote-requests/{id}",
+      "kind": "operation",
+      "fingerprint": "sha256:6ac224019aad00d6417d28b27a63ce7a3546b5a922785cef4ad4cc463aacb304",
+      "file": "export/operations/PATCH_insurance-quote-requests_id_-a8dfb444.json",
+      "domain": "insurance-quotes",
+      "role": "Met à jour le statut d’une demande de devis d’assurance existante."
+    },
+    {
+      "name": "GET /user",
+      "kind": "operation",
+      "fingerprint": "sha256:250b5af6d03c87380f8ad0be7f192da8e4a0b3bfa31c30116d43b54e3a520425",
+      "file": "export/operations/GET_user-5184b908.json",
+      "domain": "users",
+      "role": "Récupère les informations de l’utilisateur actuellement connecté."
+    },
+    {
+      "name": "GET /insurance-quote-requests/{insuranceQuoteRequestId}",
+      "kind": "operation",
+      "fingerprint": "sha256:2f91cc68e3ac23f1250eaee5af28b8225b6ed397365e397f05242a51b45a923d",
+      "file": "export/operations/GET_insurance-quote-requests_insuranceQuoteRequestId_-17e0ae25.json",
+      "domain": "insurance-quotes",
+      "role": "Récupère une demande de devis d’assurance précise."
+    },
+    {
+      "name": "GET /customers/{customerId}",
+      "kind": "operation",
+      "fingerprint": "sha256:960c979110d09864ba106d649f39ff33acd1655972601e11eac55044cd7a05e1",
+      "file": "export/operations/GET_customers_customerId_-a46a1e7e.json",
+      "domain": "customers",
+      "role": "Récupère un client à partir de son identifiant."
+    },
+    {
+      "name": "GET /customers/{customerId}/insurance-quote-requests",
+      "kind": "operation",
+      "fingerprint": "sha256:ca44d9f905edaef7c0309348d68cda784ad86c005eab0d14523ac03c0789b460",
+      "file": "export/operations/GET_customers_customerId_insurance-quote-requests-26997258.json",
+      "domain": "insurance-quotes",
+      "role": "Récupère les demandes de devis d’assurance associées à un client."
+    },
+    {
+      "name": "GET /cities/{postalCode}",
+      "kind": "operation",
+      "fingerprint": "sha256:1a04ae01bb380d29ddceb31ee8460bb7431f29bb4707667be1bd9bc5a1df02ce",
+      "file": "export/operations/GET_cities_postalCode_-35d57346.json",
+      "domain": "city-reference-data",
+      "role": "Récupère les villes correspondant à un code postal."
+    },
+    {
+      "name": "GET /error",
+      "kind": "operation",
+      "fingerprint": "sha256:23c8194acee2939bd397b739b035fe3f22cc85e4a154adbd0b861d1d4ac98a74",
+      "file": "export/operations/GET_error-0c7ca690.json",
+      "domain": "error-handling",
+      "role": "Traite les erreurs via le point d’entrée générique pour la méthode GET."
+    },
+    {
+      "name": "PUT /error",
+      "kind": "operation",
+      "fingerprint": "sha256:df873e093eccc74718615f187beb29df27562e8a9563b9dbf1a2d85b8d4fb098",
+      "file": "export/operations/PUT_error-01b6a2b9.json",
+      "domain": "error-handling",
+      "role": "Traite les erreurs via le point d’entrée générique pour la méthode PUT."
+    },
+    {
+      "name": "POST /error",
+      "kind": "operation",
+      "fingerprint": "sha256:76d2539188be44c33fa4a878df08c9d394bc7cd0599f13d073a37537bcdb726f",
+      "file": "export/operations/POST_error-373f5580.json",
+      "domain": "error-handling",
+      "role": "Traite les erreurs via le point d’entrée générique pour la méthode POST."
+    },
+    {
+      "name": "DELETE /error",
+      "kind": "operation",
+      "fingerprint": "sha256:006dfc1a42c76b4ded0955d2c5ed8bad9855ba93498679b50dc68024000bd2d1",
+      "file": "export/operations/DELETE_error-65131f8a.json",
+      "domain": "error-handling",
+      "role": "Traite les erreurs via le point d’entrée générique pour la méthode DELETE."
+    },
+    {
+      "name": "OPTIONS /error",
+      "kind": "operation",
+      "fingerprint": "sha256:643de9afcdf7943fd15cf5aa7847bfd06410d014b3102d187876d0f49d9b1e11",
+      "file": "export/operations/OPTIONS_error-91862e1b.json",
+      "domain": "error-handling",
+      "role": "Traite les erreurs via le point d’entrée générique pour la méthode OPTIONS."
+    },
+    {
+      "name": "HEAD /error",
+      "kind": "operation",
+      "fingerprint": "sha256:c8c048610fcb4caba3a31ebae637b28680615ce6831675126aaa55f843e60dd0",
+      "file": "export/operations/HEAD_error-2b598128.json",
+      "domain": "error-handling",
+      "role": "Traite les erreurs via le point d’entrée générique pour la méthode HEAD."
+    },
+    {
+      "name": "PATCH /error",
+      "kind": "operation",
+      "fingerprint": "sha256:6bab2548c720df00143099de1e4113350a403fcc393d72d18708704b133662b2",
+      "file": "export/operations/PATCH_error-2429b9b3.json",
+      "domain": "error-handling",
+      "role": "Traite les erreurs via le point d’entrée générique pour la méthode PATCH."
+    },
+    {
+      "name": "AddressDto",
+      "kind": "schema",
+      "fingerprint": "sha256:908ab6c1891839e5d70176175bd9c2e3808f0215a3a4f7b56bb88daed049d9d9",
+      "file": "export/schemas/AddressDto-917c230f.json",
+      "domain": "customers",
+      "role": "Structure une adresse avec rue, code postal et ville."
+    },
+    {
+      "name": "CustomerInfoDto",
+      "kind": "schema",
+      "fingerprint": "sha256:8be4f02d4dc92dccef503ebace7788794bc2b0db70256880d3bdc8fcf9f99cc5",
+      "file": "export/schemas/CustomerInfoDto-0fbd3b53.json",
+      "domain": "customers",
+      "role": "Regroupe l’identifiant et les informations personnelles d’un client avec ses adresses de contact et de facturation."
+    },
+    {
+      "name": "InsuranceOptionsDto",
+      "kind": "schema",
+      "fingerprint": "sha256:9f1bb0f4b3df67ae2b834339324e9ccd67bfc2b4c2c79d89b4a30c34044b5323",
+      "file": "export/schemas/InsuranceOptionsDto-12df0015.json",
+      "domain": "insurance-quotes",
+      "role": "Décrit les options choisies pour une demande de devis, dont la date de début, le type d’assurance et la franchise."
+    },
+    {
+      "name": "InsuranceQuoteDto",
+      "kind": "schema",
+      "fingerprint": "sha256:0f7ffed9ad566cb883b65618939be32d4022f1f8ff2ab2ff6c9c11bf0eaf094c",
+      "file": "export/schemas/InsuranceQuoteDto-d34a1189.json",
+      "domain": "insurance-quotes",
+      "role": "Contient le montant de la prime, le plafond de garantie et la date d’expiration du devis."
+    },
+    {
+      "name": "InsuranceQuoteRequestDto",
+      "kind": "schema",
+      "fingerprint": "sha256:d3e129e772c60402ae6d30e6143f2956318dc3c42270da7b7bc4f6d4410b994d",
+      "file": "export/schemas/InsuranceQuoteRequestDto-97f88c3b.json",
+      "domain": "insurance-quotes",
+      "role": "Représente une demande de devis avec les informations client, options, historique de statut et éventuel devis ou identifiant de police."
+    },
+    {
+      "name": "MoneyAmountDto",
+      "kind": "schema",
+      "fingerprint": "sha256:3672782c22f2644676c4f17122c35459457bbc35270b3b2342b94a5793e5eac7",
+      "file": "export/schemas/MoneyAmountDto-4198334c.json",
+      "domain": "insurance-quotes",
+      "role": "Représente un montant avec sa devise, utilisé pour les primes, plafonds et franchises."
+    },
+    {
+      "name": "RequestStatusChangeDto",
+      "kind": "schema",
+      "fingerprint": "sha256:354453341425bb12bf2c579ba62bab6c838bfcba6872e7e33aa14439d17f9b1b",
+      "file": "export/schemas/RequestStatusChangeDto-c262ee82.json",
+      "domain": "insurance-quotes",
+      "role": "Enregistre une date et un statut dans l’historique d’une demande."
+    },
+    {
+      "name": "CustomerRegistrationRequestDto",
+      "kind": "schema",
+      "fingerprint": "sha256:e1abfd2d6eabba506627f50941d150eec79923a780b2be3506637847e53e0251",
+      "file": "export/schemas/CustomerRegistrationRequestDto-303cf20c.json",
+      "domain": "customers",
+      "role": "Contient les informations nécessaires à l’inscription d’un client."
+    },
+    {
+      "name": "CustomerDto",
+      "kind": "schema",
+      "fingerprint": "sha256:f7855b30e44133f555815bc87fe2c787e36965f595a352b5e810f33433a52f4c",
+      "file": "export/schemas/CustomerDto-8efc7e27.json",
+      "domain": "customers",
+      "role": "Expose l’identifiant du client ainsi que ses liens de navigation."
+    },
+    {
+      "name": "Links",
+      "kind": "schema",
+      "fingerprint": "sha256:3246585f00d47f877aff7e7a2e027d6398203fc477d63c07708aad2eb0f5b2f8",
+      "file": "export/schemas/Links-9024c197.json",
+      "domain": "customers",
+      "role": "Contient les liens de navigation associés aux ressources client."
+    },
+    {
+      "name": "AuthenticationRequestDto",
+      "kind": "schema",
+      "fingerprint": "sha256:714ba7d1b847fe18a598a562fe8c4706e81320b2299a775b8d8d875d41c3fce8",
+      "file": "export/schemas/AuthenticationRequestDto-e8cc21db.json",
+      "domain": "authentication",
+      "role": "Contient l’adresse e-mail et le mot de passe fournis pour l’authentification."
+    },
+    {
+      "name": "AuthenticationResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:d7540ab2ad5d3f9fbe1bcb4bb812e29ca333f49be48c2c60c124094e2948f90b",
+      "file": "export/schemas/AuthenticationResponseDto-47d4941a.json",
+      "domain": "authentication",
+      "role": "Contient l’adresse e-mail et le jeton renvoyés après l’authentification."
+    },
+    {
+      "name": "SignupRequestDto",
+      "kind": "schema",
+      "fingerprint": "sha256:7fa486d111cffc7d0a6950316cdfd54e6c3492f307f815fb98b75bdcf4dbec8e",
+      "file": "export/schemas/SignupRequestDto-70710931.json",
+      "domain": "authentication",
+      "role": "Contient l’adresse e-mail et le mot de passe requis pour créer un compte."
+    },
+    {
+      "name": "UserResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:5909a13801a35a2bf823f7d6073171364971d63404da3f658b9cae4f3cafe4a6",
+      "file": "export/schemas/UserResponseDto-404e7a29.json",
+      "domain": "users",
+      "role": "Contient l’adresse e-mail et l’identifiant client de l’utilisateur connecté."
+    },
+    {
+      "name": "InsuranceQuoteResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:21632b2cf95eac2952ab939e6c23c19e61f7ee247e81f9ce6a8d72b8b32daec3",
+      "file": "export/schemas/InsuranceQuoteResponseDto-091bb9ca.json",
+      "domain": "insurance-quotes",
+      "role": "Décrit le statut, la date d’expiration, la prime et le plafond de garantie d’un devis d’assurance."
+    },
+    {
+      "name": "CitiesResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:5500433eb66d790a81b2e361e8b9295fc4e919897b2db193455fae465d83a7dc",
+      "file": "export/schemas/CitiesResponseDto-172459ab.json",
+      "domain": "city-reference-data",
+      "role": "Contient la liste des villes correspondant à une recherche du référentiel."
+    },
+    {
+      "name": "Link",
+      "kind": "schema",
+      "fingerprint": "sha256:ee78c65590616191a5a0bfb3d43774a41f8242e806c2d87864fed35230809e42",
+      "file": "export/schemas/Link-a6a32dbc.json",
+      "dismissed": "Schéma générique de lien hypermédia, sans domaine fonctionnel propre."
+    }
+  ]
+}

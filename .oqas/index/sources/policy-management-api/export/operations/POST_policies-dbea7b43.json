@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "policy-information-holder"
+  ],
+  "summary": "Create a new policy.",
+  "operationId": "createPolicy",
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/CreatePolicyRequestDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/PolicyDto"
+          }
+        }
+      }
+    }
+  }
+}

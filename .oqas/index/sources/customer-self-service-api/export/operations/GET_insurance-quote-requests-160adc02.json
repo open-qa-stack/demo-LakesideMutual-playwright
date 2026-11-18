@@ -1,0 +1,22 @@
+{
+  "tags": [
+    "insurance-quote-request-coordinator"
+  ],
+  "summary": "Get all Insurance Quote Requests.",
+  "operationId": "getInsuranceQuoteRequests",
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InsuranceQuoteRequestDto"
+            }
+          }
+        }
+      }
+    }
+  }
+}

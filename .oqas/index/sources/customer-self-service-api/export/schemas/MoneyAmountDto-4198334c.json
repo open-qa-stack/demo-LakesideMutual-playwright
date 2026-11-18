@@ -1,0 +1,19 @@
+{
+  "required": [
+    "amount",
+    "currency"
+  ],
+  "type": "object",
+  "properties": {
+    "amount": {
+      "maximum": 1000000000000,
+      "exclusiveMaximum": true,
+      "minimum": 0,
+      "exclusiveMinimum": false,
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    }
+  }
+}

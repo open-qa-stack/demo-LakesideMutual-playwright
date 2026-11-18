@@ -1,0 +1,104 @@
+operation GET /customers/{customerId} — Get customer with a given customer id.
+  id: getCustomer
+  tags: customer-information-holder
+  parameters: customerId (path, required)
+  responses: 200 CustomerDto
+
+operation PUT /customers/{customerId} — Update the profile of the customer with the given customer id
+  id: updateCustomer
+  tags: customer-information-holder
+  parameters: customerId (path, required)
+  body: CustomerProfileDto
+  responses: 200 CustomerDto
+
+operation GET /interaction-logs/{customerId} — Get the interaction log for a customer with a given customer id.
+  id: getInteractionLog
+  tags: interaction-log-information-holder
+  parameters: customerId (path, required)
+  responses: 200 InteractionLogAggregateRoot
+
+operation PATCH /interaction-logs/{customerId} — Acknowledge all of a given customer's interactions up to the given interaction id.
+  id: acknowledgeInteractions
+  tags: interaction-log-information-holder
+  parameters: customerId (path, required)
+  body: InteractionAcknowledgementDto
+  responses: 200 InteractionLogAggregateRoot
+
+operation GET /notifications — Get a list of all unacknowledged notifications.
+  id: getNotifications
+  tags: notification-information-holder
+  responses: 200 NotificationDto
+
+operation GET /customers — Get all customers.
+  id: getCustomers
+  tags: customer-information-holder
+  parameters: filter (query), limit (query), offset (query)
+  responses: 200 PaginatedCustomerResponseDto
+
+operation GET /error
+  id: handleError
+  tags: error-controller
+  responses: 200
+
+operation PUT /error
+  id: handleError_3
+  tags: error-controller
+  responses: 200
+
+operation POST /error
+  id: handleError_2
+  tags: error-controller
+  responses: 200
+
+operation DELETE /error
+  id: handleError_5
+  tags: error-controller
+  responses: 200
+
+operation OPTIONS /error
+  id: handleError_6
+  tags: error-controller
+  responses: 200
+
+operation HEAD /error
+  id: handleError_1
+  tags: error-controller
+  responses: 200
+
+operation PATCH /error
+  id: handleError_4
+  tags: error-controller
+  responses: 200
+
+schema CustomerId
+  properties: id (string)
+
+schema AddressDto
+  properties: streetAddress (string), postalCode (string), city (string)
+
+schema CustomerProfileDto
+  properties: firstname (string), lastname (string), birthday (string), email (string), phoneNumber (string), moveHistory (array of AddressDto)
+
+schema CustomerDto
+  properties: customerId (string), _links (Links)
+
+schema Links
+
+schema InteractionAcknowledgementDto
+  properties: lastAcknowledgedInteractionId (string)
+  required: lastAcknowledgedInteractionId
+
+schema InteractionEntity
+  properties: id (string), date (string), content (string), sentByOperator (boolean)
+
+schema InteractionLogAggregateRoot
+  properties: customerId (string), username (string), lastAcknowledgedInteractionId (string), interactions (array of InteractionEntity), numberOfUnacknowledgedInteractions (integer)
+
+schema NotificationDto
+  properties: customerId (string), username (string), count (integer)
+
+schema PaginatedCustomerResponseDto
+  properties: filter (string), limit (integer), offset (integer), size (integer), customers (array of CustomerDto), _links (Links)
+
+schema Link
+  properties: href (string), hreflang (string), title (string), type (string), deprecation (string), profile (string), name (string), templated (boolean)

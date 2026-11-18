@@ -1,0 +1,39 @@
+{
+  "required": [
+    "city",
+    "email",
+    "firstname",
+    "lastname",
+    "postalCode",
+    "streetAddress"
+  ],
+  "type": "object",
+  "properties": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "streetAddress": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    }
+  },
+  "description": "the customer's profile information"
+}

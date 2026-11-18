@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "risk-computation-service"
+  ],
+  "summary": "Computes the risk factor for a given customer.",
+  "operationId": "computeRiskFactor",
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/RiskFactorRequestDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/RiskFactorResponseDto"
+          }
+        }
+      }
+    }
+  }
+}

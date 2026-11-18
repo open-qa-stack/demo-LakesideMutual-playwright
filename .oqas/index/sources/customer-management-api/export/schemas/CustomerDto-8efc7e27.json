@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "type": "string"
+    },
+    "_links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-self-service-code",
+    "type": "source-code"
+  },
+  "fingerprint": "sha256:936d400aa59d4c62d0a10006e89f0e3d1336743e815e2e9d9b2a94f17d6b8279",
+  "producedAt": "2026-11-18T18:50:45.034Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 4,
+    "actions": 0,
+    "durationMs": 18272
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "application",
+      "label": "Application lifecycle",
+      "description": "Démarrage de l’application et chargement des données d’amorçage.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice",
+          "summary": "Point d’entrée qui lance l’application Customer Self-Service.",
+          "keyFields": [],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/application",
+          "summary": "Charge au démarrage les logins d’exemple depuis un CSV si la base est vide.",
+          "keyFields": [
+            "email",
+            "password",
+            "id"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "label": "Clients",
+      "description": "Modèle du client et endpoints qui exposent ou modifient les informations client.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/domain/customer",
+          "summary": "Contient l’adresse du client et son identifiant métier.",
+          "keyFields": [
+            "Address",
+            "CustomerId"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/interfaces/dtos/customer",
+          "summary": "DTO d’inscription, de profil, d’adresse et d’identification client échangés par l’API.",
+          "keyFields": [
+            "firstname",
+            "lastname",
+            "birthday",
+            "currentAddress",
+            "email",
+            "phoneNumber",
+            "moveHistory"
+          ],
+          "facts": {
+            "files": 9,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/interfaces/dtos/city",
+          "summary": "DTO de réponse contenant les villes associées à une recherche de code postal.",
+          "keyFields": [
+            "cities"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "identity-access",
+      "label": "Authentification et accès",
+      "description": "Inscription, authentification, identité de connexion et gestion des règles d’accès.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/domain/identityaccess",
+          "summary": "Gère les entités et détails de sécurité des utilisateurs ainsi que leur chargement pour l’authentification.",
+          "keyFields": [
+            "email",
+            "password",
+            "role",
+            "customerId"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/interfaces/dtos/identityaccess",
+          "summary": "DTOs pour les identifiants de connexion, les réponses d’authentification et l’inscription.",
+          "keyFields": [
+            "email",
+            "password",
+            "token"
+          ],
+          "facts": {
+            "files": 5,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/interfaces/configuration",
+          "summary": "Configure les filtres de sécurité, JWT, clients HTTP, messagerie, documentation et limitation de débit.",
+          "keyFields": [
+            "token.header",
+            "rate.limit.perMinute",
+            "X-RateLimit-Limit"
+          ],
+          "facts": {
+            "files": 10,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "insurance-quotes",
+      "label": "Demandes de devis d’assurance",
+      "description": "Cycle de vie des demandes de devis, leurs options, statuts, réponses et événements.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/domain/insurancequoterequest",
+          "summary": "Modèle agrégé des demandes de devis, leurs statuts et transitions, événements, options et informations associées.",
+          "keyFields": [
+            "id",
+            "date",
+            "statusHistory",
+            "customerInfo",
+            "insuranceOptions",
+            "insuranceQuote",
+            "policyId"
+          ],
+          "facts": {
+            "files": 13,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/interfaces/dtos/insurancequoterequest",
+          "summary": "DTOs d’entrée et de sortie des demandes et réponses de devis; les champs customerInfo et insuranceOptions sont requis.",
+          "keyFields": [
+            "id",
+            "date",
+            "statusHistory",
+            "customerInfo",
+            "insuranceOptions",
+            "insuranceQuote",
+            "policyId"
+          ],
+          "facts": {
+            "files": 8,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "api-services",
+      "label": "Services API et intégrations",
+      "description": "Contrôleurs REST, traitements de messages, accès aux dépôts et intégrations externes.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/interfaces",
+          "summary": "Contient les contrôleurs d’authentification, clients, villes, erreurs et demandes de devis ainsi que les consommateurs de messages.",
+          "keyFields": [
+            "/auth",
+            "/customers",
+            "/cities",
+            "/insurance-quote-requests",
+            "/error"
+          ],
+          "facts": {
+            "files": 9,
+            "routes": [
+              "@RequestMapping(\"/auth\")",
+              "@PostMapping",
+              "@PostMapping(value = \"/signup\")",
+              "@RequestMapping(\"/cities\")",
+              "@GetMapping(value = \"/{postalCode}\")",
+              "@RequestMapping(\"/customers\")",
+              "@PutMapping(value = \"/{customerId}/address\")",
+              "@GetMapping(value = \"/{customerId}\")",
+              "@PostMapping",
+              "@GetMapping(value = \"/{customerId}/insurance-quote-requests\")",
+              "@Controller",
+              "@RequestMapping(value = \"/error\", produces = MediaType.APPLICATION_JSON_VALUE)",
+              "@RequestMapping(\"/insurance-quote-requests\")",
+              "@GetMapping",
+              "@GetMapping(value = \"/{insuranceQuoteRequestId}\")",
+              "@PostMapping",
+              "@PatchMapping(value = \"/{id}\")",
+              "@RequestMapping(\"/user\")",
+              "@GetMapping"
+            ]
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/infrastructure",
+          "summary": "Fournit les dépôts de persistance, le proxy vers Customer Core et la publication des messages de gestion de police.",
+          "keyFields": [
+            "InsuranceQuoteRequestRepository",
+            "UserLoginRepository"
+          ],
+          "facts": {
+            "files": 5,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/interfaces/converters",
+          "summary": "Convertit les chaînes de l’API en identifiants CustomerId.",
+          "keyFields": [
+            "CustomerId"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "validation",
+      "label": "Validation des entrées",
+      "description": "Règles de validation spécialisées appliquées aux données soumises à l’API.",
+      "items": [
+        {
+          "name": "src/main/java/com/lakesidemutual/customerselfservice/interfaces/validation",
+          "summary": "Déclare la contrainte et le validateur de numéro de téléphone.",
+          "keyFields": [
+            "PhoneNumber"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "tests",
+      "label": "Tests",
+      "description": "Tests d’architecture, utilitaires de test et tests des endpoints d’authentification.",
+      "items": [
+        {
+          "name": "src/test/java/com/lakesidemutual/customerselfservice/tests",
+          "summary": "Regroupe les tests d’architecture et les utilitaires communs de test.",
+          "keyFields": [
+            "ArchitectureTests",
+            "TestUtils"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/test/java/com/lakesidemutual/customerselfservice/tests/interfaces",
+          "summary": "Teste l’inscription via POST /auth/signup, notamment les cas utilisateur existant et inscription réussie avec mot de passe haché.",
+          "keyFields": [
+            "/auth/signup",
+            "email",
+            "password"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": [
+              "post(\"/auth/signup\")",
+              "post(\"/auth/signup\")"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

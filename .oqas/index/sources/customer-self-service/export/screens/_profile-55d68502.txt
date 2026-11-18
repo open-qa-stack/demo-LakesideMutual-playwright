@@ -1,0 +1,43 @@
+- generic [ref=f4e3]:
+  - link "Customer Self-Service Lakeside Mutual" [ref=f4e4] [cursor=pointer]: → page.getByRole("link", { name: "Customer Self-Service Lakeside Mutual", exact: true })
+    - /url: /
+    - generic [ref=f4e7]:
+      - generic [ref=f4e8]: Customer Self-Service
+      - generic [ref=f4e9]: Lakeside Mutual
+  - generic [ref=f4e12]:
+    - link "My Policies" [ref=f4e13] [cursor=pointer]: → page.getByRole("link", { name: "My Policies", exact: true })
+      - /url: /policies
+      - generic [aria-hidden] [ref=f4e14]: 
+      - text: My Policies
+    - link "My Profile" [ref=f4e15] [cursor=pointer]: → page.getByRole("link", { name: "My Profile", exact: true })
+      - /url: /profile
+      - generic [aria-hidden] [ref=f4e16]: 
+      - text: My Profile
+    - link "Contact Us" [ref=f4e17] [cursor=pointer]: → page.getByRole("link", { name: "Contact Us", exact: true })
+      - /url: /contact
+      - generic [aria-hidden] [ref=f4e18]: 
+      - text: Contact Us
+    - generic [ref=f4e20]:
+      - generic [aria-hidden] [ref=f4e21]: 
+      - text: Logout
+  - generic [ref=f4e22]:
+    - heading [level=3] [ref=f4e23]:
+      - text: Customer Profile
+      - button "Change Address" [ref=f4e24] [cursor=pointer] → page.getByRole("button", { name: "Change Address", exact: true })
+    - list [ref=f4e25]:
+      - listitem [ref=f4e26]:
+        - generic [aria-hidden] [ref=f4e27]: 
+        - generic [ref=f4e28]: Max Mustermann
+      - listitem [ref=f4e29]:
+        - generic [aria-hidden] [ref=f4e30]: 
+        - generic [ref=f4e31]: Oberseestrasse 11, 8640 Rapperswil
+      - listitem [ref=f4e32]:
+        - generic [aria-hidden] [ref=f4e33]: 
+        - link "admin@example.com" [ref=f4e35] [cursor=pointer]: → page.getByRole("link", { name: "admin@example.com", exact: true })
+          - /url: mailto:admin@example.com
+      - listitem [ref=f4e36]:
+        - generic [aria-hidden] [ref=f4e37]: 
+        - generic [ref=f4e38]: 055 222 41 11
+  - generic [ref=f4e39]:
+    - generic [ref=f4e40]: Environment Variable Debug Information
+    - paragraph [ref=f4e41]: "REACT_APP_CUSTOMER_SELF_SERVICE_BACKEND: http://localhost:8080REACT_APP_POLICY_MANAGEMENT_BACKEND: http://localhost:8090REACT_APP_CUSTOMER_MANAGEMENT_BACKEND: http://localhost:8100"

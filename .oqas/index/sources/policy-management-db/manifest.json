@@ -1,0 +1,123 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "policy-management-db",
+    "type": "postgresql"
+  },
+  "fingerprint": "sha256:a5c5e7b42dcabb8ef4d94a355d7ec4c2e5dfe69b39fd179962d348a26ece57e3",
+  "producedAt": "2026-11-18T18:46:40.534Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Stores customer identity details and their postal and billing contact addresses.",
+      "file": "domains/customers.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "policies",
+      "label": "Policies",
+      "description": "Stores insurance policies and the agreements and coverage items that define them.",
+      "file": "domains/policies.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "quotes",
+      "label": "Quotes",
+      "description": "Manages insurance quote requests, quote offers, and their lifecycle status history.",
+      "file": "domains/quotes.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "public.addresses",
+      "kind": "table",
+      "fingerprint": "sha256:5ef31c70d99d5469ef0bc4fab7e53d3eb55097216538dc84d51500465948654c",
+      "file": "export/tables/public.addresses.sql",
+      "domain": "customers",
+      "role": "Stores a customer's street address, city, and postal code."
+    },
+    {
+      "name": "public.customerinfos",
+      "kind": "table",
+      "fingerprint": "sha256:c75448ab1d41e1d33e88804a2b5960d5049060115163f3763b556376f7615d43",
+      "file": "export/tables/public.customerinfos.sql",
+      "domain": "customers",
+      "role": "Stores customer identity details and links the customer to contact and billing addresses."
+    },
+    {
+      "name": "public.insuranceagreementitems",
+      "kind": "table",
+      "fingerprint": "sha256:ba4b414cb63f1ae64132f6ded681721fdf9f2d80d8b658fdd574bd688ebb0f2f",
+      "file": "export/tables/public.insuranceagreementitems.sql",
+      "domain": "policies",
+      "role": "Stores titled descriptive items that form part of an insurance agreement."
+    },
+    {
+      "name": "public.insuranceoptions",
+      "kind": "table",
+      "fingerprint": "sha256:888cbe954dee0fb4c3aed4af0d9f90414c06737c51d303f6a0258030e4734549",
+      "file": "export/tables/public.insuranceoptions.sql",
+      "domain": "quotes",
+      "role": "Stores named insurance options, including their starting date and deductible."
+    },
+    {
+      "name": "public.insurancepolicies",
+      "kind": "table",
+      "fingerprint": "sha256:d9d69b4b8151a96c53e77ab36116472c984ac233640e10cf7a22ffb4fff6f0a8",
+      "file": "export/tables/public.insurancepolicies.sql",
+      "domain": "policies",
+      "role": "Stores issued policy details, dates, customer, premiums, limits, deductibles, and associated insuring agreement."
+    },
+    {
+      "name": "public.insurancequoterequests",
+      "kind": "table",
+      "fingerprint": "sha256:a9602bca9e8690003508cb10e38883cfd7cdbbd5547201fb10279c64d562fbce",
+      "file": "export/tables/public.insurancequoterequests.sql",
+      "domain": "quotes",
+      "role": "Stores a customer's dated quote request and its linked options, quote, and policy reference."
+    },
+    {
+      "name": "public.insurancequoterequests_status_history",
+      "kind": "table",
+      "fingerprint": "sha256:95568fb2e3804043006e16d9981ae1ef1f426a75255441a5f75ceb75d9c50f3e",
+      "file": "export/tables/public.insurancequoterequests_status_history.sql",
+      "domain": "quotes",
+      "role": "Associates a quote request with its status-change history records."
+    },
+    {
+      "name": "public.insurancequotes",
+      "kind": "table",
+      "fingerprint": "sha256:28598340a034a21ebf08eb4f8da2f1dc77c63b690e54c96d15e01d082d947c01",
+      "file": "export/tables/public.insurancequotes.sql",
+      "domain": "quotes",
+      "role": "Stores offered premium and policy limit amounts and quote expiration."
+    },
+    {
+      "name": "public.insuringagreements",
+      "kind": "table",
+      "fingerprint": "sha256:c3eb6f9a8b0f4ceb49e850a2bc993534b42b2991763c58e889fe7be54e76cec1",
+      "file": "export/tables/public.insuringagreements.sql",
+      "domain": "policies",
+      "role": "Represents an insuring agreement associated with an insurance policy."
+    },
+    {
+      "name": "public.insuringagreements_agreement_items",
+      "kind": "table",
+      "fingerprint": "sha256:71b52a2afb12750f54b440972b35f0300dcb54e19cb08ac62fdf0689d81ce529",
+      "file": "export/tables/public.insuringagreements_agreement_items.sql",
+      "domain": "policies",
+      "role": "Links insuring agreements to the insurance agreement items they include."
+    },
+    {
+      "name": "public.requeststatuschanges",
+      "kind": "table",
+      "fingerprint": "sha256:82ffda743b5e1df7f499d7659e60306cfccb64c3e001500bae363a6ed66ea5be",
+      "file": "export/tables/public.requeststatuschanges.sql",
+      "domain": "quotes",
+      "role": "Records dated quote-request lifecycle status changes, limited to the defined request and quote states."
+    }
+  ]
+}

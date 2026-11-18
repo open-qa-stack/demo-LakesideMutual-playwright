@@ -4,94 +4,77 @@
     "id": "policy-management-api",
     "type": "openapi"
   },
-  "fingerprint": "sha256:527961911a01f4587d6346c9bb4f549b1425d2f1691f4df65da1bde5f1259a6c",
-  "producedAt": "2026-11-13T07:43:11.201Z",
+  "fingerprint": "sha256:2feede6be9c8bc3859b9d4f374756767708fd94e095a02c0bde9974b193c2ef7",
+  "producedAt": "2026-11-18T18:46:22.878Z",
   "model": {
     "provider": "openai",
-    "baseUrl": "http://localhost:1234/v1",
-    "model": "qwen/qwen3-coder-30b"
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
   },
   "run": {
-    "iterations": 8,
+    "iterations": 11,
     "actions": 0,
-    "durationMs": 150861
+    "durationMs": 40131
   },
   "status": "complete",
   "domains": [
     {
       "id": "policies",
-      "label": "Policies",
-      "description": "Management of insurance policies including creation, retrieval and updates.",
+      "label": "Polices",
+      "description": "Création, consultation, mise à jour et suppression des contrats d’assurance, ainsi que leurs périodes et garanties.",
       "items": [
         {
-          "name": "policy-information-holder",
-          "summary": "Handles operations related to insurance policies such as creation, retrieval and updates.",
-          "keyFields": [
-            "policyId",
-            "customerId",
-            "policyType",
-            "policyPeriod",
-            "deductible",
-            "policyLimit",
-            "insurancePremium"
-          ],
+          "name": "GET /policies/{policyId}",
+          "summary": "Récupère une police d’assurance par son identifiant, avec expansion facultative.",
           "facts": {
-            "operations": [
-              "GET /policies/{policyId}",
-              "PUT /policies/{policyId}",
-              "DELETE /policies/{policyId}",
-              "GET /policies",
-              "POST /policies"
+            "kind": "operation",
+            "operationId": "getPolicy",
+            "tags": [
+              "policy-information-holder"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "insurance-quote-requests",
-      "label": "Insurance Quote Requests",
-      "description": "Processing of insurance quote requests and their status updates.",
-      "items": [
+        },
         {
-          "name": "insurance-quote-request-processing-resource",
-          "summary": "Manages insurance quote requests including retrieval and status updates.",
-          "keyFields": [
-            "id",
-            "statusHistory",
-            "customerInfo",
-            "insuranceOptions",
-            "insuranceQuote"
-          ],
+          "name": "PUT /policies/{policyId}",
+          "summary": "Met à jour une police existante à partir des données de création d’une police.",
           "facts": {
-            "operations": [
-              "GET /insurance-quote-requests/{id}",
-              "PATCH /insurance-quote-requests/{id}",
-              "GET /insurance-quote-requests"
+            "kind": "operation",
+            "operationId": "updatePolicy",
+            "tags": [
+              "policy-information-holder"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "customers",
-      "label": "Customers",
-      "description": "Management of customer information and related data.",
-      "items": [
+        },
         {
-          "name": "customer-information-holder",
-          "summary": "Stores and retrieves customer information including their policies.",
-          "keyFields": [
-            "customerId",
-            "firstname",
-            "lastname",
-            "contactAddress",
-            "billingAddress"
-          ],
+          "name": "DELETE /policies/{policyId}",
+          "summary": "Supprime une police existante par son identifiant.",
           "facts": {
-            "operations": [
-              "GET /customers",
-              "GET /customers/{customerIdDto}",
-              "GET /customers/{customerIdDto}/policies"
+            "kind": "operation",
+            "operationId": "deletePolicy",
+            "tags": [
+              "policy-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "GET /policies",
+          "summary": "Récupère les polices, de la plus récente à la plus ancienne, avec pagination et expansion facultative.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getPolicies",
+            "tags": [
+              "policy-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "POST /policies",
+          "summary": "Crée une nouvelle police d’assurance.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "createPolicy",
+            "tags": [
+              "policy-information-holder"
             ]
           }
         }
@@ -99,48 +82,110 @@
     },
     {
       "id": "risk-computation",
-      "label": "Risk Computation",
-      "description": "Computation of risk factors for customers.",
+      "label": "Calcul du risque",
+      "description": "Calcul des facteurs de risque d’un client à partir des informations transmises.",
       "items": [
         {
-          "name": "risk-computation-service",
-          "summary": "Computes risk factors based on customer attributes.",
-          "keyFields": [
-            "birthday",
-            "postalCode",
-            "riskFactor"
-          ],
+          "name": "POST /riskfactor/compute",
+          "summary": "Calcule le facteur de risque d’un client à partir de sa requête.",
           "facts": {
-            "operations": [
-              "POST /riskfactor/compute"
+            "kind": "operation",
+            "operationId": "computeRiskFactor",
+            "tags": [
+              "risk-computation-service"
             ]
           }
         }
       ]
     },
     {
-      "id": "error-handling",
-      "label": "Error Handling",
-      "description": "Management of error responses and handling.",
+      "id": "insurance-quote-requests",
+      "label": "Demandes de devis d’assurance",
+      "description": "Consultation et traitement des demandes de devis d’assurance et des réponses associées.",
       "items": [
         {
-          "name": "error-controller",
-          "summary": "Handles various error scenarios through different HTTP methods.",
-          "keyFields": [],
+          "name": "GET /insurance-quote-requests/{id}",
+          "summary": "Récupère une demande de devis d’assurance par son identifiant.",
           "facts": {
-            "operations": [
-              "GET /error",
-              "PUT /error",
-              "POST /error",
-              "DELETE /error",
-              "OPTIONS /error",
-              "HEAD /error",
-              "PATCH /error"
+            "kind": "operation",
+            "operationId": "getInsuranceQuoteRequest",
+            "tags": [
+              "insurance-quote-request-processing-resource"
+            ]
+          }
+        },
+        {
+          "name": "PATCH /insurance-quote-requests/{id}",
+          "summary": "Met à jour l’état d’une demande de devis d’assurance avec la réponse fournie.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "respondToInsuranceQuoteRequest",
+            "tags": [
+              "insurance-quote-request-processing-resource"
+            ]
+          }
+        },
+        {
+          "name": "GET /insurance-quote-requests",
+          "summary": "Récupère les demandes de devis d’assurance.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getInsuranceQuoteRequests",
+            "tags": [
+              "insurance-quote-request-processing-resource"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "label": "Clients",
+      "description": "Consultation des clients et de leurs informations associées.",
+      "items": [
+        {
+          "name": "GET /customers",
+          "summary": "Récupère les clients avec filtrage et pagination.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCustomers",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "GET /customers/{customerIdDto}",
+          "summary": "Récupère un client par son identifiant.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCustomer",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "GET /customers/{customerIdDto}/policies",
+          "summary": "Récupère les polices associées à un client, avec expansion facultative.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getPolicies_1",
+            "tags": [
+              "customer-information-holder"
             ]
           }
         }
       ]
     }
   ],
-  "unassigned": []
+  "unassigned": [
+    "GET /error",
+    "PUT /error",
+    "POST /error",
+    "DELETE /error",
+    "OPTIONS /error",
+    "HEAD /error",
+    "PATCH /error"
+  ]
 }

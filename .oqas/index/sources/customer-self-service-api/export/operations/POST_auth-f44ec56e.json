@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "authentication-controller"
+  ],
+  "summary": "Authenticate a user based on a given email address and password.",
+  "operationId": "authenticationRequest",
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/AuthenticationRequestDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/AuthenticationResponseDto"
+          }
+        }
+      }
+    }
+  }
+}

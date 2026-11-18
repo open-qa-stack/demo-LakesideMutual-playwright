@@ -1,0 +1,60 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-management",
+    "type": "web"
+  },
+  "fingerprint": "sha256:349c4b622775ed04c5901bef943ef20517d22851960d91f979a2dd509618d517",
+  "producedAt": "2026-11-18T18:51:45.687Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 19,
+    "actions": 14,
+    "durationMs": 42667
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Gestion des clients",
+      "description": "Les utilisateurs consultent, recherchent, créent et mettent à jour les profils clients, et échangent des messages depuis leur fiche.",
+      "items": [
+        {
+          "name": "/",
+          "summary": "Liste des clients, recherche et pagination; accès aux fiches et formulaire de création.",
+          "facts": {
+            "kind": "screen"
+          }
+        },
+        {
+          "name": "/customers/new",
+          "summary": "Formulaire de création d’un client.",
+          "facts": {
+            "kind": "screen"
+          }
+        },
+        {
+          "name": "/customers/:id",
+          "summary": "Consultation du profil client et chat.",
+          "facts": {
+            "kind": "screen"
+          }
+        },
+        {
+          "name": "/customers/:id/edit_profile",
+          "summary": "Modification du profil client.",
+          "facts": {
+            "kind": "screen"
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": [
+    "/customers"
+  ]
+}

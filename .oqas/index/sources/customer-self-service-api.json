@@ -1,0 +1,274 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-self-service-api",
+    "type": "openapi"
+  },
+  "fingerprint": "sha256:aee959377fbe3abcbc476263173e8c498251b8f5eef17f5b6272f6c417c9e0a9",
+  "producedAt": "2026-11-18T18:50:12.156Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 14,
+    "actions": 0,
+    "durationMs": 42273
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Gère les informations, l’adresse et l’inscription des clients.",
+      "items": [
+        {
+          "name": "PUT /customers/{customerId}/address",
+          "summary": "Met à jour l’adresse d’un client et renvoie l’adresse enregistrée.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "changeAddress",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "POST /customers",
+          "summary": "Finalise l’inscription d’un nouveau client.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "registerCustomer",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "GET /customers/{customerId}",
+          "summary": "Récupère un client à partir de son identifiant.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCustomer",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "insurance-quotes",
+      "label": "Demandes de devis d’assurance",
+      "description": "Gère les demandes de devis d’assurance, leur suivi et les réponses associées.",
+      "items": [
+        {
+          "name": "GET /insurance-quote-requests",
+          "summary": "Récupère l’ensemble des demandes de devis d’assurance.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getInsuranceQuoteRequests",
+            "tags": [
+              "insurance-quote-request-coordinator"
+            ]
+          }
+        },
+        {
+          "name": "POST /insurance-quote-requests",
+          "summary": "Crée une demande de devis d’assurance.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "createInsuranceQuoteRequest",
+            "tags": [
+              "insurance-quote-request-coordinator"
+            ]
+          }
+        },
+        {
+          "name": "PATCH /insurance-quote-requests/{id}",
+          "summary": "Met à jour le statut d’une demande de devis d’assurance existante.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "respondToInsuranceQuote",
+            "tags": [
+              "insurance-quote-request-coordinator"
+            ]
+          }
+        },
+        {
+          "name": "GET /insurance-quote-requests/{insuranceQuoteRequestId}",
+          "summary": "Récupère une demande de devis d’assurance précise.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getInsuranceQuoteRequest",
+            "tags": [
+              "insurance-quote-request-coordinator"
+            ]
+          }
+        },
+        {
+          "name": "GET /customers/{customerId}/insurance-quote-requests",
+          "summary": "Récupère les demandes de devis d’assurance associées à un client.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getInsuranceQuoteRequests_1",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "authentication",
+      "label": "Authentification",
+      "description": "Gère l’authentification et la création de comptes utilisateurs.",
+      "items": [
+        {
+          "name": "POST /auth",
+          "summary": "Authentifie un utilisateur à partir de son adresse e-mail et de son mot de passe.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "authenticationRequest",
+            "tags": [
+              "authentication-controller"
+            ]
+          }
+        },
+        {
+          "name": "POST /auth/signup",
+          "summary": "Crée un nouvel utilisateur.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "signupUser",
+            "tags": [
+              "authentication-controller"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "users",
+      "label": "Utilisateurs",
+      "description": "Expose les informations du compte utilisateur connecté.",
+      "items": [
+        {
+          "name": "GET /user",
+          "summary": "Récupère les informations de l’utilisateur actuellement connecté.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCurrentUser",
+            "tags": [
+              "user-information-holder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "city-reference-data",
+      "label": "Référentiel des villes",
+      "description": "Fournit les villes correspondant à un code postal.",
+      "items": [
+        {
+          "name": "GET /cities/{postalCode}",
+          "summary": "Récupère les villes correspondant à un code postal.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCitiesForPostalCode",
+            "tags": [
+              "city-reference-data-holder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "error-handling",
+      "label": "Gestion des erreurs",
+      "description": "Regroupe les points d’entrée techniques qui prennent en charge la gestion des erreurs HTTP.",
+      "items": [
+        {
+          "name": "GET /error",
+          "summary": "Traite les erreurs via le point d’entrée générique pour la méthode GET.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "PUT /error",
+          "summary": "Traite les erreurs via le point d’entrée générique pour la méthode PUT.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_3",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "POST /error",
+          "summary": "Traite les erreurs via le point d’entrée générique pour la méthode POST.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_2",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "DELETE /error",
+          "summary": "Traite les erreurs via le point d’entrée générique pour la méthode DELETE.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_5",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "OPTIONS /error",
+          "summary": "Traite les erreurs via le point d’entrée générique pour la méthode OPTIONS.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_6",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "HEAD /error",
+          "summary": "Traite les erreurs via le point d’entrée générique pour la méthode HEAD.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_1",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "PATCH /error",
+          "summary": "Traite les erreurs via le point d’entrée générique pour la méthode PATCH.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_4",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

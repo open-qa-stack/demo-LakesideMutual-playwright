@@ -1,0 +1,198 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-core-api",
+    "type": "openapi"
+  },
+  "fingerprint": "sha256:42c952c410073337e2732d1d58a14bc9d4372d7bf4b3ed0824c62b6610a38e78",
+  "producedAt": "2026-11-18T18:49:00.858Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 7,
+    "actions": 0,
+    "durationMs": 24507
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Clients",
+      "description": "Gestion des profils clients, de leur consultation et de leurs coordonnées.",
+      "items": [
+        {
+          "name": "PUT /customers/{customerId}",
+          "summary": "Met à jour le profil du client identifié et renvoie sa fiche.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "updateCustomer",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "PUT /customers/{customerId}/address",
+          "summary": "Modifie l’adresse du client identifié.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "changeAddress",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "GET /customers",
+          "summary": "Liste les clients avec pagination et paramètres de filtrage ou de sélection des champs.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCustomers",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "POST /customers",
+          "summary": "Crée un client à partir des informations de profil fournies.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "createCustomer",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "GET /getCustomers/{ids}",
+          "summary": "Récupère des clients par identifiants via l’ancien point d’entrée.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCustomer",
+            "tags": [
+              "old-customer-information-holder"
+            ]
+          }
+        },
+        {
+          "name": "GET /customers/{ids}",
+          "summary": "Récupère un ensemble de clients à partir de leurs identifiants.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCustomer_1",
+            "tags": [
+              "customer-information-holder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "city-reference-data",
+      "label": "Référentiel des villes",
+      "description": "Consultation des villes associées à un code postal.",
+      "items": [
+        {
+          "name": "GET /cities/{postalCode}",
+          "summary": "Renvoie les villes correspondant au code postal indiqué.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "getCitiesForPostalCode",
+            "tags": [
+              "city-reference-data-holder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "error-handling",
+      "label": "Gestion des erreurs",
+      "description": "Points d’entrée techniques associés à la gestion des erreurs.",
+      "items": [
+        {
+          "name": "GET /error",
+          "summary": "Point d’entrée GET de gestion des erreurs.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "PUT /error",
+          "summary": "Point d’entrée PUT de gestion des erreurs.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_3",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "POST /error",
+          "summary": "Point d’entrée POST de gestion des erreurs.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_2",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "DELETE /error",
+          "summary": "Point d’entrée DELETE de gestion des erreurs.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_5",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "OPTIONS /error",
+          "summary": "Point d’entrée OPTIONS de gestion des erreurs.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_6",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "HEAD /error",
+          "summary": "Point d’entrée HEAD de gestion des erreurs.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_1",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        },
+        {
+          "name": "PATCH /error",
+          "summary": "Point d’entrée PATCH de gestion des erreurs.",
+          "facts": {
+            "kind": "operation",
+            "operationId": "handleError_4",
+            "tags": [
+              "error-controller"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

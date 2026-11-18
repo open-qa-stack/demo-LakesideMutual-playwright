@@ -1,0 +1,54 @@
+- generic [ref=f5e3]:
+  - link "Customer Management Lakeside Mutual" [ref=f5e4] [cursor=pointer]: → page.getByRole("link", { name: "Customer Management Lakeside Mutual", exact: true })
+    - /url: /
+    - generic [ref=f5e7]:
+      - generic [ref=f5e8]: Customer Management
+      - generic [ref=f5e9]: Lakeside Mutual
+  - link "Home" [ref=f5e13] [cursor=pointer]: → page.getByRole("link", { name: "Home", exact: true })
+    - /url: /
+    - generic [aria-hidden] [ref=f5e14]: 
+    - text: Home
+  - generic [ref=f5e15]:
+    - generic [ref=f5e16]:
+      - link "Customers" [ref=f5e17] [cursor=pointer]: → page.getByRole("link", { name: "Customers", exact: true })
+        - /url: /
+      - generic [aria-hidden] [ref=f5e18]: 
+      - generic [ref=f5e19]: New Customer
+    - generic [ref=f5e20]:
+      - generic [ref=f5e21]: Login Credentials
+      - generic [ref=f5e22]:
+        - generic [ref=f5e23]:
+          - generic [ref=f5e24]: Email Address
+          - textbox "Email Address" [active] [ref=f5e26]: invalid-search-no-match → page.getByRole("textbox", { name: "Email Address", exact: true })
+        - generic [ref=f5e27]:
+          - generic [ref=f5e28]: Password
+          - textbox "Password" [ref=f5e30] → page.getByRole("textbox", { name: "Password", exact: true })
+      - generic [ref=f5e31]: Customer Profile
+      - generic [ref=f5e32]:
+        - generic [ref=f5e33]:
+          - generic [ref=f5e34]: First Name
+          - textbox "First Name" [ref=f5e36] → page.getByRole("textbox", { name: "First Name", exact: true })
+        - generic [ref=f5e37]:
+          - generic [ref=f5e38]: Last Name
+          - textbox "Last Name" [ref=f5e40] → page.getByRole("textbox", { name: "Last Name", exact: true })
+      - generic [ref=f5e41]:
+        - generic [ref=f5e42]: Date of Birth
+        - textbox [ref=f5e44]: → no unique locator: 9 elements match page.getByRole("textbox")
+          - /placeholder: Date of Birth
+      - generic [ref=f5e45]:
+        - generic [ref=f5e46]: Street Address
+        - textbox "Street Address" [ref=f5e48] → page.getByRole("textbox", { name: "Street Address", exact: true })
+      - generic [ref=f5e49]:
+        - generic [ref=f5e50]:
+          - generic [ref=f5e51]: Postal Code
+          - textbox "Postal Code" [ref=f5e53] → page.getByRole("textbox", { name: "Postal Code", exact: true })
+        - generic [ref=f5e54]:
+          - generic [ref=f5e55]: City
+          - textbox "City" [ref=f5e57] → page.getByRole("textbox", { name: "City", exact: true })
+      - generic [ref=f5e58]:
+        - generic [ref=f5e59]: Phone Number
+        - textbox "Phone Number" [ref=f5e61] → page.getByRole("textbox", { name: "Phone Number", exact: true })
+      - button "Create Customer" [disabled]
+  - generic [ref=f5e62]:
+    - generic [ref=f5e63]: Environment Variable Debug Information
+    - paragraph [ref=f5e64]: "REACT_APP_CUSTOMER_SELF_SERVICE_BACKEND: http://localhost:8080REACT_APP_CUSTOMER_MANAGEMENT_BACKEND: http://localhost:8100REACT_APP_POLICY_MANAGEMENT_FRONTEND: http://localhost:3010"

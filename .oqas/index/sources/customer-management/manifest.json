@@ -1,0 +1,60 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-management",
+    "type": "web"
+  },
+  "fingerprint": "sha256:e4c86a4e73bdc413d0b56298aa47999b61625a94fdb3960eabc6133c546b267f",
+  "producedAt": "2026-11-18T18:51:45.686Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Gestion des clients",
+      "description": "Les utilisateurs consultent, recherchent, créent et mettent à jour les profils clients, et échangent des messages depuis leur fiche.",
+      "file": "domains/customers.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "/",
+      "kind": "screen",
+      "fingerprint": "sha256:67620c3e932348b9cba3359186d47047d7b8537a4fa84b6292bfd0f291c0b626",
+      "file": "export/screens/_-8a5edab2.txt",
+      "domain": "customers",
+      "role": "Liste des clients, recherche et pagination; accès aux fiches et formulaire de création."
+    },
+    {
+      "name": "/customers/new",
+      "kind": "screen",
+      "fingerprint": "sha256:dd46e989702b96f84659d2191b64015cdd0be1f8bd87ace0fa989ab67636cd02",
+      "file": "export/screens/_customers_new-22ac6730.txt",
+      "domain": "customers",
+      "role": "Formulaire de création d’un client."
+    },
+    {
+      "name": "/customers/:id",
+      "kind": "screen",
+      "fingerprint": "sha256:2606a2546a4b0f764965b80e8f34f0ae003b8c96446b69ef625a37597496e6e9",
+      "file": "export/screens/_customers_id-bfbfc7ae.txt",
+      "domain": "customers",
+      "role": "Consultation du profil client et chat."
+    },
+    {
+      "name": "/customers/:id/edit_profile",
+      "kind": "screen",
+      "fingerprint": "sha256:8c5548c6269c4223d131018a9300d6a374d88952a9388c80b20045f1e3de7740",
+      "file": "export/screens/_customers_id_edit_profile-70a680b5.txt",
+      "domain": "customers",
+      "role": "Modification du profil client."
+    },
+    {
+      "name": "/customers",
+      "kind": "screen",
+      "fingerprint": "sha256:c67010bbd40388d6a9c5b1a1d0d2237b28f2a3191212e9cae3444a1e3c5327a1",
+      "file": "export/screens/_customers-121a6110.txt",
+      "dismissed": "Cette route ne présente qu’une page vide avec les informations de configuration et aucune fonctionnalité métier; l’accueil client est la route /."
+    }
+  ]
+}

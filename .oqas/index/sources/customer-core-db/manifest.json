@@ -1,0 +1,53 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-core-db",
+    "type": "postgresql"
+  },
+  "fingerprint": "sha256:4910d8413e1a747619e019c3da603c4428348a0269eb3aab27e0a921f2086826",
+  "producedAt": "2026-11-18T18:49:08.248Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Customer identity, contact details, profile information, and associated address records.",
+      "file": "domains/customers.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "public.addresses",
+      "kind": "table",
+      "fingerprint": "sha256:5ef31c70d99d5469ef0bc4fab7e53d3eb55097216538dc84d51500465948654c",
+      "file": "export/tables/public.addresses.sql",
+      "domain": "customers",
+      "role": "Stores a customer's address details: street address, postal code and city."
+    },
+    {
+      "name": "public.customer_profile_entity",
+      "kind": "table",
+      "fingerprint": "sha256:53d7204ac88e31daa8aa20da72d39ee7d5cbe61297860b8f8743fa7d1a574466",
+      "file": "export/tables/public.customer_profile_entity.sql",
+      "domain": "customers",
+      "role": "Holds a customer's personal and contact profile, birthday, and current address."
+    },
+    {
+      "name": "public.customer_profile_entity_move_history",
+      "kind": "table",
+      "fingerprint": "sha256:a491aeff3d8cfac5cc0bf215babb5440c7d4e30f357a510bbfe056e9e7493f6a",
+      "file": "export/tables/public.customer_profile_entity_move_history.sql",
+      "domain": "customers",
+      "role": "Associates customer profiles with addresses recorded in their move history."
+    },
+    {
+      "name": "public.customers",
+      "kind": "table",
+      "fingerprint": "sha256:f37daa29e8d7045e80791ea55b63b515bd25ecef864b0a144189c307c0b3b4ea",
+      "file": "export/tables/public.customers.sql",
+      "domain": "customers",
+      "role": "Stores customer identifiers linked to customer profile records."
+    }
+  ]
+}

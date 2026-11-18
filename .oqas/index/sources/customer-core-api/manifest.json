@@ -1,0 +1,219 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-core-api",
+    "type": "openapi"
+  },
+  "fingerprint": "sha256:42c952c410073337e2732d1d58a14bc9d4372d7bf4b3ed0824c62b6610a38e78",
+  "producedAt": "2026-11-18T18:49:00.857Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Clients",
+      "description": "Gestion des profils clients, de leur consultation et de leurs coordonnées.",
+      "file": "domains/customers.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "city-reference-data",
+      "label": "Référentiel des villes",
+      "description": "Consultation des villes associées à un code postal.",
+      "file": "domains/city-reference-data.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "error-handling",
+      "label": "Gestion des erreurs",
+      "description": "Points d’entrée techniques associés à la gestion des erreurs.",
+      "file": "domains/error-handling.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "PUT /customers/{customerId}",
+      "kind": "operation",
+      "fingerprint": "sha256:388db009d6bbab74b2e6eef00c939e3e62ba1b1a9c90d5686462e2f6e2dbfd11",
+      "file": "export/operations/PUT_customers_customerId_-2dc9684b.json",
+      "domain": "customers",
+      "role": "Met à jour le profil du client identifié et renvoie sa fiche."
+    },
+    {
+      "name": "PUT /customers/{customerId}/address",
+      "kind": "operation",
+      "fingerprint": "sha256:fd44b5f2e01de1bdbf075e28e3daa89618f6e546a3e301342110eebd246ef0a2",
+      "file": "export/operations/PUT_customers_customerId_address-f0a61eac.json",
+      "domain": "customers",
+      "role": "Modifie l’adresse du client identifié."
+    },
+    {
+      "name": "GET /customers",
+      "kind": "operation",
+      "fingerprint": "sha256:5bf90a93efc0842e2b174cdb28159c3df1b6b6bb97134f45ed5578a4a6296105",
+      "file": "export/operations/GET_customers-39b41663.json",
+      "domain": "customers",
+      "role": "Liste les clients avec pagination et paramètres de filtrage ou de sélection des champs."
+    },
+    {
+      "name": "POST /customers",
+      "kind": "operation",
+      "fingerprint": "sha256:99fe658d30cca4ec9fa443ff4262a99017d925c1f5b801629b942a21d9f0f836",
+      "file": "export/operations/POST_customers-c0a6b864.json",
+      "domain": "customers",
+      "role": "Crée un client à partir des informations de profil fournies."
+    },
+    {
+      "name": "GET /getCustomers/{ids}",
+      "kind": "operation",
+      "fingerprint": "sha256:2702d6be1c54e9693ef12b00a675692586bdd64c18b7dccbce4017a75b6a158e",
+      "file": "export/operations/GET_getCustomers_ids_-6b20b83e.json",
+      "domain": "customers",
+      "role": "Récupère des clients par identifiants via l’ancien point d’entrée."
+    },
+    {
+      "name": "GET /customers/{ids}",
+      "kind": "operation",
+      "fingerprint": "sha256:de41b13c249e1cec4cb74eaa0dcbffcacf9d72f4911a5b2816ca93ae0ddb842a",
+      "file": "export/operations/GET_customers_ids_-6e96040c.json",
+      "domain": "customers",
+      "role": "Récupère un ensemble de clients à partir de leurs identifiants."
+    },
+    {
+      "name": "GET /cities/{postalCode}",
+      "kind": "operation",
+      "fingerprint": "sha256:1a04ae01bb380d29ddceb31ee8460bb7431f29bb4707667be1bd9bc5a1df02ce",
+      "file": "export/operations/GET_cities_postalCode_-35d57346.json",
+      "domain": "city-reference-data",
+      "role": "Renvoie les villes correspondant au code postal indiqué."
+    },
+    {
+      "name": "GET /error",
+      "kind": "operation",
+      "fingerprint": "sha256:23c8194acee2939bd397b739b035fe3f22cc85e4a154adbd0b861d1d4ac98a74",
+      "file": "export/operations/GET_error-0c7ca690.json",
+      "domain": "error-handling",
+      "role": "Point d’entrée GET de gestion des erreurs."
+    },
+    {
+      "name": "PUT /error",
+      "kind": "operation",
+      "fingerprint": "sha256:df873e093eccc74718615f187beb29df27562e8a9563b9dbf1a2d85b8d4fb098",
+      "file": "export/operations/PUT_error-01b6a2b9.json",
+      "domain": "error-handling",
+      "role": "Point d’entrée PUT de gestion des erreurs."
+    },
+    {
+      "name": "POST /error",
+      "kind": "operation",
+      "fingerprint": "sha256:76d2539188be44c33fa4a878df08c9d394bc7cd0599f13d073a37537bcdb726f",
+      "file": "export/operations/POST_error-373f5580.json",
+      "domain": "error-handling",
+      "role": "Point d’entrée POST de gestion des erreurs."
+    },
+    {
+      "name": "DELETE /error",
+      "kind": "operation",
+      "fingerprint": "sha256:006dfc1a42c76b4ded0955d2c5ed8bad9855ba93498679b50dc68024000bd2d1",
+      "file": "export/operations/DELETE_error-65131f8a.json",
+      "domain": "error-handling",
+      "role": "Point d’entrée DELETE de gestion des erreurs."
+    },
+    {
+      "name": "OPTIONS /error",
+      "kind": "operation",
+      "fingerprint": "sha256:643de9afcdf7943fd15cf5aa7847bfd06410d014b3102d187876d0f49d9b1e11",
+      "file": "export/operations/OPTIONS_error-91862e1b.json",
+      "domain": "error-handling",
+      "role": "Point d’entrée OPTIONS de gestion des erreurs."
+    },
+    {
+      "name": "HEAD /error",
+      "kind": "operation",
+      "fingerprint": "sha256:c8c048610fcb4caba3a31ebae637b28680615ce6831675126aaa55f843e60dd0",
+      "file": "export/operations/HEAD_error-2b598128.json",
+      "domain": "error-handling",
+      "role": "Point d’entrée HEAD de gestion des erreurs."
+    },
+    {
+      "name": "PATCH /error",
+      "kind": "operation",
+      "fingerprint": "sha256:6bab2548c720df00143099de1e4113350a403fcc393d72d18708704b133662b2",
+      "file": "export/operations/PATCH_error-2429b9b3.json",
+      "domain": "error-handling",
+      "role": "Point d’entrée PATCH de gestion des erreurs."
+    },
+    {
+      "name": "CustomerProfileUpdateRequestDto",
+      "kind": "schema",
+      "fingerprint": "sha256:4a5983b4562bb75a4c7106f51837adc172735639661aed5f4eff6e57ac5e03fe",
+      "file": "export/schemas/CustomerProfileUpdateRequestDto-d09fc817.json",
+      "domain": "customers",
+      "role": "Décrit les informations de profil à fournir pour créer ou mettre à jour un client, avec les champs requis."
+    },
+    {
+      "name": "Address",
+      "kind": "schema",
+      "fingerprint": "sha256:de9b4d4f36fe4650699e5d8d594aa1438545febda9dee90042bf782102b1040e",
+      "file": "export/schemas/Address-56ef8f20.json",
+      "domain": "customers",
+      "role": "Représente une adresse figurant dans l’historique des déménagements d’un client."
+    },
+    {
+      "name": "CustomerResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:8a138e18914ccc006a5649d38cd19f1b4dbe6a50115cb05405ae51b978bbc0e3",
+      "file": "export/schemas/CustomerResponseDto-0abd65a7.json",
+      "domain": "customers",
+      "role": "Contient les données de réponse d’un client, son historique d’adresses et ses liens."
+    },
+    {
+      "name": "Links",
+      "kind": "schema",
+      "fingerprint": "sha256:3246585f00d47f877aff7e7a2e027d6398203fc477d63c07708aad2eb0f5b2f8",
+      "file": "export/schemas/Links-9024c197.json",
+      "domain": "customers",
+      "role": "Regroupe les liens associés aux réponses client."
+    },
+    {
+      "name": "AddressDto",
+      "kind": "schema",
+      "fingerprint": "sha256:908ab6c1891839e5d70176175bd9c2e3808f0215a3a4f7b56bb88daed049d9d9",
+      "file": "export/schemas/AddressDto-917c230f.json",
+      "domain": "customers",
+      "role": "Décrit l’adresse d’un client, avec rue, code postal et ville requis."
+    },
+    {
+      "name": "PaginatedCustomerResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:f328e8c1db17311b085cc8fe3672851370e356564fb4056b6e882c2f62543cf9",
+      "file": "export/schemas/PaginatedCustomerResponseDto-87120356.json",
+      "domain": "customers",
+      "role": "Contient une page de clients et les métadonnées de pagination et de filtrage."
+    },
+    {
+      "name": "CustomersResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:ee675a74d6e5bbe531e69206189ff5461717c8ea2c7fc9993a4dbff9ee997585",
+      "file": "export/schemas/CustomersResponseDto-7bdaa089.json",
+      "domain": "customers",
+      "role": "Contient une collection de clients et les liens associés."
+    },
+    {
+      "name": "CitiesResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:5500433eb66d790a81b2e361e8b9295fc4e919897b2db193455fae465d83a7dc",
+      "file": "export/schemas/CitiesResponseDto-172459ab.json",
+      "domain": "city-reference-data",
+      "role": "Contient la liste des villes renvoyée pour un code postal."
+    },
+    {
+      "name": "Link",
+      "kind": "schema",
+      "fingerprint": "sha256:ee78c65590616191a5a0bfb3d43774a41f8242e806c2d87864fed35230809e42",
+      "file": "export/schemas/Link-a6a32dbc.json",
+      "domain": "customers",
+      "role": "Décrit un lien individuel et ses métadonnées de navigation."
+    }
+  ]
+}

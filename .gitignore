@@ -1,1 +1,9 @@
 node_modules/
+# What a run of the tests or of the agents leaves on the machine
+.oqas/oqas.db*
+.oqas/runs/
+.oqas/traces/
+.oqas/trials/
+.oqas/test-results/
+test-results/
+playwright-report/

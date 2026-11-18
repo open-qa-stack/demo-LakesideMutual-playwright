@@ -1,0 +1,226 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-management-frontend-code",
+    "type": "source-code"
+  },
+  "fingerprint": "sha256:911fe97afeeb59242ff0a255dcd440b1354d75148c100c93f6bcd3d2a05352db",
+  "producedAt": "2026-11-18T18:48:29.116Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 5,
+    "actions": 0,
+    "durationMs": 14542
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "application-shell",
+      "label": "Application shell",
+      "description": "Configure l’application, son entrée React et les routes qui exposent les principales vues.",
+      "items": [
+        {
+          "name": ".",
+          "summary": "Contient les fichiers racine de configuration, lancement et documentation du frontend Customer Management.",
+          "keyFields": [
+            ".env",
+            "README.md",
+            "package.json",
+            "Dockerfile"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "src",
+          "summary": "Regroupe l’application React, la configuration, les types, les messages d’erreur, les styles et les vues principales.",
+          "keyFields": [
+            "App.js",
+            "config.js",
+            "errorMessages.js",
+            "types/definitions.js.flow"
+          ],
+          "facts": {
+            "files": 4,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "type-definitions",
+      "label": "Définitions de types",
+      "description": "Fournit les déclarations Flow nécessaires aux dépendances externes.",
+      "items": [
+        {
+          "name": "flow-typed/npm",
+          "summary": "Regroupe les fichiers Flow de déclaration pour les bibliothèques npm utilisées par le frontend.",
+          "keyFields": [
+            "déclarations Flow des dépendances"
+          ],
+          "facts": {
+            "files": 16,
+            "routes": []
+          }
+        },
+        {
+          "name": "flow-typed/npm/@brigad",
+          "summary": "Déclare les types Flow de la bibliothèque @brigad/redux-rest-easy.",
+          "keyFields": [
+            "redux-rest-easy"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "shared-components",
+      "label": "Composants partagés",
+      "description": "Contient les composants d’interface réutilisables dans les différentes vues de l’application.",
+      "items": [
+        {
+          "name": "src/components",
+          "summary": "Regroupe les composants d’interface communs, dont la barre de navigation et l’en-tête du site.",
+          "keyFields": [
+            "MenuBar.js",
+            "SiteHeader.js"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/components/ChatRoom",
+          "summary": "Affiche les messages de la conversation et permet de saisir et envoyer un message.",
+          "keyFields": [
+            "messages",
+            "content",
+            "onSubmit"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "customer-records",
+      "label": "Clients",
+      "description": "Permet de parcourir les clients et de consulter ou modifier leur profil.",
+      "items": [
+        {
+          "name": "src/pages/CustomerDetail",
+          "summary": "Présente le profil d’un client, son historique d’interactions et la conversation en direct.",
+          "keyFields": [
+            "customerId",
+            "firstname",
+            "lastname",
+            "interactionLog"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/pages/EditCustomer",
+          "summary": "Charge un profil existant et soumet ses modifications, avec erreurs de validation par champ.",
+          "keyFields": [
+            "firstname",
+            "lastname",
+            "birthday",
+            "streetAddress",
+            "postalCode",
+            "city",
+            "email",
+            "phoneNumber"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/pages/Home",
+          "summary": "Page d’accueil qui rassemble les notifications et la liste de clients filtrable et paginée.",
+          "keyFields": [
+            "filter",
+            "offset",
+            "limit",
+            "size",
+            "notifications"
+          ],
+          "facts": {
+            "files": 3,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/pages/NewCustomer",
+          "summary": "Crée un compte utilisateur puis un profil client à partir d’un formulaire.",
+          "keyFields": [
+            "email",
+            "password",
+            "firstname",
+            "lastname",
+            "birthday",
+            "streetAddress",
+            "postalCode",
+            "city",
+            "phoneNumber"
+          ],
+          "facts": {
+            "files": 1,
+            "routes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "state-management",
+      "label": "Gestion d’état",
+      "description": "Configure Redux et expose les ressources et actions qui communiquent avec les services backend.",
+      "items": [
+        {
+          "name": "src/redux",
+          "summary": "Assemble le store Redux avec middleware thunk et le reducer de redux-rest-easy.",
+          "keyFields": [
+            "configureStore",
+            "thunkMiddleware",
+            "restEasy"
+          ],
+          "facts": {
+            "files": 2,
+            "routes": []
+          }
+        },
+        {
+          "name": "src/redux-rest-easy",
+          "summary": "Déclare les ressources API pour clients, journaux d’interactions, notifications et utilisateurs.",
+          "keyFields": [
+            "customers",
+            "interactionlogs",
+            "notifications",
+            "users"
+          ],
+          "facts": {
+            "files": 4,
+            "routes": []
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

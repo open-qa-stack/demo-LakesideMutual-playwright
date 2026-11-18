@@ -1,0 +1,175 @@
+operation GET /policies/{policyId} — Get a single policy.
+  id: getPolicy
+  tags: policy-information-holder
+  parameters: policyId (path, required), expand (query)
+  responses: 200 PolicyDto
+
+operation PUT /policies/{policyId} — Update an existing policy.
+  id: updatePolicy
+  tags: policy-information-holder
+  parameters: policyId (path, required)
+  body: CreatePolicyRequestDto
+  responses: 200 PolicyDto
+
+operation DELETE /policies/{policyId} — Delete an existing policy.
+  id: deletePolicy
+  tags: policy-information-holder
+  parameters: policyId (path, required)
+  responses: 200
+
+operation POST /riskfactor/compute — Computes the risk factor for a given customer.
+  id: computeRiskFactor
+  tags: risk-computation-service
+  body: RiskFactorRequestDto
+  responses: 200 RiskFactorResponseDto
+
+operation GET /policies — Get all policies, newest first.
+  id: getPolicies
+  tags: policy-information-holder
+  parameters: limit (query), offset (query), expand (query)
+  responses: 200 PaginatedPolicyResponseDto
+
+operation POST /policies — Create a new policy.
+  id: createPolicy
+  tags: policy-information-holder
+  body: CreatePolicyRequestDto
+  responses: 200 PolicyDto
+
+operation GET /insurance-quote-requests/{id} — Get a specific Insurance Quote Request.
+  id: getInsuranceQuoteRequest
+  tags: insurance-quote-request-processing-resource
+  parameters: id (path, required)
+  responses: 200 InsuranceQuoteRequestDto
+
+operation PATCH /insurance-quote-requests/{id} — Updates the status of an existing Insurance Quote Request
+  id: respondToInsuranceQuoteRequest
+  tags: insurance-quote-request-processing-resource
+  parameters: id (path, required)
+  body: InsuranceQuoteResponseDto
+  responses: 200 InsuranceQuoteRequestDto
+
+operation GET /insurance-quote-requests — Get all Insurance Quote Requests.
+  id: getInsuranceQuoteRequests
+  tags: insurance-quote-request-processing-resource
+  responses: 200 InsuranceQuoteRequestDto
+
+operation GET /customers — Get all customers.
+  id: getCustomers
+  tags: customer-information-holder
+  parameters: filter (query), limit (query), offset (query)
+  responses: 200 PaginatedCustomerResponseDto
+
+operation GET /customers/{customerIdDto} — Get customer with a given customer id.
+  id: getCustomer
+  tags: customer-information-holder
+  parameters: customerIdDto (path, required)
+  responses: 200 CustomerDto
+
+operation GET /customers/{customerIdDto}/policies — Get a customer's policies.
+  id: getPolicies_1
+  tags: customer-information-holder
+  parameters: customerIdDto (path, required), expand (query)
+  responses: 200 PolicyDto
+
+operation GET /error
+  id: handleError
+  tags: error-controller
+  responses: 200
+
+operation PUT /error
+  id: handleError_3
+  tags: error-controller
+  responses: 200
+
+operation POST /error
+  id: handleError_2
+  tags: error-controller
+  responses: 200
+
+operation DELETE /error
+  id: handleError_5
+  tags: error-controller
+  responses: 200
+
+operation OPTIONS /error
+  id: handleError_6
+  tags: error-controller
+  responses: 200
+
+operation HEAD /error
+  id: handleError_1
+  tags: error-controller
+  responses: 200
+
+operation PATCH /error
+  id: handleError_4
+  tags: error-controller
+  responses: 200
+
+schema CreatePolicyRequestDto
+  properties: customerId (string), policyPeriod (PolicyPeriodDto), policyType (string), deductible (MoneyAmountDto), policyLimit (MoneyAmountDto), insurancePremium (MoneyAmountDto), insuringAgreement (InsuringAgreementDto)
+  required: policyType
+
+schema InsuringAgreementDto
+  properties: agreementItems (array of InsuringAgreementItemDto)
+  required: agreementItems
+
+schema InsuringAgreementItemDto
+  properties: title (string), description (string)
+  required: description, title
+
+schema MoneyAmountDto
+  properties: amount (number), currency (string)
+  required: amount, currency
+
+schema PolicyPeriodDto
+  properties: startDate (string), endDate (string)
+  required: endDate, startDate
+
+schema Links
+
+schema PolicyDto
+  properties: policyId (string), customer (object), creationDate (string), policyPeriod (PolicyPeriodDto), policyType (string), deductible (MoneyAmountDto), policyLimit (MoneyAmountDto), insurancePremium (MoneyAmountDto), insuringAgreement (InsuringAgreementDto), _links (Links), _expandable (array of string)
+
+schema RiskFactorRequestDto
+  properties: birthday (string), postalCode (string)
+
+schema RiskFactorResponseDto
+  properties: riskFactor (integer)
+
+schema InsuranceQuoteResponseDto
+  properties: status (string), expirationDate (string), insurancePremium (MoneyAmountDto), policyLimit (MoneyAmountDto)
+  required: status
+
+schema AddressDto
+  properties: streetAddress (string), postalCode (string), city (string)
+
+schema CustomerInfoDto
+  properties: customerId (string), firstname (string), lastname (string), contactAddress (AddressDto), billingAddress (AddressDto)
+
+schema InsuranceOptionsDto
+  properties: startDate (string), insuranceType (string), deductible (MoneyAmountDto)
+
+schema InsuranceQuoteDto
+  properties: expirationDate (string), insurancePremium (MoneyAmountDto), policyLimit (MoneyAmountDto)
+  required: expirationDate, insurancePremium, policyLimit
+
+schema InsuranceQuoteRequestDto
+  properties: id (integer), date (string), statusHistory (array of RequestStatusChangeDto), customerInfo (CustomerInfoDto), insuranceOptions (InsuranceOptionsDto), insuranceQuote (InsuranceQuoteDto), policyId (string)
+  required: customerInfo, insuranceOptions
+
+schema RequestStatusChangeDto
+  properties: date (string), status (string)
+  required: status
+
+schema PaginatedPolicyResponseDto
+  properties: limit (integer), offset (integer), size (integer), policies (array of PolicyDto), _links (Links)
+
+schema CustomerDto
+  properties: customerId (string), _links (Links)
+
+schema PaginatedCustomerResponseDto
+  properties: filter (string), limit (integer), offset (integer), size (integer), customers (array of CustomerDto), _links (Links)
+
+schema Link
+  properties: href (string), hreflang (string), title (string), type (string), deprecation (string), profile (string), name (string), templated (boolean)

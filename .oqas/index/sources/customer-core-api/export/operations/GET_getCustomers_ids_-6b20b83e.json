@@ -1,0 +1,37 @@
+{
+  "tags": [
+    "old-customer-information-holder"
+  ],
+  "operationId": "getCustomer",
+  "parameters": [
+    {
+      "name": "ids",
+      "in": "path",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "fields",
+      "in": "query",
+      "required": false,
+      "schema": {
+        "type": "string",
+        "default": ""
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

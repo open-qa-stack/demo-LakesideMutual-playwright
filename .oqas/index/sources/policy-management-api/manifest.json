@@ -1,0 +1,347 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "policy-management-api",
+    "type": "openapi"
+  },
+  "fingerprint": "sha256:2feede6be9c8bc3859b9d4f374756767708fd94e095a02c0bde9974b193c2ef7",
+  "producedAt": "2026-11-18T18:46:22.873Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "policies",
+      "label": "Polices",
+      "description": "Création, consultation, mise à jour et suppression des contrats d’assurance, ainsi que leurs périodes et garanties.",
+      "file": "domains/policies.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "risk-computation",
+      "label": "Calcul du risque",
+      "description": "Calcul des facteurs de risque d’un client à partir des informations transmises.",
+      "file": "domains/risk-computation.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "insurance-quote-requests",
+      "label": "Demandes de devis d’assurance",
+      "description": "Consultation et traitement des demandes de devis d’assurance et des réponses associées.",
+      "file": "domains/insurance-quote-requests.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "customers",
+      "label": "Clients",
+      "description": "Consultation des clients et de leurs informations associées.",
+      "file": "domains/customers.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "GET /policies/{policyId}",
+      "kind": "operation",
+      "fingerprint": "sha256:5450e5974ed5a7559e0e4f422dad55674be6ae4692b0741e4331f7d4d8e355ce",
+      "file": "export/operations/GET_policies_policyId_-6904119e.json",
+      "domain": "policies",
+      "role": "Récupère une police d’assurance par son identifiant, avec expansion facultative."
+    },
+    {
+      "name": "PUT /policies/{policyId}",
+      "kind": "operation",
+      "fingerprint": "sha256:38cadbf8af462efcb55975a899cf86b33b7e092ba4e971983e5e3712ad9d5715",
+      "file": "export/operations/PUT_policies_policyId_-c8a2d1b0.json",
+      "domain": "policies",
+      "role": "Met à jour une police existante à partir des données de création d’une police."
+    },
+    {
+      "name": "DELETE /policies/{policyId}",
+      "kind": "operation",
+      "fingerprint": "sha256:e0cc90ea368c0650e4b7b4442786a9b9da91d5f1c8d250a9378f8ef7b6886ca4",
+      "file": "export/operations/DELETE_policies_policyId_-f5573ce7.json",
+      "domain": "policies",
+      "role": "Supprime une police existante par son identifiant."
+    },
+    {
+      "name": "POST /riskfactor/compute",
+      "kind": "operation",
+      "fingerprint": "sha256:1825879e4c6def7d5aab42e23af655feb0715cbd2ce64c7f3222e2e6ce9b08d1",
+      "file": "export/operations/POST_riskfactor_compute-68d7e664.json",
+      "domain": "risk-computation",
+      "role": "Calcule le facteur de risque d’un client à partir de sa requête."
+    },
+    {
+      "name": "GET /policies",
+      "kind": "operation",
+      "fingerprint": "sha256:c83b1762ee1aaff774ebd82f6d403e6910842e2341017af68970f6228091a26f",
+      "file": "export/operations/GET_policies-166d638e.json",
+      "domain": "policies",
+      "role": "Récupère les polices, de la plus récente à la plus ancienne, avec pagination et expansion facultative."
+    },
+    {
+      "name": "POST /policies",
+      "kind": "operation",
+      "fingerprint": "sha256:92dc9c3d7ba11faeee6e095a6c0f76720e6b7f423aad04671f2e89679a45d72e",
+      "file": "export/operations/POST_policies-dbea7b43.json",
+      "domain": "policies",
+      "role": "Crée une nouvelle police d’assurance."
+    },
+    {
+      "name": "GET /insurance-quote-requests/{id}",
+      "kind": "operation",
+      "fingerprint": "sha256:c0b77180fe917235fcbaed0d12e96eaad5f5f99c680a818d8342bb9d7abecfcd",
+      "file": "export/operations/GET_insurance-quote-requests_id_-228bfe42.json",
+      "domain": "insurance-quote-requests",
+      "role": "Récupère une demande de devis d’assurance par son identifiant."
+    },
+    {
+      "name": "PATCH /insurance-quote-requests/{id}",
+      "kind": "operation",
+      "fingerprint": "sha256:a4f6c3f70d9b23ba0b2bb13576ee47e032dd9b7eab9fc9189e857a69e6942b9f",
+      "file": "export/operations/PATCH_insurance-quote-requests_id_-a8dfb444.json",
+      "domain": "insurance-quote-requests",
+      "role": "Met à jour l’état d’une demande de devis d’assurance avec la réponse fournie."
+    },
+    {
+      "name": "GET /insurance-quote-requests",
+      "kind": "operation",
+      "fingerprint": "sha256:b3ebad32b3df122e3a7e46248ae1238120ebdcc77e925d0bdf0e35226a4dd2bc",
+      "file": "export/operations/GET_insurance-quote-requests-160adc02.json",
+      "domain": "insurance-quote-requests",
+      "role": "Récupère les demandes de devis d’assurance."
+    },
+    {
+      "name": "GET /customers",
+      "kind": "operation",
+      "fingerprint": "sha256:44ad401ce2bde41c9bb744898dd2fa58cb153fa43bef5824ccc335c622dca864",
+      "file": "export/operations/GET_customers-39b41663.json",
+      "domain": "customers",
+      "role": "Récupère les clients avec filtrage et pagination."
+    },
+    {
+      "name": "GET /customers/{customerIdDto}",
+      "kind": "operation",
+      "fingerprint": "sha256:310689d3e367d83c720da5b8e5d2d84ed7fc130f6c012ab94d352dff3d3b96b8",
+      "file": "export/operations/GET_customers_customerIdDto_-5ba4d4f6.json",
+      "domain": "customers",
+      "role": "Récupère un client par son identifiant."
+    },
+    {
+      "name": "GET /customers/{customerIdDto}/policies",
+      "kind": "operation",
+      "fingerprint": "sha256:8bd10b5211b135ef0f796fb4dd67f204a8c813f02ffb00de07ff347627da2344",
+      "file": "export/operations/GET_customers_customerIdDto_policies-176bad95.json",
+      "domain": "customers",
+      "role": "Récupère les polices associées à un client, avec expansion facultative."
+    },
+    {
+      "name": "GET /error",
+      "kind": "operation",
+      "fingerprint": "sha256:23c8194acee2939bd397b739b035fe3f22cc85e4a154adbd0b861d1d4ac98a74",
+      "file": "export/operations/GET_error-0c7ca690.json",
+      "dismissed": "Point d’entrée technique générique du contrôleur d’erreurs, sans fonction métier propre."
+    },
+    {
+      "name": "PUT /error",
+      "kind": "operation",
+      "fingerprint": "sha256:df873e093eccc74718615f187beb29df27562e8a9563b9dbf1a2d85b8d4fb098",
+      "file": "export/operations/PUT_error-01b6a2b9.json",
+      "dismissed": "Point d’entrée technique générique du contrôleur d’erreurs, sans fonction métier propre."
+    },
+    {
+      "name": "POST /error",
+      "kind": "operation",
+      "fingerprint": "sha256:76d2539188be44c33fa4a878df08c9d394bc7cd0599f13d073a37537bcdb726f",
+      "file": "export/operations/POST_error-373f5580.json",
+      "dismissed": "Point d’entrée technique générique du contrôleur d’erreurs, sans fonction métier propre."
+    },
+    {
+      "name": "DELETE /error",
+      "kind": "operation",
+      "fingerprint": "sha256:006dfc1a42c76b4ded0955d2c5ed8bad9855ba93498679b50dc68024000bd2d1",
+      "file": "export/operations/DELETE_error-65131f8a.json",
+      "dismissed": "Point d’entrée technique générique du contrôleur d’erreurs, sans fonction métier propre."
+    },
+    {
+      "name": "OPTIONS /error",
+      "kind": "operation",
+      "fingerprint": "sha256:643de9afcdf7943fd15cf5aa7847bfd06410d014b3102d187876d0f49d9b1e11",
+      "file": "export/operations/OPTIONS_error-91862e1b.json",
+      "dismissed": "Point d’entrée technique générique du contrôleur d’erreurs, sans fonction métier propre."
+    },
+    {
+      "name": "HEAD /error",
+      "kind": "operation",
+      "fingerprint": "sha256:c8c048610fcb4caba3a31ebae637b28680615ce6831675126aaa55f843e60dd0",
+      "file": "export/operations/HEAD_error-2b598128.json",
+      "dismissed": "Point d’entrée technique générique du contrôleur d’erreurs, sans fonction métier propre."
+    },
+    {
+      "name": "PATCH /error",
+      "kind": "operation",
+      "fingerprint": "sha256:6bab2548c720df00143099de1e4113350a403fcc393d72d18708704b133662b2",
+      "file": "export/operations/PATCH_error-2429b9b3.json",
+      "dismissed": "Point d’entrée technique générique du contrôleur d’erreurs, sans fonction métier propre."
+    },
+    {
+      "name": "CreatePolicyRequestDto",
+      "kind": "schema",
+      "fingerprint": "sha256:6b3da8ef76543262491586ea0f33f6f0b8a23ad66288de3bc0c62f832540d4ec",
+      "file": "export/schemas/CreatePolicyRequestDto-d7a3198e.json",
+      "domain": "policies",
+      "role": "Décrit les données requises pour créer ou mettre à jour une police, notamment son type, sa période, ses montants et ses garanties."
+    },
+    {
+      "name": "InsuringAgreementDto",
+      "kind": "schema",
+      "fingerprint": "sha256:2a4099e9e1175eb35c4132832ac7d8da29b0d4a40c0ad4b9fb2b917802bf0d3e",
+      "file": "export/schemas/InsuringAgreementDto-197ac4f4.json",
+      "domain": "policies",
+      "role": "Regroupe les éléments constitutifs de la garantie d’assurance."
+    },
+    {
+      "name": "InsuringAgreementItemDto",
+      "kind": "schema",
+      "fingerprint": "sha256:ab634f6690ed5de48a769171b263b0b14d06df490c8bc40941e6ca38f6a11469",
+      "file": "export/schemas/InsuringAgreementItemDto-9f656eee.json",
+      "domain": "policies",
+      "role": "Décrit un élément de garantie par son titre et sa description."
+    },
+    {
+      "name": "MoneyAmountDto",
+      "kind": "schema",
+      "fingerprint": "sha256:3672782c22f2644676c4f17122c35459457bbc35270b3b2342b94a5793e5eac7",
+      "file": "export/schemas/MoneyAmountDto-4198334c.json",
+      "domain": "policies",
+      "role": "Représente un montant monétaire avec sa valeur et sa devise, utilisé pour les montants de police et de devis."
+    },
+    {
+      "name": "PolicyPeriodDto",
+      "kind": "schema",
+      "fingerprint": "sha256:83c4f2bac73cc389cae52415c496a38750468ee39c93b4515a9f7539163593ee",
+      "file": "export/schemas/PolicyPeriodDto-c2578bad.json",
+      "domain": "policies",
+      "role": "Représente la période de validité d’une police avec ses dates de début et de fin."
+    },
+    {
+      "name": "Links",
+      "kind": "schema",
+      "fingerprint": "sha256:3246585f00d47f877aff7e7a2e027d6398203fc477d63c07708aad2eb0f5b2f8",
+      "file": "export/schemas/Links-9024c197.json",
+      "domain": "policies",
+      "role": "Contient les liens de navigation associés à la représentation d’une police."
+    },
+    {
+      "name": "PolicyDto",
+      "kind": "schema",
+      "fingerprint": "sha256:3ca27c7cf6a24f883fbee70848e97a02a3bc69824e11acdffaffcc7fc551d898",
+      "file": "export/schemas/PolicyDto-fbd3a8ec.json",
+      "domain": "policies",
+      "role": "Représente une police avec son client, sa période, ses montants, ses garanties et ses liens."
+    },
+    {
+      "name": "RiskFactorRequestDto",
+      "kind": "schema",
+      "fingerprint": "sha256:f6c99982194c158c238b818bc864119d050fbfd5fe5fb5e5e9089f758d9ffa98",
+      "file": "export/schemas/RiskFactorRequestDto-9f2fe45a.json",
+      "domain": "risk-computation",
+      "role": "Fournit la date de naissance et le code postal nécessaires au calcul du facteur de risque."
+    },
+    {
+      "name": "RiskFactorResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:b401852d8d1d2145de4ea0e8629775555fd3ae9382e233a91444739d84312742",
+      "file": "export/schemas/RiskFactorResponseDto-6f41cd22.json",
+      "domain": "risk-computation",
+      "role": "Retourne le facteur de risque calculé."
+    },
+    {
+      "name": "InsuranceQuoteResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:a1f016d9c898560dcc3167a7b8176d34584442a44fceec87b37cae8d022f82aa",
+      "file": "export/schemas/InsuranceQuoteResponseDto-091bb9ca.json",
+      "domain": "insurance-quote-requests",
+      "role": "Décrit la réponse à une demande de devis, dont l’état, l’expiration et les montants proposés."
+    },
+    {
+      "name": "AddressDto",
+      "kind": "schema",
+      "fingerprint": "sha256:de9b4d4f36fe4650699e5d8d594aa1438545febda9dee90042bf782102b1040e",
+      "file": "export/schemas/AddressDto-917c230f.json",
+      "domain": "customers",
+      "role": "Représente une adresse postale avec rue, code postal et ville."
+    },
+    {
+      "name": "CustomerInfoDto",
+      "kind": "schema",
+      "fingerprint": "sha256:5de91718f9a5bd518b3e2cc3dfa958fcee2a8b6620cd3af3424f9fccede331bb",
+      "file": "export/schemas/CustomerInfoDto-0fbd3b53.json",
+      "domain": "customers",
+      "role": "Informations d’identité et adresses de contact et de facturation d’un client."
+    },
+    {
+      "name": "InsuranceOptionsDto",
+      "kind": "schema",
+      "fingerprint": "sha256:8bf541713be785b329944af5d943bc0b73eac8abcbb807e78175ce138df95cea",
+      "file": "export/schemas/InsuranceOptionsDto-12df0015.json",
+      "domain": "insurance-quote-requests",
+      "role": "Options demandées pour l’assurance, notamment la date de début, le type et la franchise."
+    },
+    {
+      "name": "InsuranceQuoteDto",
+      "kind": "schema",
+      "fingerprint": "sha256:0f7ffed9ad566cb883b65618939be32d4022f1f8ff2ab2ff6c9c11bf0eaf094c",
+      "file": "export/schemas/InsuranceQuoteDto-d34a1189.json",
+      "domain": "insurance-quote-requests",
+      "role": "Devis d’assurance proposé, avec sa date d’expiration, sa prime et sa limite de garantie."
+    },
+    {
+      "name": "InsuranceQuoteRequestDto",
+      "kind": "schema",
+      "fingerprint": "sha256:d1558ca573375b2fe48795754468ce1627d8b1947811850c4c4629e580da669c",
+      "file": "export/schemas/InsuranceQuoteRequestDto-97f88c3b.json",
+      "domain": "insurance-quote-requests",
+      "role": "Demande de devis avec les informations client, les options, l’historique de statut, le devis éventuel et la police liée."
+    },
+    {
+      "name": "RequestStatusChangeDto",
+      "kind": "schema",
+      "fingerprint": "sha256:354453341425bb12bf2c579ba62bab6c838bfcba6872e7e33aa14439d17f9b1b",
+      "file": "export/schemas/RequestStatusChangeDto-c262ee82.json",
+      "domain": "insurance-quote-requests",
+      "role": "Entrée d’historique indiquant la date et le statut d’une demande de devis."
+    },
+    {
+      "name": "PaginatedPolicyResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:cc4b36423c9bbcfe227972b387e0e2663be581bdb2ed2ddf344b264702546731",
+      "file": "export/schemas/PaginatedPolicyResponseDto-f1511ea0.json",
+      "domain": "policies",
+      "role": "Réponse paginée contenant une liste de polices et les liens associés."
+    },
+    {
+      "name": "CustomerDto",
+      "kind": "schema",
+      "fingerprint": "sha256:f7855b30e44133f555815bc87fe2c787e36965f595a352b5e810f33433a52f4c",
+      "file": "export/schemas/CustomerDto-8efc7e27.json",
+      "domain": "customers",
+      "role": "Représentation d’un client par son identifiant et ses liens associés."
+    },
+    {
+      "name": "PaginatedCustomerResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:ff55ccedc98a686cecc4f635d13234be011a5267c73e7ba507716647185e927d",
+      "file": "export/schemas/PaginatedCustomerResponseDto-87120356.json",
+      "domain": "customers",
+      "role": "Réponse paginée contenant des clients, le filtre appliqué et les liens associés."
+    },
+    {
+      "name": "Link",
+      "kind": "schema",
+      "fingerprint": "sha256:ee78c65590616191a5a0bfb3d43774a41f8242e806c2d87864fed35230809e42",
+      "file": "export/schemas/Link-a6a32dbc.json",
+      "domain": "policies",
+      "role": "Lien hypermédia décrivant une cible et ses métadonnées de navigation."
+    }
+  ]
+}

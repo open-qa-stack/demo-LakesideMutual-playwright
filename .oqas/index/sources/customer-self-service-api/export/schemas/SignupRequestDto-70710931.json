@@ -1,0 +1,16 @@
+{
+  "required": [
+    "email",
+    "password"
+  ],
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    }
+  },
+  "description": "the email and password used to create a new user"
+}

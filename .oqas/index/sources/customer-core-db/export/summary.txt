@@ -1,0 +1,20 @@
+table public.addresses
+  columns: id bigint not null, city character varying(255), postal_code character varying(255), street_address character varying(255)
+  primary key: id
+
+table public.customer_profile_entity
+  columns: birthday timestamp(6) without time zone, current_address_id bigint, id bigint not null, email character varying(255), firstname character varying(255), lastname character varying(255), phone_number character varying(255)
+  primary key: id
+  foreign keys: current_address_id -> public.addresses (id)
+  constraints: UNIQUE (current_address_id)
+
+table public.customer_profile_entity_move_history
+  columns: customer_profile_entity_id bigint not null, move_history_id bigint not null
+  foreign keys: customer_profile_entity_id -> public.customer_profile_entity (id); move_history_id -> public.addresses (id)
+  constraints: UNIQUE (move_history_id)
+
+table public.customers
+  columns: customer_profile_id bigint, id character varying(255) not null
+  primary key: id
+  foreign keys: customer_profile_id -> public.customer_profile_entity (id)
+  constraints: UNIQUE (customer_profile_id)

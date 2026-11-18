@@ -1,0 +1,11 @@
+- generic [ref=f1e3]:
+  - generic [ref=f1e5]:
+    - heading "Lakeside Mutual - Customer Self-Service" [level=2] [ref=f1e6]
+    - generic [ref=f1e7]:
+      - heading "Welcome to LM Customer Self-Service" [level=3] [ref=f1e8]
+      - button "Log in to access your LM account" [ref=f1e9] [cursor=pointer] → page.getByRole("button", { name: "Log in to access your LM account", exact: true })
+      - paragraph [ref=f1e10]: "If you do not already have an account, sign up here:"
+      - button "Sign up" [ref=f1e11] [cursor=pointer] → page.getByRole("button", { name: "Sign up", exact: true })
+  - generic [ref=f1e12]:
+    - generic [ref=f1e13]: Environment Variable Debug Information
+    - paragraph [ref=f1e14]: "REACT_APP_CUSTOMER_SELF_SERVICE_BACKEND: http://localhost:8080REACT_APP_POLICY_MANAGEMENT_BACKEND: http://localhost:8090REACT_APP_CUSTOMER_MANAGEMENT_BACKEND: http://localhost:8100"

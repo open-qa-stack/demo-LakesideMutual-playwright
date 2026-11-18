@@ -1,0 +1,227 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-management-api",
+    "type": "openapi"
+  },
+  "fingerprint": "sha256:28e686375ba6b204251c38f7efb3501a92695dc080f0edae8f9b4478b77dabbc",
+  "producedAt": "2026-11-18T18:47:49.774Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Consultation, listing and profile management for customers and their associated profile data.",
+      "file": "domains/customers.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "interaction-logs",
+      "label": "Interaction logs",
+      "description": "Customer interaction histories and acknowledgement of interactions.",
+      "file": "domains/interaction-logs.md",
+      "writtenBy": "model"
+    },
+    {
+      "id": "notifications",
+      "label": "Notifications",
+      "description": "Unacknowledged notification counts associated with customers.",
+      "file": "domains/notifications.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "GET /customers/{customerId}",
+      "kind": "operation",
+      "fingerprint": "sha256:9efba906af2787d51071352e6c44ff3215a06c25f06c848d1dc8b9794d64eb5d",
+      "file": "export/operations/GET_customers_customerId_-a46a1e7e.json",
+      "domain": "customers",
+      "role": "Retrieves a customer profile by customer ID."
+    },
+    {
+      "name": "PUT /customers/{customerId}",
+      "kind": "operation",
+      "fingerprint": "sha256:29ec4d88a06c02ae69809b762c2a8da3dd52035177960523250eca889dd1cefe",
+      "file": "export/operations/PUT_customers_customerId_-2dc9684b.json",
+      "domain": "customers",
+      "role": "Updates the profile of the customer identified by the path parameter."
+    },
+    {
+      "name": "GET /interaction-logs/{customerId}",
+      "kind": "operation",
+      "fingerprint": "sha256:ccb17cc67b3933853a83b68c488bc3caaf52096b0a5204e1a02c599d808f7035",
+      "file": "export/operations/GET_interaction-logs_customerId_-e3a014c3.json",
+      "domain": "interaction-logs",
+      "role": "Retrieves the interaction log for the specified customer."
+    },
+    {
+      "name": "PATCH /interaction-logs/{customerId}",
+      "kind": "operation",
+      "fingerprint": "sha256:1efa2617982d48f06e4b58640ae75405f4e3b727c5f8c04fd3843d5be1e7fb61",
+      "file": "export/operations/PATCH_interaction-logs_customerId_-dc8a8804.json",
+      "domain": "interaction-logs",
+      "role": "Acknowledges the customer's interactions up to the supplied interaction ID."
+    },
+    {
+      "name": "GET /notifications",
+      "kind": "operation",
+      "fingerprint": "sha256:d521132fc8d0eba5fb453bbd77ca63314f2f986deb8ebbeb95ff4c43ffce40ed",
+      "file": "export/operations/GET_notifications-4bf31ea2.json",
+      "domain": "notifications",
+      "role": "Lists all unacknowledged notifications."
+    },
+    {
+      "name": "GET /customers",
+      "kind": "operation",
+      "fingerprint": "sha256:44ad401ce2bde41c9bb744898dd2fa58cb153fa43bef5824ccc335c622dca864",
+      "file": "export/operations/GET_customers-39b41663.json",
+      "domain": "customers",
+      "role": "Lists customers with optional filtering and pagination."
+    },
+    {
+      "name": "GET /error",
+      "kind": "operation",
+      "fingerprint": "sha256:23c8194acee2939bd397b739b035fe3f22cc85e4a154adbd0b861d1d4ac98a74",
+      "file": "export/operations/GET_error-0c7ca690.json",
+      "domain": "customers",
+      "role": "Framework error dispatch endpoint exposed by the API."
+    },
+    {
+      "name": "PUT /error",
+      "kind": "operation",
+      "fingerprint": "sha256:df873e093eccc74718615f187beb29df27562e8a9563b9dbf1a2d85b8d4fb098",
+      "file": "export/operations/PUT_error-01b6a2b9.json",
+      "domain": "customers",
+      "role": "Framework error dispatch endpoint exposed by the API."
+    },
+    {
+      "name": "POST /error",
+      "kind": "operation",
+      "fingerprint": "sha256:76d2539188be44c33fa4a878df08c9d394bc7cd0599f13d073a37537bcdb726f",
+      "file": "export/operations/POST_error-373f5580.json",
+      "domain": "customers",
+      "role": "Framework error dispatch endpoint exposed by the API."
+    },
+    {
+      "name": "DELETE /error",
+      "kind": "operation",
+      "fingerprint": "sha256:006dfc1a42c76b4ded0955d2c5ed8bad9855ba93498679b50dc68024000bd2d1",
+      "file": "export/operations/DELETE_error-65131f8a.json",
+      "domain": "customers",
+      "role": "Framework error dispatch endpoint exposed by the API."
+    },
+    {
+      "name": "OPTIONS /error",
+      "kind": "operation",
+      "fingerprint": "sha256:643de9afcdf7943fd15cf5aa7847bfd06410d014b3102d187876d0f49d9b1e11",
+      "file": "export/operations/OPTIONS_error-91862e1b.json",
+      "domain": "customers",
+      "role": "Framework error dispatch endpoint exposed by the API."
+    },
+    {
+      "name": "HEAD /error",
+      "kind": "operation",
+      "fingerprint": "sha256:c8c048610fcb4caba3a31ebae637b28680615ce6831675126aaa55f843e60dd0",
+      "file": "export/operations/HEAD_error-2b598128.json",
+      "domain": "customers",
+      "role": "Framework error dispatch endpoint exposed by the API."
+    },
+    {
+      "name": "PATCH /error",
+      "kind": "operation",
+      "fingerprint": "sha256:6bab2548c720df00143099de1e4113350a403fcc393d72d18708704b133662b2",
+      "file": "export/operations/PATCH_error-2429b9b3.json",
+      "domain": "customers",
+      "role": "Framework error dispatch endpoint exposed by the API."
+    },
+    {
+      "name": "CustomerId",
+      "kind": "schema",
+      "fingerprint": "sha256:eb3020a660c8dc46fcf3208e9c8c7b79a74d418369041a9a6da71d0e80c15d16",
+      "file": "export/schemas/CustomerId-4cdd4f17.json",
+      "domain": "customers",
+      "role": "Schema for a customer identifier."
+    },
+    {
+      "name": "AddressDto",
+      "kind": "schema",
+      "fingerprint": "sha256:de9b4d4f36fe4650699e5d8d594aa1438545febda9dee90042bf782102b1040e",
+      "file": "export/schemas/AddressDto-917c230f.json",
+      "domain": "customers",
+      "role": "Represents an address entry used in a customer's move history."
+    },
+    {
+      "name": "CustomerProfileDto",
+      "kind": "schema",
+      "fingerprint": "sha256:166c92d2fafd4e1c3c8d3a127cff062782a99571018b9e937a5369434a3a7d03",
+      "file": "export/schemas/CustomerProfileDto-5254706e.json",
+      "domain": "customers",
+      "role": "Contains editable customer profile details, including contact information and move history."
+    },
+    {
+      "name": "CustomerDto",
+      "kind": "schema",
+      "fingerprint": "sha256:f7855b30e44133f555815bc87fe2c787e36965f595a352b5e810f33433a52f4c",
+      "file": "export/schemas/CustomerDto-8efc7e27.json",
+      "domain": "customers",
+      "role": "Represents a customer resource with its customer ID and links."
+    },
+    {
+      "name": "Links",
+      "kind": "schema",
+      "fingerprint": "sha256:3246585f00d47f877aff7e7a2e027d6398203fc477d63c07708aad2eb0f5b2f8",
+      "file": "export/schemas/Links-9024c197.json",
+      "domain": "customers",
+      "role": "Holds hypermedia links for customer resources and paginated responses."
+    },
+    {
+      "name": "InteractionAcknowledgementDto",
+      "kind": "schema",
+      "fingerprint": "sha256:7cb85a7b0d59571c32bd34bb2911daef4fd9a326f089fdfdc5134cdc6a0acea6",
+      "file": "export/schemas/InteractionAcknowledgementDto-3f833c11.json",
+      "domain": "interaction-logs",
+      "role": "Carries the ID of the last interaction to acknowledge."
+    },
+    {
+      "name": "InteractionEntity",
+      "kind": "schema",
+      "fingerprint": "sha256:8c3e25c7f88a002648cd3acf9a33020fb1d9c20edec120989f9930ed3141afbf",
+      "file": "export/schemas/InteractionEntity-a0e21540.json",
+      "domain": "interaction-logs",
+      "role": "Represents an individual interaction with its date, content and sender indicator."
+    },
+    {
+      "name": "InteractionLogAggregateRoot",
+      "kind": "schema",
+      "fingerprint": "sha256:fe135bdbda8ed485f466dda553a34246ef5d3cde73fc3625ed4cbbafaaff3be9",
+      "file": "export/schemas/InteractionLogAggregateRoot-a1ca3f2a.json",
+      "domain": "interaction-logs",
+      "role": "Contains a customer's interaction history, acknowledgement position and unacknowledged count."
+    },
+    {
+      "name": "NotificationDto",
+      "kind": "schema",
+      "fingerprint": "sha256:d980f5b99bc0c4ff58373cfb8af119187989f7f11374006e74cba4bad05b15f4",
+      "file": "export/schemas/NotificationDto-f64b357d.json",
+      "domain": "notifications",
+      "role": "Represents an unacknowledged notification count for a customer."
+    },
+    {
+      "name": "PaginatedCustomerResponseDto",
+      "kind": "schema",
+      "fingerprint": "sha256:ff55ccedc98a686cecc4f635d13234be011a5267c73e7ba507716647185e927d",
+      "file": "export/schemas/PaginatedCustomerResponseDto-87120356.json",
+      "domain": "customers",
+      "role": "Contains customer results and pagination metadata for a listing."
+    },
+    {
+      "name": "Link",
+      "kind": "schema",
+      "fingerprint": "sha256:ee78c65590616191a5a0bfb3d43774a41f8242e806c2d87864fed35230809e42",
+      "file": "export/schemas/Link-a6a32dbc.json",
+      "domain": "customers",
+      "role": "Represents an individual hypermedia link and its metadata."
+    }
+  ]
+}

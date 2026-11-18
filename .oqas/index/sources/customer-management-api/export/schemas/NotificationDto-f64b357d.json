@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

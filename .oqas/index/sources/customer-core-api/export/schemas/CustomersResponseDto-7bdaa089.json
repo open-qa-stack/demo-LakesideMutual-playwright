@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "customers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CustomerResponseDto"
+      }
+    },
+    "_links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  }
+}

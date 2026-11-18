@@ -1,0 +1,25 @@
+screen / — Lakeside Mutual — Customer Self-Service
+
+screen /login — Lakeside Mutual — Customer Self-Service
+  links: /, /contact, /policies, /profile, /signup
+
+screen /signup — Lakeside Mutual — Customer Self-Service
+  links: /, /contact, /policies, /profile
+
+screen /policies — Lakeside Mutual — Customer Self-Service
+  links: /, /contact, /profile
+
+screen /policies/new-insurance-quote-request — Lakeside Mutual — Customer Self-Service
+  links: /, /contact, /policies, /profile
+
+screen /policies/insurance-quote-requests/:id — Lakeside Mutual — Customer Self-Service
+  links: /, /contact, /policies, /profile
+
+screen /profile — Lakeside Mutual — Customer Self-Service
+  links: /, /contact, /policies
+
+screen /profile/change-address — Lakeside Mutual — Customer Self-Service
+  links: /, /contact, /policies, /profile
+
+screen /contact — Lakeside Mutual — Customer Self-Service
+  links: /, /policies, /profile

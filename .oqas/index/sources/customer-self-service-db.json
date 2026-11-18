@@ -1,0 +1,197 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-self-service-db",
+    "type": "postgresql"
+  },
+  "fingerprint": "sha256:5ea21536921df9c2467824a1c70e0a5c994dbdc061dce1f9ea119ca71684105a",
+  "producedAt": "2026-11-18T18:50:26.739Z",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 4,
+    "actions": 0,
+    "durationMs": 14511
+  },
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "description": "Customer profile, contact and billing details, addresses, and customer login accounts.",
+      "items": [
+        {
+          "name": "public.addresses",
+          "summary": "Stores customer street, city, and postal-code address details.",
+          "facts": {
+            "kind": "table",
+            "columns": 4,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        },
+        {
+          "name": "public.customerinfos",
+          "summary": "Stores customer identity details and links to separate contact and billing addresses.",
+          "facts": {
+            "kind": "table",
+            "columns": 6,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": [
+              {
+                "columns": [
+                  "contact_address_id"
+                ],
+                "references": "public.addresses",
+                "referencedColumns": [
+                  "id"
+                ]
+              },
+              {
+                "columns": [
+                  "billing_address_id"
+                ],
+                "references": "public.addresses",
+                "referencedColumns": [
+                  "id"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "public.user_logins",
+          "summary": "Stores customer login credentials, email, and authorities.",
+          "facts": {
+            "kind": "table",
+            "columns": 5,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "insurance-quotes",
+      "label": "Insurance quotes",
+      "description": "Insurance quote requests, available options, generated quotes, and request status history.",
+      "items": [
+        {
+          "name": "public.insuranceoptions",
+          "summary": "Stores insurance offer options, including deductible amounts, currency, start date, and name.",
+          "facts": {
+            "kind": "table",
+            "columns": 5,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        },
+        {
+          "name": "public.insurancequoterequests",
+          "summary": "Records a customer's insurance quote request, selected option, request date, related quote, and policy identifier.",
+          "facts": {
+            "kind": "table",
+            "columns": 6,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": [
+              {
+                "columns": [
+                  "insurance_options_id"
+                ],
+                "references": "public.insuranceoptions",
+                "referencedColumns": [
+                  "id"
+                ]
+              },
+              {
+                "columns": [
+                  "insurance_quote_id"
+                ],
+                "references": "public.insurancequotes",
+                "referencedColumns": [
+                  "id"
+                ]
+              },
+              {
+                "columns": [
+                  "customer_info_id"
+                ],
+                "references": "public.customerinfos",
+                "referencedColumns": [
+                  "id"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "public.insurancequoterequests_status_history",
+          "summary": "Associates insurance quote requests with their status-change history entries.",
+          "facts": {
+            "kind": "table",
+            "columns": 2,
+            "primaryKey": [],
+            "foreignKeys": [
+              {
+                "columns": [
+                  "insurance_quote_request_aggregate_root_id"
+                ],
+                "references": "public.insurancequoterequests",
+                "referencedColumns": [
+                  "id"
+                ]
+              },
+              {
+                "columns": [
+                  "status_history_id"
+                ],
+                "references": "public.requeststatuschanges",
+                "referencedColumns": [
+                  "id"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "public.insurancequotes",
+          "summary": "Stores quoted premium and policy limit amounts and the quote expiration date.",
+          "facts": {
+            "kind": "table",
+            "columns": 6,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        },
+        {
+          "name": "public.requeststatuschanges",
+          "summary": "Stores dated status changes for requests, constrained to the defined request and quote lifecycle statuses.",
+          "facts": {
+            "kind": "table",
+            "columns": 3,
+            "primaryKey": [
+              "id"
+            ],
+            "foreignKeys": []
+          }
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

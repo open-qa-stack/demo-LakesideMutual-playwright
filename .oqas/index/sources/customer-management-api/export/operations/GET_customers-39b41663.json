@@ -1,0 +1,53 @@
+{
+  "tags": [
+    "customer-information-holder"
+  ],
+  "summary": "Get all customers.",
+  "operationId": "getCustomers",
+  "parameters": [
+    {
+      "name": "filter",
+      "in": "query",
+      "description": "search terms to filter the customers by name",
+      "required": false,
+      "schema": {
+        "type": "string",
+        "default": ""
+      }
+    },
+    {
+      "name": "limit",
+      "in": "query",
+      "description": "the maximum number of customers per page",
+      "required": false,
+      "schema": {
+        "type": "integer",
+        "format": "int32",
+        "default": 10
+      }
+    },
+    {
+      "name": "offset",
+      "in": "query",
+      "description": "the offset of the page's first customer",
+      "required": false,
+      "schema": {
+        "type": "integer",
+        "format": "int32",
+        "default": 0
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/PaginatedCustomerResponseDto"
+          }
+        }
+      }
+    }
+  }
+}

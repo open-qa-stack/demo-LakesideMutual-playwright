@@ -1,0 +1,39 @@
+- generic [ref=f4e3]:
+  - link "Customer Self-Service Lakeside Mutual" [ref=f4e4] [cursor=pointer]: → page.getByRole("link", { name: "Customer Self-Service Lakeside Mutual", exact: true })
+    - /url: /
+    - generic [ref=f4e7]:
+      - generic [ref=f4e8]: Customer Self-Service
+      - generic [ref=f4e9]: Lakeside Mutual
+  - generic [ref=f4e12]:
+    - link "My Policies" [ref=f4e13] [cursor=pointer]: → page.getByRole("link", { name: "My Policies", exact: true })
+      - /url: /policies
+      - generic [aria-hidden] [ref=f4e14]: 
+      - text: My Policies
+    - link "My Profile" [ref=f4e15] [cursor=pointer]: → page.getByRole("link", { name: "My Profile", exact: true })
+      - /url: /profile
+      - generic [aria-hidden] [ref=f4e16]: 
+      - text: My Profile
+    - link "Contact Us" [ref=f4e17] [cursor=pointer]: → page.getByRole("link", { name: "Contact Us", exact: true })
+      - /url: /contact
+      - generic [aria-hidden] [ref=f4e18]: 
+      - text: Contact Us
+    - generic [ref=f4e20]:
+      - generic [aria-hidden] [ref=f4e21]: 
+      - text: Logout
+  - generic [ref=f4e42]:
+    - heading "Change Address" [level=3] [ref=f4e43]
+    - generic [ref=f4e44]:
+      - generic [ref=f4e45]: Street Address
+      - textbox "Street Address" [ref=f4e47]: Oberseestrasse 11 → page.getByRole("textbox", { name: "Street Address", exact: true })
+    - generic [ref=f4e48]:
+      - generic [ref=f4e49]:
+        - generic [ref=f4e50]: Postal Code
+        - textbox "Postal Code" [ref=f4e52]: "8640" → page.getByRole("textbox", { name: "Postal Code", exact: true })
+      - generic [ref=f4e53]:
+        - generic [ref=f4e54]: City
+        - textbox "City" [ref=f4e56]: Rapperswil → page.getByRole("textbox", { name: "City", exact: true })
+    - button "Save Changes" [ref=f4e57] [cursor=pointer] → page.getByRole("button", { name: "Save Changes", exact: true })
+    - text: •
+  - generic [ref=f4e39]:
+    - generic [ref=f4e40]: Environment Variable Debug Information
+    - paragraph [ref=f4e41]: "REACT_APP_CUSTOMER_SELF_SERVICE_BACKEND: http://localhost:8080REACT_APP_POLICY_MANAGEMENT_BACKEND: http://localhost:8090REACT_APP_CUSTOMER_MANAGEMENT_BACKEND: http://localhost:8100"

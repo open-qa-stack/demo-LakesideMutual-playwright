@@ -1,0 +1,30 @@
+{
+  "tags": [
+    "city-reference-data-holder"
+  ],
+  "summary": "Get the cities for a particular postal code.",
+  "operationId": "getCitiesForPostalCode",
+  "parameters": [
+    {
+      "name": "postalCode",
+      "in": "path",
+      "description": "the postal code",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/CitiesResponseDto"
+          }
+        }
+      }
+    }
+  }
+}

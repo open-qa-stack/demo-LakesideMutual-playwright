@@ -1,0 +1,22 @@
+{
+  "tags": [
+    "notification-information-holder"
+  ],
+  "summary": "Get a list of all unacknowledged notifications.",
+  "operationId": "getNotifications",
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationDto"
+            }
+          }
+        }
+      }
+    }
+  }
+}

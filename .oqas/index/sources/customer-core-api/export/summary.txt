@@ -1,0 +1,106 @@
+operation PUT /customers/{customerId} — Update the profile of the customer with the given customer id
+  id: updateCustomer
+  tags: customer-information-holder
+  parameters: customerId (path, required)
+  body: CustomerProfileUpdateRequestDto
+  responses: 200 CustomerResponseDto
+
+operation PUT /customers/{customerId}/address — Change a customer's address.
+  id: changeAddress
+  tags: customer-information-holder
+  parameters: customerId (path, required)
+  body: AddressDto
+  responses: 200 AddressDto
+
+operation GET /customers — Get all customers in pages of 10 entries per page.
+  id: getCustomers
+  tags: customer-information-holder
+  parameters: filter (query), limit (query), offset (query), fields (query)
+  responses: 200 PaginatedCustomerResponseDto
+
+operation POST /customers — Create a new customer.
+  id: createCustomer
+  tags: customer-information-holder
+  body: CustomerProfileUpdateRequestDto
+  responses: 200 CustomerResponseDto
+
+operation GET /getCustomers/{ids}
+  id: getCustomer
+  tags: old-customer-information-holder
+  parameters: ids (path, required), fields (query)
+  responses: 200
+
+operation GET /customers/{ids} — Get a specific set of customers.
+  id: getCustomer_1
+  tags: customer-information-holder
+  parameters: ids (path, required), fields (query)
+  responses: 200 CustomersResponseDto
+
+operation GET /cities/{postalCode} — Get the cities for a particular postal code.
+  id: getCitiesForPostalCode
+  tags: city-reference-data-holder
+  parameters: postalCode (path, required)
+  responses: 200 CitiesResponseDto
+
+operation GET /error
+  id: handleError
+  tags: error-controller
+  responses: 200
+
+operation PUT /error
+  id: handleError_3
+  tags: error-controller
+  responses: 200
+
+operation POST /error
+  id: handleError_2
+  tags: error-controller
+  responses: 200
+
+operation DELETE /error
+  id: handleError_5
+  tags: error-controller
+  responses: 200
+
+operation OPTIONS /error
+  id: handleError_6
+  tags: error-controller
+  responses: 200
+
+operation HEAD /error
+  id: handleError_1
+  tags: error-controller
+  responses: 200
+
+operation PATCH /error
+  id: handleError_4
+  tags: error-controller
+  responses: 200
+
+schema CustomerProfileUpdateRequestDto
+  properties: firstname (string), lastname (string), birthday (string), streetAddress (string), postalCode (string), city (string), email (string), phoneNumber (string)
+  required: city, email, firstname, lastname, postalCode, streetAddress
+
+schema Address
+  properties: streetAddress (string), postalCode (string), city (string)
+
+schema CustomerResponseDto
+  properties: customerId (string), firstname (string), lastname (string), birthday (string), streetAddress (string), postalCode (string), city (string), email (string), phoneNumber (string), moveHistory (array of Address), _links (Links)
+
+schema Links
+
+schema AddressDto
+  properties: streetAddress (string), postalCode (string), city (string)
+  required: city, postalCode, streetAddress
+
+schema PaginatedCustomerResponseDto
+  properties: filter (string), limit (integer), offset (integer), size (integer), customers (array of CustomerResponseDto), _links (Links)
+
+schema CustomersResponseDto
+  properties: customers (array of CustomerResponseDto), _links (Links)
+
+schema CitiesResponseDto
+  properties: cities (array of string)
+
+schema Link
+  properties: href (string), hreflang (string), title (string), type (string), deprecation (string), profile (string), name (string), templated (boolean)

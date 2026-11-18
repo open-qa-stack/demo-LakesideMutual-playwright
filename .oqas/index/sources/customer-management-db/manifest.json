@@ -1,0 +1,45 @@
+{
+  "formatVersion": 1,
+  "source": {
+    "id": "customer-management-db",
+    "type": "postgresql"
+  },
+  "fingerprint": "sha256:f5bd6ec227680882c238ab501140884344a4980de00aef44edb5f9101f4a837b",
+  "producedAt": "2026-11-18T18:47:57.410Z",
+  "status": "complete",
+  "domains": [
+    {
+      "id": "customer-interactions",
+      "label": "Interactions client",
+      "description": "Conserve les échanges avec les clients ainsi que leur suivi et leur rattachement aux journaux d’interaction.",
+      "file": "domains/customer-interactions.md",
+      "writtenBy": "model"
+    }
+  ],
+  "elements": [
+    {
+      "name": "public.interactionlogs",
+      "kind": "table",
+      "fingerprint": "sha256:43bcd156e2eb0c08602dab7eaab72ef903d42f7e8706ba175325ce1abd8cae3d",
+      "file": "export/tables/public.interactionlogs.sql",
+      "domain": "customer-interactions",
+      "role": "Journal d’interaction d’un client, avec l’identifiant du dernier échange acquitté et le nom d’utilisateur associé."
+    },
+    {
+      "name": "public.interactionlogs_interactions",
+      "kind": "table",
+      "fingerprint": "sha256:b00ec393ac32039a22f2180ed3505b9f7d41981138a17597d451e582a1b05725",
+      "file": "export/tables/public.interactionlogs_interactions.sql",
+      "domain": "customer-interactions",
+      "role": "Associe les échanges aux journaux d’interaction des clients."
+    },
+    {
+      "name": "public.interactions",
+      "kind": "table",
+      "fingerprint": "sha256:742bf7d5991cf1756679994ad5fe58113cccea323407f4c590a4bc385cb32907",
+      "file": "export/tables/public.interactions.sql",
+      "domain": "customer-interactions",
+      "role": "Contient les échanges, leur contenu, leur date et indique s’ils ont été envoyés par un opérateur."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "authentication-controller"
+  ],
+  "summary": "Create a new user.",
+  "operationId": "signupUser",
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "#/components/schemas/SignupRequestDto"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "content": {
+        "*/*": {
+          "schema": {
+            "$ref": "#/components/schemas/UserResponseDto"
+          }
+        }
+      }
+    }
+  }
+}
