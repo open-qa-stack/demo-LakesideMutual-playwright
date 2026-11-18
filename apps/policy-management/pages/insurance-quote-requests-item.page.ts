@@ -7,4 +7,8 @@ export class InsuranceQuoteRequestsItemPage {
   get respondButton(): Locator {
     return this.page.getByRole("button", { name: "Respond", exact: true });
   }
+
+  get rejectRadio(): Locator {
+    return this.page.getByRole("radio", { name: "Reject", exact: true });
+  }
 }

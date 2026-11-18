@@ -1,0 +1,69 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T19:25:20.900Z",
+  "environment": "local",
+  "brief": "Teste la gestion des contrats dans Policy Management : consulter, créer et modifier un contrat, et traiter les demandes de devis.",
+  "plan": ".oqas/designs/design-20261118T192520Z.plan.md",
+  "branch": "oqas/design-20261118T192520Z",
+  "base": "ccd43a19bc6732a19b4f9766f2f1c135a3841f2d",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 100,
+    "actions": 29,
+    "durationMs": 312051
+  },
+  "tests": [
+    {
+      "path": "apps/policy-management/tests/insurance-quotes/quote-response/accepted-quote-visible-to-customer.spec.ts",
+      "scenario": "accepted-quote-visible-to-customer",
+      "verdict": "failed",
+      "classes": [
+        {
+          "at": "2026-11-18T19:29:31.555Z",
+          "class": "unfeasible",
+          "origin": {
+            "by": "agent",
+            "role": "writer"
+          },
+          "reason": "À l’étape 3, Customer Self-Service redirige vers la page d’accueil non connectée (http://localhost:3000/) au lieu d’afficher les polices ou l’offre. Le seul contrôle disponible est « Log in to access your LM account »; le scénario ne fournit aucun compte client, et l’accès aux données attendues nécessite donc une authentification impossible avec les données fournies."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "3. Open Customer Self-Service to verify the quote outcome in the customer's account"
+        }
+      ],
+      "closedBy": "PROPOSE-UNFEASIBLE"
+    },
+    {
+      "path": "apps/policy-management/tests/insurance-quotes/quote-response/quote-rejection-visible-to-customer.spec.ts",
+      "scenario": "quote-rejection-visible-to-customer",
+      "verdict": "failed",
+      "classes": [
+        {
+          "at": "2026-11-18T19:30:29.423Z",
+          "class": "unfeasible",
+          "origin": {
+            "by": "agent",
+            "role": "writer"
+          },
+          "reason": "Vérifié sur la page au point d’échec : /policies redirige vers /login, où Customer Self-Service présente uniquement le formulaire d’authentification. Sans connexion, les assertions prévues sur les demandes et Policies sont inaccessibles ; le scénario indique « Sign-in: none » et ne fournit aucun identifiant autorisé. Le test ne peut donc pas vérifier le statut client tel que demandé."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "3. Open Customer Self-Service to check the updated request status"
+        }
+      ],
+      "closedBy": "PROPOSE-UNFEASIBLE"
+    }
+  ]
+}
