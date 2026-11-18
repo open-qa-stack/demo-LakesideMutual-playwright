@@ -1,0 +1,101 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T20:09:57.442Z",
+  "environment": "local",
+  "brief": "Teste les parcours qui traversent les applications : une demande de devis faite dans l'espace client, traitée dans Policy Management, puis son effet visible par le client.",
+  "plan": ".oqas/designs/design-20261118T200957Z.plan.md",
+  "branch": "oqas/design-20261118T200957Z",
+  "base": "8322c3afc094bf76f75c0b74459ad8c9fe5cc700",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 91,
+    "actions": 41,
+    "durationMs": 411757
+  },
+  "tests": [
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/quote-request-wizard/quote-submission-options.spec.ts",
+      "scenario": "quote-submission-options",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-18T20:15:15.706Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-18T20:14:44.123Z",
+        "findings": [
+          {
+            "where": "Étape 1",
+            "what": "Le scénario exige la connexion avec « admin@example.com » et « 1password », mais le test utilise des variables d’environnement dont les valeurs ne sont pas garanties comme étant celles-ci."
+          },
+          {
+            "where": "Étape 2",
+            "what": "Les assertions vérifient seulement la présence des libellés regroupant toutes les options, pas que « Home Insurance » et « 1000 CHF » sont effectivement sélectionnés."
+          }
+        ]
+      },
+      "quality": {
+        "at": "2026-11-18T20:14:46.956Z",
+        "findings": [
+          {
+            "where": "Étape 1",
+            "what": "L’action de connexion et l’ouverture de la demande sont regroupées dans une étape dont le titre dit seulement d’ouvrir l’assistant ; séparez la connexion dans une étape « Se connecter », avec sa capture, puis gardez l’ouverture de l’assistant dans l’étape annoncée.",
+            "concerns": "test",
+            "rule": "PW-STEP-01"
+          },
+          {
+            "where": "Étape 3, assertion de la date « 18.11.2026 »",
+            "what": "La date de début dépend du jour d’exécution et rend le test fragile ; faites porter le plan sur une date stable ou vérifiez une propriété stable de cette date.",
+            "concerns": "plan"
+          }
+        ]
+      }
+    },
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/quote-request-details/quote-rejection-customer-visible.spec.ts",
+      "scenario": "quote-rejection-customer-visible",
+      "verdict": "failed",
+      "classes": [
+        {
+          "at": "2026-11-18T20:16:13.940Z",
+          "class": "failing-test",
+          "origin": {
+            "by": "harness",
+            "check": "TEST-SAME"
+          },
+          "reason": "The scenario was closed by the harness after 5 refusals for TEST-SAME."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "1. Open the rejected request detail in the customer portal"
+        }
+      ],
+      "quarantine": {
+        "cause": "test",
+        "evidence": "closed by the harness after 5 refusals for TEST-SAME",
+        "failedStep": "1. Open the rejected request detail in the customer portal",
+        "errorClass": "assertion"
+      },
+      "closedBy": "TEST-SAME"
+    }
+  ]
+}

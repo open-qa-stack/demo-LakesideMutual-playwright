@@ -11,4 +11,12 @@ export class LoginPage {
   get logInButton(): Locator {
     return this.page.getByRole("button", { name: "Log in", exact: true });
   }
+
+  get emailAddressTextbox(): Locator {
+    return this.page.getByRole("textbox", { name: "Email Address", exact: true });
+  }
+
+  get passwordTextbox(): Locator {
+    return this.page.getByRole("textbox", { name: "Password", exact: true });
+  }
 }
