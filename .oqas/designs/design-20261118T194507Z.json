@@ -1,0 +1,92 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T19:45:07.309Z",
+  "environment": "local",
+  "brief": "Teste la gestion des clients dans Customer Management : rechercher un client, ouvrir sa fiche et modifier ses coordonnées.",
+  "plan": ".oqas/designs/design-20261118T194507Z.plan.md",
+  "branch": "oqas/design-20261118T194507Z",
+  "base": "70c2716f5478f2e87da7528dbf5e86300d725614",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 56,
+    "actions": 29,
+    "durationMs": 247093
+  },
+  "tests": [
+    {
+      "path": "apps/customer-management/tests/customers/customer-profile-edit/customer-profile-edit-three-apps.spec.ts",
+      "scenario": "customer-profile-edit-three-apps",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-18T19:49:01.921Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "navigation",
+          "failedStep": "5. Open Customer Self-Service and view the signed-in customer's profile"
+        },
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "2. Open Ado Kinnett's profile and verify the current contact details"
+        },
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-18T19:48:40.584Z",
+        "findings": [
+          {
+            "where": "Étape 4",
+            "what": "La vérification se limite à la présence de « Ado Kinnett » dans la liste et ne vérifie pas que Policy Management affiche le contact mis à jour comme le demande l’intention interapplications."
+          },
+          {
+            "where": "Étape 5",
+            "what": "Le profil vérifié est celui de Max Mustermann et ses données ne valident pas le profil client Ado Kinnett ni son email mis à jour dans Customer Self-Service, contrairement à l’intention du scénario."
+          }
+        ]
+      },
+      "quality": {
+        "at": "2026-11-18T19:48:44.297Z",
+        "findings": [
+          {
+            "where": "Étape 5",
+            "what": "L’étape annonce la vérification du profil du client modifié Ado Kinnett, mais elle se connecte au compte Max Mustermann et vérifie ses coordonnées, qui ne sont pas celles d’Ado ; connectez-vous au client concerné et vérifiez son profil et l’adresse e-mail mise à jour.",
+            "concerns": "test"
+          },
+          {
+            "where": "Étape 6",
+            "what": "La restauration ouvre directement `/customers/bunlo9vk5f/edit_profile` avec un identifiant codé en dur, alors que le test devrait rétablir les données via l’API ou une fixture et éviter un identifiant supposé ; utilisez la préparation/restauration de données par API ou fixture prévue pour ce client.",
+            "concerns": "test",
+            "rule": "PW-DATA-01"
+          },
+          {
+            "where": "Étape 6",
+            "what": "L’assertion cherche l’absence de l’e-mail mis à jour dans une cellule, alors que l’e-mail est présenté comme un lien et peut ne jamais avoir été présent dans une cellule ; vérifiez son absence dans le même type d’élément que celui de l’assertion de l’étape 3.",
+            "concerns": "test"
+          },
+          {
+            "where": "Étape 6",
+            "what": "L’étape ne peut pas garantir la restauration si l’échec survient avant la connexion à Customer Management ou avant le chargement du profil, car elle navigue vers une URL d’édition directe et utilise un identifiant fixe ; restaurez l’état par une opération API/fixture indépendante de l’état de l’inte",
+            "concerns": "test",
+            "rule": "PW-DATA-01"
+          }
+        ]
+      }
+    }
+  ]
+}
