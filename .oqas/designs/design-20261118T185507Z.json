@@ -1,0 +1,108 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T18:55:07.274Z",
+  "environment": "local",
+  "brief": "Teste les quatre applications de Lakeside Mutual : la gestion des clients, la gestion des contrats et des demandes de devis, et l espace client en libre-service, à tous les niveaux.",
+  "plan": ".oqas/designs/design-20261118T185507Z.plan.md",
+  "branch": "oqas/design-20261118T185507Z",
+  "base": "357be0c149f1b78705f59d8b1a815054da9b2ee2",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 29,
+    "actions": 3,
+    "durationMs": 67642
+  },
+  "tests": [
+    {
+      "path": "apps/policy-management/tests/policies/application-load/policy-management-smoke.spec.ts",
+      "scenario": "policy-management-smoke",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-18T18:55:35.128Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-18T18:55:30.573Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-18T18:55:32.989Z",
+        "findings": []
+      }
+    },
+    {
+      "path": "apps/customer-management/tests/customers/application-load/customer-management-smoke.spec.ts",
+      "scenario": "customer-management-smoke",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-18T18:55:46.534Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-18T18:55:42.654Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-18T18:55:44.378Z",
+        "findings": []
+      }
+    },
+    {
+      "path": "apps/customer-self-service/tests/authentication/application-load/customer-self-service-smoke.spec.ts",
+      "scenario": "customer-self-service-smoke",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-18T18:55:58.453Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-18T18:55:53.275Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-18T18:55:56.324Z",
+        "findings": []
+      }
+    }
+  ]
+}
