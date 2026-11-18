@@ -1,0 +1,45 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T19:55:50.226Z",
+  "environment": "local",
+  "brief": "Teste l'espace client Customer Self-Service : se connecter, consulter ses contrats et demander un devis.",
+  "plan": ".oqas/designs/design-20261118T195550Z.plan.md",
+  "branch": "oqas/design-20261118T195550Z",
+  "base": "08fa666182436a7ab9f0770b3277ecdafc2dcbf9",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 49,
+    "actions": 22,
+    "durationMs": 173912
+  },
+  "tests": [
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/quote-request-submission/submit-quote-request.spec.ts",
+      "scenario": "submit-quote-request",
+      "verdict": "failed",
+      "classes": [
+        {
+          "at": "2026-11-18T19:58:35.315Z",
+          "class": "unfeasible",
+          "origin": {
+            "by": "agent",
+            "role": "writer"
+          },
+          "reason": "The accepted sheet is inconsistent with the requested scenario: the title and intent require signing in and creating a new home-insurance quote, but the sheet's only steps merely inspect an already-submitted request. Its first expectation assumes that request exists immediately after opening /, while the local application instead shows the login landing page. No planned steps create the quote; adding sign-in and quote-wizard steps would depart from the fixed sheet. Thus this test cannot execute the scenario as specified."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "1. Open Customer Self-Service at its current policies page, which already contains the submitted quote from exploration"
+        }
+      ],
+      "closedBy": "PROPOSE-UNFEASIBLE"
+    }
+  ]
+}

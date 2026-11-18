@@ -7,4 +7,8 @@ export class PoliciesPage {
   get myProfileLink(): Locator {
     return this.page.getByRole("link", { name: "My Profile", exact: true });
   }
+
+  get element18Nov2026homeInsurancewaitingForText(): Locator {
+    return this.page.getByText("18. Nov 2026Home InsuranceWaiting for Quote", { exact: true });
+  }
 }
