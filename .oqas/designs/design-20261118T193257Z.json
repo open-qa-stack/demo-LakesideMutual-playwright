@@ -1,0 +1,98 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T19:32:57.248Z",
+  "environment": "local",
+  "brief": "Teste la gestion des contrats dans Policy Management : consulter, créer et modifier un contrat, et traiter les demandes de devis.",
+  "plan": ".oqas/designs/design-20261118T193257Z.plan.md",
+  "branch": "oqas/design-20261118T193257Z",
+  "base": "29f545e9e0b984219bd6f3e6e214d90d28e4a42e",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 39,
+    "actions": 9,
+    "durationMs": 127690
+  },
+  "tests": [
+    {
+      "path": "apps/policy-management/tests/policies/policy-edit/policy-edit-form-screen.spec.ts",
+      "scenario": "policy-edit-form-screen",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-18T19:34:28.783Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-18T19:34:22.685Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-18T19:34:24.370Z",
+        "findings": [
+          {
+            "where": "Dans le test, après l’étape 1",
+            "what": "Le scénario de lecture laisse la page sur le formulaire sans restaurer l’état modifié ou quitter ce formulaire ; ajoute un `try/finally` de nettoyage conformément au plan, même si ce scénario ne saisit rien.",
+            "concerns": "test",
+            "rule": "PW-ISO-01"
+          }
+        ]
+      },
+      "references": [
+        "apps/policy-management/tests/policies/policy-edit/policy-edit-form-screen.spec.ts-snapshots/Edit-policy-form-1-policy-management-darwin.png"
+      ]
+    },
+    {
+      "path": "apps/policy-management/tests/insurance-quotes/quote-response-dialog/quote-response-dialog-screen.spec.ts",
+      "scenario": "quote-response-dialog-screen",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-18T19:34:47.645Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-18T19:34:40.870Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-18T19:34:43.887Z",
+        "findings": [
+          {
+            "where": "L3 — clic sur showDetailsButtonInRow(\"15. Nov 2026 19:59\")",
+            "what": "La date utilisée pour retrouver la demande est une donnée temporelle susceptible de changer et rend le test fragile ; remplacez-la dans le plan par un repère stable fourni par l’application ou les sources de connaissance.",
+            "concerns": "plan"
+          }
+        ]
+      },
+      "references": [
+        "apps/policy-management/tests/insurance-quotes/quote-response-dialog/quote-response-dialog-screen.spec.ts-snapshots/Quote-response-dialog-1-policy-management-darwin.png"
+      ]
+    }
+  ]
+}
