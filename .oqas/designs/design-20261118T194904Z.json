@@ -1,0 +1,53 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T19:49:04.029Z",
+  "environment": "local",
+  "brief": "Teste la gestion des clients dans Customer Management : rechercher un client, ouvrir sa fiche et modifier ses coordonnées.",
+  "plan": ".oqas/designs/design-20261118T194904Z.plan.md",
+  "branch": "oqas/design-20261118T194904Z",
+  "base": "e3b5227a3d740781c30b6c088170ef411ea828cf",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 36,
+    "actions": 14,
+    "durationMs": 112533
+  },
+  "tests": [
+    {
+      "path": "apps/customer-management/tests/customers/customer-profile-edit/customer-profile-edit-form-visual.spec.ts",
+      "scenario": "customer-profile-edit-form-visual",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-18T19:50:47.325Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-18T19:50:43.002Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-18T19:50:45.233Z",
+        "findings": []
+      },
+      "references": [
+        "apps/customer-management/tests/customers/customer-profile-edit/customer-profile-edit-form-visual.spec.ts-snapshots/Compare-the-customer-profile-edit-form-1-customer-management-darwin.png"
+      ]
+    }
+  ]
+}
