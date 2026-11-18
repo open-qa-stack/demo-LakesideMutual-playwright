@@ -11,4 +11,8 @@ export class CustomersItemEditProfilePage {
   get saveChangesButton(): Locator {
     return this.page.getByRole("button", { name: "Save Changes", exact: true });
   }
+
+  get emailAddressTextbox(): Locator {
+    return this.page.getByRole("textbox", { name: "Email Address", exact: true });
+  }
 }

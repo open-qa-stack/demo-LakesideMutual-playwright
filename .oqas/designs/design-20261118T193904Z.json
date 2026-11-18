@@ -1,0 +1,56 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-18T19:39:04.177Z",
+  "environment": "local",
+  "brief": "Teste la gestion des clients dans Customer Management : rechercher un client, ouvrir sa fiche et modifier ses coordonnées.",
+  "plan": ".oqas/designs/design-20261118T193904Z.plan.md",
+  "branch": "oqas/design-20261118T193904Z",
+  "base": "2041933b5dbb4462c042f3347b7c01686e9dc81a",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 45,
+    "actions": 19,
+    "durationMs": 140276
+  },
+  "tests": [
+    {
+      "path": "apps/customer-management/tests/customers/customer-profile-edit/customer-search-profile-edit-email-address.spec.ts",
+      "scenario": "customer-search-profile-edit-email-address",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-18T19:41:13.698Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-18T19:41:09.069Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-18T19:41:10.745Z",
+        "findings": [
+          {
+            "where": "Étape 4, champ `emailAddressTextbox`",
+            "what": "L’adresse `ado.kinnett.updated@example.com` est inventée et ne provient pas d’une source attestée ; utiliser une adresse indiquée par le domaine, les sources de connaissance ou l’application, ou ne pas vérifier cette valeur.",
+            "concerns": "plan"
+          }
+        ]
+      }
+    }
+  ]
+}
