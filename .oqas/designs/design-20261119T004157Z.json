@@ -1,0 +1,20 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:41:57.034Z",
+  "environment": "local",
+  "brief": "Teste la gestion des clients dans Customer Management : rechercher un client, ouvrir sa fiche et modifier ses coordonnées.",
+  "plan": ".oqas/designs/design-20261119T004157Z.plan.md",
+  "branch": "oqas/design-20261119T004157Z",
+  "base": "49834a0a640817db9f6e5430834ee655a5ab4b16",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 18,
+    "actions": 8,
+    "durationMs": 45115
+  },
+  "tests": []
+}

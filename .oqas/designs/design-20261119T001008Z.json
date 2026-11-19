@@ -1,0 +1,20 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:10:08.694Z",
+  "environment": "local",
+  "brief": "Teste la gestion des contrats dans Policy Management : consulter, créer et modifier un contrat, et traiter les demandes de devis.",
+  "plan": ".oqas/designs/design-20261119T001008Z.plan.md",
+  "branch": "oqas/design-20261119T001008Z",
+  "base": "4531f872bd2fbe9cd827ea0a4ffd0d64b49d4a73",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 19,
+    "actions": 13,
+    "durationMs": 50679
+  },
+  "tests": []
+}

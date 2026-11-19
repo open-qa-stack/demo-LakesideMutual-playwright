@@ -1,0 +1,20 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:53:10.202Z",
+  "environment": "local",
+  "brief": "Teste l'espace client Customer Self-Service : se connecter, consulter ses contrats et demander un devis.",
+  "plan": ".oqas/designs/design-20261119T005310Z.plan.md",
+  "branch": "oqas/design-20261119T005310Z",
+  "base": "e45f5e18fe9901da1ddfb1b33c48b4d109aa18b6",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 27,
+    "actions": 17,
+    "durationMs": 65252
+  },
+  "tests": []
+}
