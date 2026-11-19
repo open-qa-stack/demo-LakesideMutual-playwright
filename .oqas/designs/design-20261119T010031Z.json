@@ -1,0 +1,56 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T01:00:31.256Z",
+  "environment": "local",
+  "brief": "Teste les parcours qui traversent les applications : une demande de devis faite dans l'espace client, traitée dans Policy Management, puis son effet visible par le client.",
+  "plan": ".oqas/designs/design-20261119T010031Z.plan.md",
+  "branch": "oqas/design-20261119T010031Z",
+  "base": "b97d4735b2f90ed07e153217ff8510b4f4120710",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 54,
+    "actions": 34,
+    "durationMs": 244710
+  },
+  "tests": [
+    {
+      "path": "apps/policy-management/tests/insurance-quotes/quote-request-history/policy-management-missing-request.spec.ts",
+      "scenario": "policy-management-missing-request",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T01:04:25.859Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T01:04:21.413Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T01:04:22.859Z",
+        "findings": [
+          {
+            "where": "Ligne 6 — étape 1",
+            "what": "L’identifiant `999999` est une valeur inventée et peut correspondre à une demande existante dans certains environnements ; utilisez un identifiant absent garanti par les données ou préparez-le selon le plan.",
+            "concerns": "plan"
+          }
+        ]
+      }
+    }
+  ]
+}
