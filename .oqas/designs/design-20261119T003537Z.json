@@ -1,0 +1,74 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:35:37.972Z",
+  "environment": "local",
+  "brief": "Teste la gestion des clients dans Customer Management : rechercher un client, ouvrir sa fiche et modifier ses coordonnées.",
+  "plan": ".oqas/designs/design-20261119T003537Z.plan.md",
+  "branch": "oqas/design-20261119T003537Z",
+  "base": "d29e522e5d2e8439187f9bb4e6125ae407c4a57f",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 71,
+    "actions": 44,
+    "durationMs": 234277
+  },
+  "tests": [
+    {
+      "path": "apps/customer-management/tests/customers/customer-profile-management/update-customer-contact-details-cross-app.spec.ts",
+      "scenario": "update-customer-contact-details-cross-app",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:39:21.911Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:38:57.400Z",
+        "findings": [
+          {
+            "where": "Étape 5",
+            "what": "Les champs sont remplis avec les anciennes valeurs (29 Cross-Application Avenue, ado.kinnett@example.com et 055 222 41 13) au lieu des nouvelles valeurs prévues (31 Cross-Application Avenue, ado.kinnett.qa@example.com et 055 222 41 14), donc la mise à jour décrite n’est pas effectuée."
+          },
+          {
+            "where": "Étape 6",
+            "what": "Les assertions vérifient les anciennes coordonnées plutôt que les nouvelles coordonnées attendues, elles ne prouvent donc pas que Policy Management affiche les valeurs mises à jour."
+          },
+          {
+            "where": "Étape 7",
+            "what": "La restauration remplit les mêmes anciennes valeurs déjà utilisées à l’étape 5, au lieu de restaurer les coordonnées originales du scénario (29 Cross-Application Avenue, ado.kinnett@example.com et 055 222 41 13), ce qui rend la vérification de restauration sans effet."
+          }
+        ]
+      },
+      "quality": {
+        "at": "2026-11-19T00:39:00.767Z",
+        "findings": [
+          {
+            "where": "Étape 5 et restauration, lignes de saisie des trois champs",
+            "what": "Les mêmes coordonnées sont saisies dans l’étape de modification et dans la restauration, si bien que rien n’est modifié et que le nettoyage ne restaure pas les données initiales ; saisissez les nouvelles valeurs prévues au scénario, puis rétablissez dans le `finally` les valeurs originales du profil",
+            "concerns": "plan"
+          },
+          {
+            "where": "Étape 6, ligne `policyManagement.page.goto(...)`",
+            "what": "L’identifiant `bunlo9vk5f` est codé en dur dans l’URL et peut varier selon les données de l’environnement ; utilisez l’identifiant du client issu des données préparées ou de la source de connaissance du scénario.",
+            "concerns": "plan"
+          }
+        ]
+      }
+    }
+  ]
+}
