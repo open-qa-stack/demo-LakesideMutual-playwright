@@ -1,0 +1,115 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:08:27.811Z",
+  "environment": "local",
+  "brief": "Teste la gestion des contrats dans Policy Management : consulter, créer et modifier un contrat, et traiter les demandes de devis.",
+  "plan": ".oqas/designs/design-20261119T000827Z.plan.md",
+  "branch": "oqas/design-20261119T000827Z",
+  "base": "c5ebd99cdf3eeef312a7a03edab8efd0e369b670",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 46,
+    "actions": 6,
+    "durationMs": 114927
+  },
+  "tests": [
+    {
+      "path": "apps/policy-management/tests/policies/policies-home/policy-management-home-smoke.spec.ts",
+      "scenario": "policy-management-home-smoke",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:09:39.002Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:09:31.918Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:09:34.021Z",
+        "findings": [
+          {
+            "where": "Ligne 5, étape 1",
+            "what": "L’étape ne joint pas de capture au rapport après l’action de navigation, car `page.screenshot()` fournit seulement le corps de l’image et ne remplace pas `testInfo.attach` ; ajoutez un appel à `testInfo.attach` avec ce corps et `contentType: \"image/png\"`.",
+            "concerns": "test",
+            "rule": "PW-SHOT-01"
+          }
+        ]
+      }
+    },
+    {
+      "path": "apps/customer-management/tests/customers/customer-management-home/customer-management-home-smoke.spec.ts",
+      "scenario": "customer-management-home-smoke",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:09:54.161Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:09:47.873Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:09:52.334Z",
+        "findings": []
+      }
+    },
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/customer-self-service-home/customer-self-service-home-smoke.spec.ts",
+      "scenario": "customer-self-service-home-smoke",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:10:07.386Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:10:03.608Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:10:05.040Z",
+        "findings": []
+      }
+    }
+  ]
+}
