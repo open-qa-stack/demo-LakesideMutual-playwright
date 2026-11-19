@@ -1,0 +1,150 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:10:59.521Z",
+  "environment": "local",
+  "brief": "Teste la gestion des contrats dans Policy Management : consulter, créer et modifier un contrat, et traiter les demandes de devis.",
+  "plan": ".oqas/designs/design-20261119T001059Z.plan.md",
+  "branch": "oqas/design-20261119T001059Z",
+  "base": "4531f872bd2fbe9cd827ea0a4ffd0d64b49d4a73",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 89,
+    "actions": 31,
+    "durationMs": 368975
+  },
+  "tests": [
+    {
+      "path": "apps/policy-management/tests/policies/policy-view/view-existing-policy.spec.ts",
+      "scenario": "view-existing-policy",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:15:00.137Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:14:54.339Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:14:56.997Z",
+        "findings": [
+          {
+            "where": "Étape 1, assertions sur la date « 12. Nov 2026 21:04 » (ligne 8), puis étape 2, dates « 12. Nov 2026 21:04 » et « 05. Feb 2018 – 10. Feb 2018 » (ligne 19)",
+            "what": "Ces dates dépendent du temps ou des données de l’environnement et rendent le test fragile ; le plan doit éviter de figer ces valeurs, ou les vérifier par une propriété stable provenant des données préparées.",
+            "concerns": "plan"
+          }
+        ]
+      }
+    },
+    {
+      "path": "apps/policy-management/tests/policies/policy-create/create-policy-form-access.spec.ts",
+      "scenario": "create-policy-form-access",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:15:22.045Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:15:16.835Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:15:19.426Z",
+        "findings": [
+          {
+            "where": "Étape 1, assertion sur la cellule « Ado Kinnett »",
+            "what": "Cette valeur dépend des données présentes dans l’environnement et fragilise le test ; remplacez-la dans le plan par une donnée client stable et garantie ou par une assertion qui ne dépend pas d’un enregistrement précis.",
+            "concerns": "plan"
+          }
+        ]
+      }
+    },
+    {
+      "path": "apps/policy-management/tests/policies/policy-edit/edit-policy-prefilled-form.spec.ts",
+      "scenario": "edit-policy-prefilled-form",
+      "verdict": "not_run",
+      "classes": [
+        {
+          "at": "2026-11-19T00:16:31.393Z",
+          "class": "unfeasible",
+          "origin": {
+            "by": "agent",
+            "role": "writer"
+          },
+          "reason": "Le scénario exige de vérifier les six valeurs préremplies. Le formulaire affiche ces valeurs dans des champs textbox/spinbutton qui ne peuvent être identifiés que par indices de position ; les contrôles n’ont pas de noms accessibles uniques (les trois montants partagent « Amount in CHF » et les dates n’ont aucun nom). Le snapshot confirme les valeurs mais l’approche de filtrage par valeur n’est pas supportée par les fixtures/locators utilisés, comme l’a montré l’échec de compilation. Les localisateurs basés sur position sont interdits par la charte ; impossible donc d’écrire un test conforme vérifiant les valeurs imposées."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "2. Open the edit form"
+        }
+      ],
+      "closedBy": "PROPOSE-UNFEASIBLE"
+    },
+    {
+      "path": "apps/policy-management/tests/insurance-quotes/quote-request-response/reject-submitted-quote.spec.ts",
+      "scenario": "reject-submitted-quote",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:16:51.298Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:16:47.297Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:16:48.780Z",
+        "findings": [
+          {
+            "where": "Étape 1, assertion sur la cellule « 18. Nov 2026 21:03 »",
+            "what": "Cette date et cette heure dépendent des données de l’environnement et rendent le test fragile ; utilisez une valeur stable fournie par le plan ou vérifiez le statut sans figer l’horodatage.",
+            "concerns": "plan"
+          }
+        ]
+      }
+    }
+  ]
+}
