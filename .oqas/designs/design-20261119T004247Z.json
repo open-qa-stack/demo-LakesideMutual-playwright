@@ -1,0 +1,53 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:42:47.670Z",
+  "environment": "local",
+  "brief": "Teste l'espace client Customer Self-Service : se connecter, consulter ses contrats et demander un devis.",
+  "plan": ".oqas/designs/design-20261119T004247Z.plan.md",
+  "branch": "oqas/design-20261119T004247Z",
+  "base": "49834a0a640817db9f6e5430834ee655a5ab4b16",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 35,
+    "actions": 9,
+    "durationMs": 72523
+  },
+  "tests": [
+    {
+      "path": "apps/customer-self-service/tests/authentication/customer-self-service-home-response/self-service-portal-login-smoke.spec.ts",
+      "scenario": "self-service-portal-login-smoke",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:43:49.103Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        },
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:43:45.567Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:43:46.938Z",
+        "findings": []
+      }
+    }
+  ]
+}
