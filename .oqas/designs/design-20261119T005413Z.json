@@ -1,0 +1,50 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:54:13.229Z",
+  "environment": "local",
+  "brief": "Teste l'espace client Customer Self-Service : se connecter, consulter ses contrats et demander un devis.",
+  "plan": ".oqas/designs/design-20261119T005413Z.plan.md",
+  "branch": "oqas/design-20261119T005413Z",
+  "base": "e45f5e18fe9901da1ddfb1b33c48b4d109aa18b6",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 50,
+    "actions": 25,
+    "durationMs": 157674
+  },
+  "tests": [
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/customer-self-service-quote-journey/customer-sign-in-view-policies-and-submit-quote.spec.ts",
+      "scenario": "customer-sign-in-view-policies-and-submit-quote",
+      "verdict": "failed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:56:47.477Z",
+          "class": "failing-application",
+          "origin": {
+            "by": "agent",
+            "role": "writer"
+          },
+          "reason": "Le test suit les étapes fournies : connexion via le bouton « Fill in » de l’application, puis ouverture du formulaire de demande de devis via le bouton prévu, sans saisir de valeur supplémentaire. À l’étape 3, le formulaire montre les libellés attendus (« Contact Address », « Billing Address », « Same as Contact Address », « Next »), mais affiche ni « Oberseestrasse 11 », ni « 8640 », ni « Rapperswil » près des champs. L’échec sur l’assertion « 8640 » signale que les données de contact préremplies attendues ne figurent pas dans l’application ; les valeurs du plan ne sont pas modifiées."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "3. Open the quote request form to review the prefilled personal data"
+        }
+      ],
+      "quarantine": {
+        "cause": "application",
+        "evidence": "Le test suit les étapes fournies : connexion via le bouton « Fill in » de l’application, puis ouverture du formulaire de demande de devis via le bouton prévu, sans saisir de valeur supplémentaire. À l’étape 3, le formulaire montre les libellés attendus (« Contact Address », « Billing Address », « Same as Contact Address », « Next »), mais affiche ni « Oberseestrasse 11 », ni « 8640 », ni « Rapperswil » près des champs. L’échec sur l’assertion « 8640 » signale que les données de contact préremplies attendues ne figurent pas dans l’application ; les valeurs du plan ne sont pas modifiées.",
+        "failedStep": "3. Open the quote request form to review the prefilled personal data",
+        "errorClass": "assertion"
+      }
+    }
+  ]
+}

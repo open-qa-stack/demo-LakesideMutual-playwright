@@ -7,4 +7,8 @@ export class HomePage {
   get showDetailsButton(): Locator {
     return this.page.getByRole("button", { name: "Show Details", exact: true });
   }
+
+  get insuranceQuoteRequestsLink(): Locator {
+    return this.page.getByRole("link", { name: " Insurance Quote Requests", exact: true });
+  }
 }
