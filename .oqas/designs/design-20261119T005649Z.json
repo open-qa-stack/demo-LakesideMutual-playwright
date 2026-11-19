@@ -1,0 +1,124 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:56:49.364Z",
+  "environment": "local",
+  "brief": "Teste l'espace client Customer Self-Service : se connecter, consulter ses contrats et demander un devis.",
+  "plan": ".oqas/designs/design-20261119T005649Z.plan.md",
+  "branch": "oqas/design-20261119T005649Z",
+  "base": "e057f0d5006f49085f3f79f6c5baad8f736ed7cf",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 61,
+    "actions": 23,
+    "durationMs": 183984
+  },
+  "tests": [
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/customer-quote-request/customer-self-service-new-quote-personal-data-visual.spec.ts",
+      "scenario": "customer-self-service-new-quote-personal-data-visual",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:59:02.776Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        },
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:58:58.667Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:59:00.242Z",
+        "findings": [
+          {
+            "where": "Step 2",
+            "what": "L’action d’ouverture du formulaire n’est pas suivie d’une remise en état des données malgré le tag `@data-write`; ajoutez un `try/finally` qui annule ou supprime la demande créée afin que le test laisse l’environnement dans son état initial.",
+            "concerns": "test",
+            "rule": "PW-DATA-01"
+          }
+        ]
+      },
+      "references": [
+        "apps/customer-self-service/tests/insurance-quotes/customer-quote-request/customer-self-service-new-quote-personal-data-visual.spec.ts-snapshots/Compare-the-new-quote-request-personal-data-step-1-customer-self-service-darwin.png"
+      ]
+    },
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/customer-quote-request/customer-self-service-new-quote-insurance-step-visual.spec.ts",
+      "scenario": "customer-self-service-new-quote-insurance-step-visual",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:59:33.435Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:59:18.317Z",
+        "findings": [
+          {
+            "where": "Étape 3",
+            "what": "L’assertion vérifie seulement que le libellé regroupant les options est présent, pas que Home Insurance est effectivement affiché comme type sélectionné ; elle peut donc réussir sans sélection correcte."
+          }
+        ]
+      },
+      "quality": {
+        "at": "2026-11-19T00:59:20.427Z",
+        "findings": [
+          {
+            "where": "Étape 1, `await test.step(\"1. Open the login screen and sign in to reach the overview\", ...)`",
+            "what": "Le titre annonce aussi l’accès à l’aperçu, mais l’étape ne vérifie ni n’identifie cet aperçu avant de continuer ; ajoutez une assertion web-first qui confirme qu’il est affiché.",
+            "concerns": "test",
+            "rule": "PW-STEP-01"
+          },
+          {
+            "where": "Étape 2, `await customerSelfService.policiesNewInsuranceQuoteRequest.nextButton.click()`",
+            "what": "L’action « Next » n’est pas vérifiée avant que l’étape passe à la sélection d’assurance ; ajoutez une assertion web-first attestant que l’étape Insurance est affichée après le clic.",
+            "concerns": "test",
+            "rule": "PW-STEP-01"
+          },
+          {
+            "where": "Étape 3, `await expect(page.getByText(\"Home InsuranceLife InsuranceHome InsuranceHealth InsuranceCar Insurance\", { exact: true }).filter({ visible: true })).not.toHaveCount(0)`",
+            "what": "Cette assertion vérifie la présence d’un texte concaténé correspondant aux options du sélecteur, et non que Home Insurance est sélectionné ; ciblez le contrôle de sélection et vérifiez sa valeur affichée.",
+            "concerns": "test"
+          },
+          {
+            "where": "Étape 3, assertion `toHaveScreenshot`",
+            "what": "Le seuil `maxDiffPixelRatio: 0.01` relève la tolérance au lieu de masquer les zones variables comme demandé ; retirez ce seuil et utilisez `mask` pour les seules zones changeantes.",
+            "concerns": "test",
+            "rule": "PW-KEEP-01"
+          }
+        ]
+      },
+      "references": [
+        "apps/customer-self-service/tests/insurance-quotes/customer-quote-request/customer-self-service-new-quote-insurance-step-visual.spec.ts-snapshots/Compare-the-quote-insurance-configuration-step-1-customer-self-service-darwin.png"
+      ]
+    }
+  ]
+}
