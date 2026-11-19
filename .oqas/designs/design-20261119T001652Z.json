@@ -1,0 +1,108 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:16:52.566Z",
+  "environment": "local",
+  "brief": "Teste la gestion des contrats dans Policy Management : consulter, créer et modifier un contrat, et traiter les demandes de devis.",
+  "plan": ".oqas/designs/design-20261119T001652Z.plan.md",
+  "branch": "oqas/design-20261119T001652Z",
+  "base": "c754a576b3f18c6173a24f6a14bc8819df2d119c",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 79,
+    "actions": 37,
+    "durationMs": 304866
+  },
+  "tests": [
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/quote-request-review/cross-app-quote-request-to-review.spec.ts",
+      "scenario": "cross-app-quote-request-to-review",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:20:42.944Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "strict",
+          "failedStep": "2. Start a new insurance quote request and advance to the insurance step"
+        },
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "2. Start a new insurance quote request and advance to the insurance step"
+        },
+        {
+          "verdict": "passed"
+        },
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:20:16.815Z",
+        "findings": [
+          {
+            "where": "Étape 3",
+            "what": "Le scénario demande également de vérifier l’adresse « 8640, Oberseestrasse 11, Rapperswil », mais le test ne saisit ni ne vérifie ces données."
+          }
+        ]
+      },
+      "quality": {
+        "at": "2026-11-19T00:20:19.310Z",
+        "findings": [
+          {
+            "where": "Étape 3, assertion sur « 19.11.2026 »",
+            "what": "La date de début figée dépend du jour d’exécution et rend le scénario fragile ; faites provenir la date vérifiée d’une donnée stable fournie par le plan ou vérifiez un invariant qui ne dépend pas de la date courante.",
+            "concerns": "plan"
+          }
+        ]
+      }
+    },
+    {
+      "path": "apps/policy-management/tests/policies/customer-policy-visibility/cross-app-policy-visible-in-self-service.spec.ts",
+      "scenario": "cross-app-policy-visible-in-self-service",
+      "verdict": "failed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:21:48.607Z",
+          "class": "failing-application",
+          "origin": {
+            "by": "agent",
+            "role": "writer"
+          },
+          "reason": "The sheet's sign-in code is unchanged and uses the exact data-defined process.env.CSS_DEMO_USERNAME and CSS_DEMO_PASSWORD values, clicks the login button, and then opens the specified `/policies` path. The failed run displayed no policy text or coverage values; the fresh page snapshot showed an unauthenticated welcome page and direct `/policies` navigation redirected to `/login`. The login form was visible. As the user/session procedure specified by the plan is followed, but the application fails to make the policy visible, this confirms an application-level failure rather than a locator problem."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "2. Sign in and view the customer's policy list in Customer Self-Service; the sign-in establishes the session without changing the policy data"
+        },
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "2. Sign in and view the customer's policy list in Customer Self-Service; the sign-in establishes the session without changing the policy data"
+        }
+      ],
+      "quarantine": {
+        "cause": "application",
+        "evidence": "The sheet's sign-in code is unchanged and uses the exact data-defined process.env.CSS_DEMO_USERNAME and CSS_DEMO_PASSWORD values, clicks the login button, and then opens the specified `/policies` path. The failed run displayed no policy text or coverage values; the fresh page snapshot showed an unauthenticated welcome page and direct `/policies` navigation redirected to `/login`. The login form was visible. As the user/session procedure specified by the plan is followed, but the application fails to make the policy visible, this confirms an application-level failure rather than a locator problem.",
+        "failedStep": "2. Sign in and view the customer's policy list in Customer Self-Service; the sign-in establishes the session without changing the policy data",
+        "errorClass": "assertion"
+      }
+    }
+  ]
+}

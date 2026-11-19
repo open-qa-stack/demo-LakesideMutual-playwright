@@ -15,4 +15,8 @@ export class InsuranceQuoteRequestsItemPage {
   get cancelButton(): Locator {
     return this.page.getByRole("button", { name: "Cancel", exact: true });
   }
+
+  get policiesLink(): Locator {
+    return this.page.getByRole("link", { name: " Policies", exact: true });
+  }
 }
