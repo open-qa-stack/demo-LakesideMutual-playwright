@@ -1,0 +1,143 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:25:31.916Z",
+  "environment": "local",
+  "brief": "Teste la gestion des contrats dans Policy Management : consulter, créer et modifier un contrat, et traiter les demandes de devis.",
+  "plan": ".oqas/designs/design-20261119T002531Z.plan.md",
+  "branch": "oqas/design-20261119T002531Z",
+  "base": "8dc5cb859284eb2f0563aa0946d7c9e236ae99ac",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 77,
+    "actions": 23,
+    "durationMs": 245015
+  },
+  "tests": [
+    {
+      "path": "apps/policy-management/tests/policies/policy-edit/policy-edit-form.spec.ts",
+      "scenario": "policy-edit-form",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:28:00.429Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        },
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:27:50.693Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:27:57.919Z",
+        "findings": [
+          {
+            "where": "Step 1",
+            "what": "Le titre annonce le choix de « Edit », mais le code ne clique pas sur un bouton d’édition et vérifie seulement le texte « Edit Policy » ; ajoute l’action de sélection de l’édition dans cette étape si elle manque au parcours prévu.",
+            "concerns": "test",
+            "rule": "PW-STEP-01"
+          }
+        ]
+      },
+      "references": [
+        "apps/policy-management/tests/policies/policy-edit/policy-edit-form.spec.ts-snapshots/Compare-the-prefilled-policy-edit-form-1-policy-management-darwin.png"
+      ]
+    },
+    {
+      "path": "apps/policy-management/tests/insurance-quotes/quote-request-history/quote-request-history.spec.ts",
+      "scenario": "quote-request-history",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:28:45.942Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        },
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:28:41.586Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:28:43.582Z",
+        "findings": [
+          {
+            "where": "Step 1",
+            "what": "La référence « /insurance-quote-requests/1 » contient un identifiant de requête codé en dur, susceptible de ne pas exister ou de désigner une autre donnée selon l’environnement ; faites fournir à ce test une requête soumise stable par une fixture ou une préparation de données.",
+            "concerns": "plan"
+          }
+        ]
+      },
+      "references": [
+        "apps/policy-management/tests/insurance-quotes/quote-request-history/quote-request-history.spec.ts-snapshots/Compare-the-quote-request-history-screen-1-policy-management-darwin.png"
+      ]
+    },
+    {
+      "path": "apps/policy-management/tests/insurance-quotes/quote-request-response/quote-response-dialog.spec.ts",
+      "scenario": "quote-response-dialog",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:29:02.252Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:28:57.208Z",
+        "findings": []
+      },
+      "quality": {
+        "at": "2026-11-19T00:28:58.740Z",
+        "findings": [
+          {
+            "where": "Étape 1",
+            "what": "La comparaison visuelle avec une tolérance de 1 % peut masquer des différences de rendu ; supprimez `maxDiffPixelRatio` plutôt que d’élargir la tolérance.",
+            "concerns": "test",
+            "rule": "PW-KEEP-01"
+          }
+        ]
+      },
+      "references": [
+        "apps/policy-management/tests/insurance-quotes/quote-request-response/quote-response-dialog.spec.ts-snapshots/Compare-the-accept-response-dialog-1-policy-management-darwin.png"
+      ]
+    }
+  ]
+}
