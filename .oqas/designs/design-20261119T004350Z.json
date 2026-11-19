@@ -1,0 +1,119 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:43:50.531Z",
+  "environment": "local",
+  "brief": "Teste l'espace client Customer Self-Service : se connecter, consulter ses contrats et demander un devis.",
+  "plan": ".oqas/designs/design-20261119T004350Z.plan.md",
+  "branch": "oqas/design-20261119T004350Z",
+  "base": "249126851d6242498ab7658a1473f7bb8e2fa354",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 105,
+    "actions": 46,
+    "durationMs": 455697
+  },
+  "tests": [
+    {
+      "path": "apps/customer-self-service/tests/authentication/customer-login/login-invalid-credentials.spec.ts",
+      "scenario": "login-invalid-credentials",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:47:38.894Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:47:32.130Z",
+        "findings": [
+          {
+            "where": "Étape 2",
+            "what": "Le scénario exige aussi de vérifier que la tentative rejetée ne crée ni ne modifie de données client, mais le test ne vérifie aucun état des données client."
+          }
+        ]
+      },
+      "quality": {
+        "at": "2026-11-19T00:47:34.545Z",
+        "findings": [
+          {
+            "where": "Étape 2, assertion « Invalid email address or password »",
+            "what": "L’étape vérifie une deuxième fois un message d’échec d’authentification en plus de « Log in failed » ; supprimez cette assertion redondante pour ne garder qu’une vérification de l’échec.",
+            "concerns": "test"
+          }
+        ]
+      }
+    },
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/quote-request-configuration/quote-config-selection-review.spec.ts",
+      "scenario": "quote-config-selection-review",
+      "verdict": "failed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:49:25.831Z",
+          "class": "unfeasible",
+          "origin": {
+            "by": "agent",
+            "role": "writer"
+          },
+          "reason": "L’authentification est indispensable : le premier run a échoué sur Next car l’application demandait une connexion. Le squelette ne contenait pas les lignes de connexion avec process.env promises par la consigne. La page de connexion a été inspectée et ouverte manuellement par les outils, mais cela n’inscrit rien dans le fichier de test ; le second run a démarré sur un état déjà connecté, puis a échoué à chercher le bouton de connexion. En l’absence des lignes exactes prévues pour le compte demo dans les fixtures, il n’est pas possible d’implémenter un test indépendant et conforme sans deviner la méthode ou le nom des variables d’environnement."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "other",
+          "failedStep": "2. Continue from the personal data step to the insurance configuration"
+        },
+        {
+          "verdict": "failed",
+          "errorClass": "other",
+          "failedStep": "1. Open the new quote request screen while signed in"
+        }
+      ],
+      "closedBy": "PROPOSE-UNFEASIBLE"
+    },
+    {
+      "path": "apps/customer-self-service/tests/insurance-quotes/customer-quote-request-overview/quote-request-overview.spec.ts",
+      "scenario": "quote-request-overview",
+      "verdict": "failed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:51:14.080Z",
+          "class": "unfeasible",
+          "origin": {
+            "by": "agent",
+            "role": "writer"
+          },
+          "reason": "Impossible d’achever ce scénario avec le code d’action imposé par la feuille : après que l’étape 2 a soumis la connexion, l’étape 3 répète `customerSelfService.login.logInButton.click()`. Le run a expiré sur ce bouton désactivé ; le snapshot au point d’échec confirme que `/policies` est déjà ouvert, avec les demandes Home Insurance et leurs statuts affichés. La feuille requiert ce clic dans l’étape 3 et le harness refuse une modification du code de l’action ; les essais inchangés ne peuvent donc pas passer."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "other",
+          "failedStep": "3. Review the quote-request list on the policies overview"
+        },
+        {
+          "verdict": "failed",
+          "errorClass": "other",
+          "failedStep": "3. Review the quote-request list on the policies overview"
+        }
+      ],
+      "closedBy": "PROPOSE-UNFEASIBLE"
+    }
+  ]
+}

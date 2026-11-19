@@ -15,4 +15,8 @@ export class LoginPage {
   get logInButton(): Locator {
     return this.page.getByRole("button", { name: "Log in", exact: true });
   }
+
+  get fillInButton(): Locator {
+    return this.page.getByRole("button", { name: "Fill in", exact: true });
+  }
 }

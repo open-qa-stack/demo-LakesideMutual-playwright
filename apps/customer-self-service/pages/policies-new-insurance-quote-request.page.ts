@@ -27,4 +27,8 @@ export class PoliciesNewInsuranceQuoteRequestPage {
   get requestAQuoteButton(): Locator {
     return this.page.getByRole("button", { name: "Request a Quote", exact: true });
   }
+
+  get textbox(): Locator {
+    return this.page.getByRole("textbox");
+  }
 }
