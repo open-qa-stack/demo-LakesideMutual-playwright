@@ -1,0 +1,61 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:51:16.051Z",
+  "environment": "local",
+  "brief": "Teste l'espace client Customer Self-Service : se connecter, consulter ses contrats et demander un devis.",
+  "plan": ".oqas/designs/design-20261119T005116Z.plan.md",
+  "branch": "oqas/design-20261119T005116Z",
+  "base": "1526cc22476b15b60e4633c08477a5358e4f95ec",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 44,
+    "actions": 19,
+    "durationMs": 124717
+  },
+  "tests": [
+    {
+      "path": "apps/customer-self-service/tests/policies/customer-policy-overview/customer-login-and-view-policies.spec.ts",
+      "scenario": "customer-login-and-view-policies",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:53:08.755Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:53:00.374Z",
+        "findings": [
+          {
+            "where": "Étape 2",
+            "what": "Le test ne renseigne pas les identifiants de démonstration (« admin@example.com » et « 1password ») : il clique sur les contrôles de connexion sans vérifier que l’application authentifie le client avec ces données."
+          }
+        ]
+      },
+      "quality": {
+        "at": "2026-11-19T00:53:02.697Z",
+        "findings": [
+          {
+            "where": "Étape 2, assertion « 19. Nov 2026 »",
+            "what": "Cette date dépend du jour d’exécution et rend l’attendu fragile ; remplacer l’assertion de cette date par une vérification stable issue du plan, ou ne pas vérifier cette valeur variable.",
+            "concerns": "plan"
+          }
+        ]
+      }
+    }
+  ]
+}
