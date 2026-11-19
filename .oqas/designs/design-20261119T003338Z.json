@@ -1,0 +1,50 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:33:38.537Z",
+  "environment": "local",
+  "brief": "Teste la gestion des clients dans Customer Management : rechercher un client, ouvrir sa fiche et modifier ses coordonnées.",
+  "plan": ".oqas/designs/design-20261119T003338Z.plan.md",
+  "branch": "oqas/design-20261119T003338Z",
+  "base": "8b81e0ab2658b70fc98902058faf828d84f1f3b4",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 35,
+    "actions": 18,
+    "durationMs": 122821
+  },
+  "tests": [
+    {
+      "path": "apps/customer-management/tests/customers/customer-profile-management/search-open-edit-customer-profile.spec.ts",
+      "scenario": "search-open-edit-customer-profile",
+      "verdict": "failed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:35:36.435Z",
+          "class": "failing-application",
+          "origin": {
+            "by": "agent",
+            "role": "writer"
+          },
+          "reason": "J’ai vérifié les actions conformes à la feuille : ouvrir la liste avec `page.goto(\"/\")`, rechercher le fragment de données « Kinnett », puis ouvrir la ligne Ado Kinnett avec le fixture prévu. Le test échoue à l’étape 3 sur une assertion directe du texte exact « 28 Cross-Application Avenue, 3000 Bern »; l’élément ne figure pas à l’écran au-delà du délai Playwright. Le snapshot de l’échec montre que cette adresse et le mail déjà modifiés (29 Cross-Application Avenue et ado.kinnett@example.com) sont visibles dans la liste avant ouverture du profil, tandis que le profil ouvert ne montre pas les valeurs de contact initiales prévues par le plan. Ce n’est pas une inadéquation de locator ni un problème d’attente; les assertions attendues et les valeurs d’entrée sont fixées par la feuille."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "failed",
+          "errorClass": "assertion",
+          "failedStep": "3. Open Ado Kinnett's customer profile"
+        }
+      ],
+      "quarantine": {
+        "cause": "application",
+        "evidence": "J’ai vérifié les actions conformes à la feuille : ouvrir la liste avec `page.goto(\"/\")`, rechercher le fragment de données « Kinnett », puis ouvrir la ligne Ado Kinnett avec le fixture prévu. Le test échoue à l’étape 3 sur une assertion directe du texte exact « 28 Cross-Application Avenue, 3000 Bern »; l’élément ne figure pas à l’écran au-delà du délai Playwright. Le snapshot de l’échec montre que cette adresse et le mail déjà modifiés (29 Cross-Application Avenue et ado.kinnett@example.com) sont visibles dans la liste avant ouverture du profil, tandis que le profil ouvert ne montre pas les valeurs de contact initiales prévues par le plan. Ce n’est pas une inadéquation de locator ni un problème d’attente; les assertions attendues et les valeurs d’entrée sont fixées par la feuille.",
+        "failedStep": "3. Open Ado Kinnett's customer profile",
+        "errorClass": "assertion"
+      }
+    }
+  ]
+}
