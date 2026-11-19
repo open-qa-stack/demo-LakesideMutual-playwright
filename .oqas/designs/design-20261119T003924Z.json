@@ -1,0 +1,70 @@
+{
+  "formatVersion": 4,
+  "producedAt": "2026-11-19T00:39:24.028Z",
+  "environment": "local",
+  "brief": "Teste la gestion des clients dans Customer Management : rechercher un client, ouvrir sa fiche et modifier ses coordonnées.",
+  "plan": ".oqas/designs/design-20261119T003924Z.plan.md",
+  "branch": "oqas/design-20261119T003924Z",
+  "base": "33a371113ac7fb60bc59a02cfcc691ccdac7a166",
+  "model": {
+    "provider": "openai",
+    "baseUrl": "https://api.openai.com/v1",
+    "model": "gpt-6-luna"
+  },
+  "run": {
+    "iterations": 53,
+    "actions": 27,
+    "durationMs": 161063
+  },
+  "tests": [
+    {
+      "path": "apps/customer-management/tests/customers/customer-profile-management/edit-customer-contact-details-shared-across-apps.spec.ts",
+      "scenario": "edit-customer-contact-details-shared-across-apps",
+      "verdict": "passed",
+      "classes": [
+        {
+          "at": "2026-11-19T00:41:55.163Z",
+          "class": "passed",
+          "origin": {
+            "by": "harness",
+            "check": "run_test"
+          },
+          "reason": "Its last run passed."
+        }
+      ],
+      "runs": [
+        {
+          "verdict": "passed"
+        }
+      ],
+      "review": {
+        "at": "2026-11-19T00:41:45.661Z",
+        "findings": [
+          {
+            "where": "Étape 5",
+            "what": "Les champs sont remplis avec les mêmes valeurs qu’à l’origine, au lieu de modifier les coordonnées pour vérifier leur enregistrement et leur partage entre applications."
+          },
+          {
+            "where": "Étape 8",
+            "what": "La restauration remplit encore les valeurs d’origine, mais aucune modification n’a été réalisée à restaurer."
+          }
+        ]
+      },
+      "quality": {
+        "at": "2026-11-19T00:41:47.943Z",
+        "findings": [
+          {
+            "where": "Étape 5 et étape 8",
+            "what": "Le test remplace les coordonnées par les mêmes valeurs qu’il prétend sauvegarder puis restaurer, de sorte qu’il ne modifie ni ne restaure rien; utilisez des coordonnées de test distinctes puis rétablissez explicitement les valeurs initiales.",
+            "concerns": "plan"
+          },
+          {
+            "where": "Étape 7, assertions 7.1",
+            "what": "Les assertions vérifient le profil Max Mustermann et ses coordonnées fixes, qui ne correspondent pas au client Ado Kinnett modifié et peuvent varier selon les données de l’environnement; le plan devrait vérifier dans Customer Self-Service les valeurs liées au scénario, ou éviter ces valeurs fixes no",
+            "concerns": "plan"
+          }
+        ]
+      }
+    }
+  ]
+}

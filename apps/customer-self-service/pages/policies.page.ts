@@ -7,4 +7,8 @@ export class PoliciesPage {
   get newInsuranceQuoteRequestButton(): Locator {
     return this.page.getByRole("button", { name: "New Insurance Quote Request", exact: true });
   }
+
+  get myProfileLink(): Locator {
+    return this.page.getByRole("link", { name: "My Profile", exact: true });
+  }
 }
